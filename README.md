@@ -1,4 +1,23 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# O2O 移动端（APP）
+
+## 项目初始化
+1. 安装第三方依赖node.js
+
+下载安装 https://nodejs.org/dist/v6.11.3/node-v6.11.3-x64.msi（windows）
+
+```cmd
+npm install -g @angular/cli
+npm install -g cordova
+npm install -g ionic
+```
+
+2. 安装依赖库
+
+命令行输入 ionic serve 提示是否安装依赖，选择Y
+
+## IDEA 启动工程
+
+下箭头Edit Configuration，新建npm项目，选择ionic:serve，启动即可
 
 ## How to use this template
 
