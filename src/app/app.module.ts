@@ -5,13 +5,13 @@ import {MyApp} from './app.component';
 
 import {HomePage} from '../pages/home/home';
 import {TabsPage} from '../pages/tabs/tabs';
-import {ArticleListPage} from "../pages/article/list/article-list";
 import {DesignerListPage} from "../pages/designer/list/designer-detail";
 import {SelfIndexPage} from "../pages/self/index/self-index";
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {CaseListPage} from "../pages/case/list/case-list";
+import {ArticleDetailPage} from "../pages/article/detail/article-detail";
 
 @NgModule({
   declarations: [
@@ -19,13 +19,16 @@ import {CaseListPage} from "../pages/case/list/case-list";
     HomePage,
     CaseListPage,
     DesignerListPage,
-    ArticleListPage,
     SelfIndexPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {}, {
+      links: [
+        {component: ArticleDetailPage, name: 'ArticleDetail', segment: 'article'}
+      ]
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -33,7 +36,6 @@ import {CaseListPage} from "../pages/case/list/case-list";
     HomePage,
     CaseListPage,
     DesignerListPage,
-    ArticleListPage,
     SelfIndexPage,
     TabsPage
   ],

@@ -1,7 +1,7 @@
 # O2O 移动端（APP）
 
 ## 项目初始化
-1. 安装第三方依赖node.js
+1. 安装node.js
 
 下载安装 https://nodejs.org/dist/v6.11.3/node-v6.11.3-x64.msi（windows）
 
@@ -14,6 +14,12 @@ npm install -g ionic
 2. 安装依赖库
 
 命令行输入 ionic serve 提示是否安装依赖，选择Y
+
+2.1 安装插件
+```cmd
+ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=myapp --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=example.com --variable ANDROID_PATH_PREFIX=/
+npm install --save @ionic-native/deeplinks
+```
 
 ## IDEA 启动工程
 
