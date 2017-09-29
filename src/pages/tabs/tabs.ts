@@ -1,20 +1,19 @@
 import {Component} from '@angular/core';
+import {IonicPage} from "ionic-angular";
 
-import {HomePage} from '../home/home';
-import {CaseListPage} from "../case/list/case-list";
-import {DesignerListPage} from "../designer/list/designer-detail";
-import {SelfIndexPage} from "../self/index/self-index";
-
+@IonicPage({
+  segment:'tabs'
+})
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = CaseListPage;
-  tab3Root = DesignerListPage;
+  tab1Root = 'HomePage';
+  tab2Root = 'CaseListPage';
+  tab3Root = 'DesignerListPage';
   tab4Root = 'ArticleListPage';
-  tab5Root = SelfIndexPage;
+  tab5Root = 'SelfIndexPage';
 
   constructor() {
 

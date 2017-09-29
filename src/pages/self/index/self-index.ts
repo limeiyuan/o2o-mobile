@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, IonicPage} from 'ionic-angular';
 
+@IonicPage({
+  segment:'selfIndex'
+})
 @Component({
   selector: 'page-self-index',
   templateUrl: './self-index.html'

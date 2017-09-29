@@ -2,13 +2,13 @@ import {Component} from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment: 'caseList'
+  segment: 'designerList'
 })
 @Component({
-  selector: 'page-case-list',
-  templateUrl: './case-list.html'
+  selector: 'page-designer-list',
+  templateUrl: './designer-list.html'
 })
-export class CaseListPage {
+export class DesignerListPage {
 
   constructor(public navCtrl: NavController) {
 

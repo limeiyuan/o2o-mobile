@@ -7,5 +7,5 @@ import {NgModule} from "@angular/core";
   imports: [IonicPageModule.forChild(ArticleDetailPage)],
   entryComponents: [ArticleDetailPage]
 })
-export class ArticleListModules {
+export class ArticleDetailModule {
 }
