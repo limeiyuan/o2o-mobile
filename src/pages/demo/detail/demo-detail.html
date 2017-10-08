@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      案例详情
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides zoom="true">
+    <ion-slide *ngFor="let item of items">
+      <div class="swiper-zoom-container">
+        <img src="{{getPhoto(item.picture)}}">
+      </div>
+      <ion-label>{{item.description}}</ion-label>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

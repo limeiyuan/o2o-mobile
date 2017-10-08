@@ -5,6 +5,10 @@ import {MyApp} from './app.component';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {CaseService} from '../providers/case-service-rest';
+import {HttpModule} from "@angular/http";
+import {DemoService} from "../providers/demo-service-rest";
+import {PicService} from "../providers/pic-service-rest";
 
 @NgModule({
   declarations: [
@@ -12,6 +16,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -21,7 +26,10 @@ import {SplashScreen} from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CaseService,
+    DemoService,
+    PicService
   ]
 })
 export class AppModule {
