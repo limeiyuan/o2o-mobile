@@ -1,0 +1,232 @@
+
+$px: 16rem/750;
+.bigText{
+  font-size: 60*$px;
+  text-align: center;
+  color: rgb(145,187,151);
+  margin-bottom: 30*$px;
+}
+#tips-2 .bigText{
+  color: rgb(136,100,74);
+}
+#tips-3 .bigText{
+  color: rgb(197,118,99);
+}
+.smallText{
+  font-size: 36*$px;
+  text-align: center;
+  color: rgb(102,102,102);
+}
+
+#guidePage h2,#guidePage li{
+  color: #fff;
+}
+#guidePage #guideSlide{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+#guidePage .guide-button{
+  position: absolute;
+  bottom: 1rem;
+  left:37%;
+}
+#guidePage #close {
+  /*position: absolute;*/
+  background-color: #35abfe;
+  width: 2rem;
+  height: .7rem;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  color: #fff;
+  border: none;
+  /*left: 37%;*/
+  /*bottom: -3.3rem;*/
+  z-index: 9999;
+  line-height: .7rem;
+}
+#guidePage .item-logo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#guidePage .item-logo img {
+  width: 5.54rem;
+  height: 5.18rem;
+  display: block;
+  margin: 3.24rem auto 0;
+
+}
+
+#guidePage .animate {
+  /*position: absolute;*/
+  /*left: 0;*/
+  /*bottom: 15%;*/
+  /*width: 100%;*/
+  /*color: #fff;*/
+  display: -moz-box;
+}
+#guidePage .animate h2 {
+  text-align: center;
+  margin-top: 1.19rem;
+  color: #101010;
+  font-size: .36rem;
+}
+#guidePage .animate h3 {
+  text-align: center;
+  margin-top: .25rem;
+  color: #616161;
+  font-size: .26rem;
+}
+#guidePage .animate h3 span{
+  color: red;
+}
+#guidePage .animate li {
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  list-style: none;
+  font-size: 16px;
+  text-align: right;
+}
+#guidePage .animate li:nth-child(3) {
+  text-align: left;
+  float: right;
+}
+#guidePage .animated {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-play-state: paused;
+  -webkit-animation-fill-mode: both;
+}
+#guidePage .hidden{
+  display: none!important;
+}
+#guidePage .guide-show .bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  -webkit-animation-play-state: running;
+  -webkit-animation-delay: 1s;
+  display: block;
+}
+#guidePage .guide-show .bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  display: block;
+  -webkit-animation-play-state: running;
+}
+#guidePage .guide-show .bounceInRight {
+  -webkit-animation-name: bounceInRight;
+  display: block;
+  -webkit-animation-play-state: running;
+  -webkit-animation-delay: 0.5s;
+}
+@-webkit-keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 3px, 0);
+    transform: translate3d(0, 3px, 0);
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes bounceInLeft {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@-webkit-keyframes bounceInRight {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(3000px, 0, 0);
+    transform: translate3d(3000px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-25px, 0, 0);
+    transform: translate3d(-25px, 0, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+#guidePage .swiper-container .swiper-pagination{
+  bottom: 110*$px;
+}
+#guidePage .swiper-pagination-bullet{
+  background-color: #0d9cfc;
+  width: .2rem;
+  height: .2rem;
+}
+#guidePage .swiper-wrapper .swiper-slide{
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+#guidePage .swiper-slide img{
+  margin-top: 152*$px;
+  margin-bottom: 176*$px;
+}
+#guidePage .swiper-pagination-bullet{
+  width: 12*$px;
+  height: 12*$px;
+}
+#guidePage .swiper-pagination .swiper-pagination-bullet-active{
+  background:  #3C78C0;
+}
+#guidePage .swiper-pagination .swiper-pagination-bullet{
+  background-color: #c1c1c1;
+}
+

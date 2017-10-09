@@ -8,7 +8,6 @@ import {IonicPage} from "ionic-angular";
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
   tab1Root = 'HomePage';
   tab2Root = 'CaseListPage';
   tab3Root = 'DesignerListPage';

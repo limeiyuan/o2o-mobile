@@ -9,9 +9,6 @@ import {NavController, IonicPage} from 'ionic-angular';
   templateUrl: './article-detail.html'
 })
 export class ArticleDetailPage {
-
   constructor(public navCtrl: NavController) {
-
   }
-
 }

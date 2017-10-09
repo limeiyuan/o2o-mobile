@@ -1,3 +1,37 @@
-page-home {
-
+$px: 16rem/750;
+ion-header{
+  height: 128*$px;
+  line-height: 128*$px;
+  color: #fff;
+  font-size: 36*$px;
+  text-align: center;
+  background-color: #329ff1;
+  font-family: "Hiragino Sans GB";
+  font-weight: 600;
+}
+.fixed-content,.scroll-content{
+  margin-top: 128*$px !important;
+  margin-bottom: 98*$px !important;
+}
+.tabs-md .tab-button {
+  height:98*$px !important;
+  min-height: 98*$px !important;
+}
+#home .location{
+  display: inline-block;
+  position: absolute;
+  font-size: 26*$px;
+  left: 20*$px;
+  height: 128*$px;
+  line-height: 128*$px;
+}
+#home ion-slides{
+  height: auto;
+}
+#home .scroll-content{
+  margin-top: 0;
+}
+.swiper-slide img{
+  //width: 630*$px !important;
+  //height: 250*$px !important;
 }
