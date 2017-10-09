@@ -1,3 +1,101 @@
-page-designer-detail {
-
+$px: 16rem/750;
+#designDetail{
+  ion-header{
+    .title{
+      position: relative;
+      .back{
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top:30*$px;
+      }
+      .share{
+        position: absolute;
+        width: 42*$px;
+        height: 42*$px;
+        right: 20*$px;
+        top:30*$px;
+      }
+    }
+  }
+  .designer-intro{
+    padding-top: 40*$px;
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 20*$px;
+    .img-wrap{
+      img{
+        width: 160*$px;
+        height: 160*$px;
+        margin-bottom: 28*$px;
+      }
+    }
+    h1{
+      font-size: 34*$px;
+      color: rgb(51,51,51);
+    }
+    .sec{
+      margin: 18*$px auto;
+    }
+    h3{
+      font-size: 30*$px;
+      color: rgb(102,102,102);
+    }
+    .button-wrap{
+      margin-top: 22*$px;
+      button{
+        width: 220*$px;
+        height: 68*$px;
+        line-height: 68*$px;
+        border-radius: 30*$px;
+        color: #fff;
+        font-size: 30*$px;
+      }
+      .appoint{
+        background-color: rgb(53,171,254);
+      }
+      .private{
+        background-color: rgb(254,125,31);
+      }
+    }
+  }
+  .caseWrapper{
+    margin-top: 20*$px;
+    .caseTitle{
+      background-color: #fff;
+      font-size: 28*$px;
+      .panorama{
+        border-bottom: 1px solid rgb(53,171,254);
+        color: rgb(53,171,254);
+      }
+      li{
+        width: 375*$px;
+        text-align: center;
+        height: 100*$px;
+        line-height: 100*$px;
+        color: rgb(51,51,51);
+      }
+    }
+    .panorama-item{
+      padding: 30*$px 20*$px;
+      background-color: #fff;
+      margin-bottom: 30*$px;
+      .img-wrap{
+        position: relative;
+        margin-bottom: 20*$px;
+        .panorama-vr{
+          position: absolute;
+          width: 170*$px;
+          height: 60*$px;
+          right: 20*$px;
+          top:20*$px;
+        }
+      }
+      .text{
+        font-size: 26*$px;
+        color: rgb(51,51,51);
+      }
+    }
+  }
 }

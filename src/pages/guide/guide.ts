@@ -33,6 +33,6 @@ export class GuidePage {
   }
   // 跳转首页
   directToHome() {
-    this.navCtrl.push('HomePage');
+    this.navCtrl.push('TabsPage');
   }
 }

@@ -20,7 +20,7 @@ export class CaseDetailPage {
   findAll() {
     this.service.findAll()
       .then(data => this.properties = data)
-      .catch(error => alert(error));
+      .catch(error => console.log(error));
   }
 
 }

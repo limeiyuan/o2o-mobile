@@ -9,9 +9,10 @@ import {NavController, IonicPage} from 'ionic-angular';
   templateUrl: './designer-list.html'
 })
 export class DesignerListPage {
-
   constructor(public navCtrl: NavController) {
 
   }
-
+  openDetailsPage(item) {
+    this.navCtrl.push('DesignerDetailPage', { item: item });
+  }
 }

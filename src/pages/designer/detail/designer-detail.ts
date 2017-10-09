@@ -11,7 +11,8 @@ import {NavController, IonicPage} from 'ionic-angular';
 export class DesignerDetailPage {
 
   constructor(public navCtrl: NavController) {
-
   }
-
+  backListPage(){
+    this.navCtrl.pop();
+  }
 }

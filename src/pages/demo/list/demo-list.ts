@@ -35,7 +35,7 @@ export class DemoListPage extends BaseControllerClass{
           callback();
         }
       })
-      .catch(error => alert(error));
+      .catch(error => console.log(error));
     console.log(this.properties);
   }
 

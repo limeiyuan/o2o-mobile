@@ -1,11 +1,53 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
+<div id="designDetail" view-title="首页" cache-view="false" style="height: 100%; width: 100%">
+  <ion-header>
+    <div class="title">
+      <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
       设计师详情
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+      <img class="share" src="../../assets/image/designer/detail/icon-share@3x.png" alt="">
+    </div>
+  </ion-header>
+  <ion-content>
+    <div class="designer-intro">
+      <div class="img-wrap">
+        <img src="../../assets/image/designer/design-1@3x.png" alt="">
+      </div>
+      <h1>魏亚茹</h1>
+      <h3 class="sec">
+        <span>北京</span>
+        <span>3年工作经验</span>
+      </h3>
+      <h3>
+        擅长风格：地中海 现代简约 新中式
+      </h3>
+      <p class="button-wrap">
+        <button class="appoint">预约Ta</button>
+        <button class="private">私信Ta</button>
+      </p>
+    </div>
+    <div class="caseWrapper">
+      <ul class="caseTitle clearfix">
+        <li class="fl panorama">
+          720° 全景 （11）
+        </li>
+        <li class="fl">
+          效果图 （21）
+        </li>
+      </ul>
+      <div class="panorama-item">
+        <div class="img-wrap">
+          <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
+          <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+        </div>
+        <p class="text">资金新干线/现代简约</p>
+      </div>
+      <div class="panorama-item">
+        <div class="img-wrap">
+          <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
+          <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+        </div>
+        <p class="text">资金新干线/现代简约</p>
+      </div>
+    </div>
+  </ion-content>
+</div>
 
-<ion-content padding>
-
-</ion-content>
