@@ -25,5 +25,14 @@ export class GuidePage {
         item.addClass("guide-show");
       }
     }
+    if(this.currentIndex==3){
+      $(".swiper-pagination").hide();
+    }else{
+      $(".swiper-pagination").show();
+    }
+  }
+  // 跳转首页
+  directToHome() {
+    this.navCtrl.push('HomePage');
   }
 }

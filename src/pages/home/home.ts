@@ -18,5 +18,4 @@ export class HomePage {
   directToDemo() {
     this.navCtrl.push('DemoIndexPage');
   }
-
 }

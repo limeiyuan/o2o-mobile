@@ -217,7 +217,7 @@ $px: 16rem/750;
 }
 #guidePage .swiper-slide img{
   margin-top: 152*$px;
-  margin-bottom: 176*$px;
+  margin-bottom: 150*$px;
 }
 #guidePage .swiper-pagination-bullet{
   width: 12*$px;
@@ -228,5 +228,16 @@ $px: 16rem/750;
 }
 #guidePage .swiper-pagination .swiper-pagination-bullet{
   background-color: #c1c1c1;
+}
+#guidePage .instantl{
+  width: 280*$px;
+  height: 70*$px;
+  background-color: #50AFFF;
+  border-radius: 35*$px;
+  color: #fff;
+  font-size: 35*$px;
+  text-align: center;
+  line-height: 70*$px;
+  margin-top: 80*$px;
 }
 

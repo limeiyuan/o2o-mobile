@@ -1,4 +1,7 @@
 $px: 16rem/750;
+body{
+  background-color: #f5f5f5;
+}
 ion-header{
   height: 128*$px;
   line-height: 128*$px;
@@ -9,7 +12,7 @@ ion-header{
   font-family: "Hiragino Sans GB";
   font-weight: 600;
 }
-.fixed-content,.scroll-content{
+#home .fixed-content,#home .scroll-content{
   margin-top: 128*$px !important;
   margin-bottom: 98*$px !important;
 }
@@ -31,7 +34,4 @@ ion-header{
 #home .scroll-content{
   margin-top: 0;
 }
-.swiper-slide img{
-  //width: 630*$px !important;
-  //height: 250*$px !important;
-}
+
