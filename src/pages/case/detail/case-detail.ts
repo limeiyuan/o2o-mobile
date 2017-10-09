@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, IonicPage, Config} from 'ionic-angular';
+import {CaseService} from "../../../providers/case-service-rest";
 
 @IonicPage({
-  segment:'caseDetail'
+  segment: 'caseDetail'
 })
 @Component({
   selector: 'page-case-detail',
@@ -10,8 +11,16 @@ import {NavController, IonicPage} from 'ionic-angular';
 })
 export class CaseDetailPage {
 
-  constructor(public navCtrl: NavController) {
+  properties: Array<any>;
 
+  constructor(public navCtrl: NavController, public service: CaseService, public config: Config) {
+
+  }
+
+  findAll() {
+    this.service.findAll()
+      .then(data => this.properties = data)
+      .catch(error => alert(error));
   }
 
 }

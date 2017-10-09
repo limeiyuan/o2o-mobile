@@ -15,4 +15,8 @@ export class HomePage {
     this.statusBar.backgroundColorByHexString('#329ff1');
   }
 
+  directToDemo() {
+    this.navCtrl.push('DemoIndexPage');
+  }
+
 }
