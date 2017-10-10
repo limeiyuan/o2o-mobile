@@ -17,12 +17,13 @@ export class CaseListPage {
   currentPageNo = 0;
 
 // tab标题切换
-  pet: string = "puppies";
-  isAndroid: boolean = false;
+  viewMode: string = "fullScreen";
+
+  segmentsArray = ['segmentOne','segmentTwo','segmentThree'];
+  segmentModel: string = this.segmentsArray[0];
 
   constructor(public navCtrl: NavController, public service: CaseService, public config: Config, platform: Platform) {
     this.query();
-    this.isAndroid = platform.is('android');
   }
 
   openPropertyDetail(property: any) {
@@ -43,5 +44,21 @@ export class CaseListPage {
   doRefresh(refresh, $event: Event) {
     console.log('刷新');
     refresh.complete();
+  }
+
+  swipeEvent(event) {
+    debugger;
+    //向左滑
+    if (event.direction == 2) {
+      if (this.segmentsArray.indexOf(this.segmentModel) < 2) {
+        this.segmentModel = this.segmentsArray[this.segmentsArray.indexOf(this.segmentModel) + 1];
+      }
+    }
+//向右滑
+    if (event.direction == 4) {
+      if (this.segmentsArray.indexOf(this.segmentModel) > 0) {
+        this.segmentModel = this.segmentsArray[this.segmentsArray.indexOf(this.segmentModel) - 1];
+      }
+    }
   }
 }

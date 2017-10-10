@@ -1,36 +1,85 @@
-<div id="caseList">
-  <ion-header>
-    <ion-toolbar no-border-top>
-      <ion-segment [(ngModel)]="pet">
-        <ion-segment-button value="puppies">
-          全屋
-        </ion-segment-button>
-        <ion-segment-button value="kittens">
-          单图
-        </ion-segment-button>
-        <ion-segment-button value="ducklings">
-          vr全景
-        </ion-segment-button>
-      </ion-segment>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="segmentModel">
+      <ion-segment-button value="segmentOne">
+        segmentOne
+      </ion-segment-button>
+      <ion-segment-button value="segmentTwo">
+        segmentTwo
+      </ion-segment-button>
+      <ion-segment-button value="segmentThree">
+        segmentThree
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content>
-    <div [ngSwitch]="pet">
-      <ion-list *ngSwitchCase="'puppies'">
-        <div>哈哈哈</div>
-      </ion-list>
+<ion-content (swipe)="swipeEvent($event)">
+  <div [ngSwitch]="segmentModel">
+    <ion-list *ngSwitchCase="'segmentOne'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/favicon.ico">
+        </ion-thumbnail>
+        <h2>segmentOne</h2>
+      </ion-item>
+    </ion-list>
 
-      <ion-list *ngSwitchCase="'kittens'">
-        单图
-      </ion-list>
+    <ion-list *ngSwitchCase="'segmentTwo'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/favicon.ico">
+        </ion-thumbnail>
+        <h2>segmentTwo</h2>
+      </ion-item>
+    </ion-list>
 
-      <ion-list *ngSwitchCase="'ducklings'">
-        VR全景
-      </ion-list>
-    </div>
-  </ion-content>
-</div>
+    <ion-list *ngSwitchCase="'segmentThree'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/favicon.ico">
+        </ion-thumbnail>
+        <h2>segmentThree</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+
+
+
+<!--<ion-header>-->
+    <!--<ion-segment [(ngModel)]="viewMode">-->
+      <!--<ion-segment-button value="fullScreen">-->
+        <!--<h3 name="fullScreen">全屋</h3>-->
+      <!--</ion-segment-button>-->
+      <!--<ion-segment-button value="simpleGraph" >-->
+        <!--<h3 name="simpleGraph">单图</h3>-->
+      <!--</ion-segment-button>-->
+      <!--<ion-segment-button value="panorama" >-->
+        <!--<h3 name="panorama">VR全景</h3>-->
+      <!--</ion-segment-button>-->
+    <!--</ion-segment>-->
+  <!--</ion-header>-->
+
+  <!--<ion-content class="property-list">-->
+    <!--<ion-list *ngIf="viewMode==='fullScreen'">-->
+     <!--<div></div>-->
+    <!--</ion-list>-->
+    <!--<div *ngIf="viewMode==='simpleGraph'" style="width:100%;height:100%;" id="simpleGraph">-->
+      <!--sdcdchbdfhbvhjd-->
+    <!--</div>-->
+    <!--<div *ngIf="viewMode==='panorama'" style="width:100%;height:100%;" id="panorama">-->
+      <!--bxsbchjdsbch-->
+    <!--</div>-->
+  <!--</ion-content>-->
+
+
+
+
+
+
+
 
 <!--<ion-content class="property-list">-->
   <!--&lt;!&ndash;下拉刷新&ndash;&gt;-->

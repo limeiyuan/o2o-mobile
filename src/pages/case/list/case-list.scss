@@ -2,7 +2,13 @@ $px: 16rem/750;
 .ios .ion-page.show-page ~ .nav-decor{
   background: #f5f5f5 !important;
 }
-#caseList{
+ion-segment{
+  flex: inherit;
+}
+.segment-ios .segment-button{
+  flex: inherit;
+}
+page-case-list{
   .toolbar-ios{
     min-height: 98*$px;
   }
@@ -21,8 +27,56 @@ $px: 16rem/750;
     font-size: 36*$px;
   }
   .segment-ios .segment-button.segment-activated{
-    border-bottom: 4px solid #fff;
     background-color: #329ff1;
   }
+  .segment-ios .segment-button{
+    width: 140*$px;
+    height: 98*$px;
+    line-height: 98&$px;
+    flex: inherit;
+    margin-right: 20*$px;
+  }
+  .segment-ios .segment-button.segment-activated h3{
+    border-bottom: 4*$px solid #fff;
+  }
+  .segment-ios .segment-button h3{
+    width: 140*$px;
+    text-align: center;
+    height: 90*$px;
+    line-height: 98*$px;
+    margin-right: 20*$px;
+  }
+}
 
+
+
+.tab_default{
+  border-bottom:solid 1px #F2F2F2;
+  padding:6px 0;
+}
+.tab_select{
+  border-bottom:solid 1px #3E89F5;
+  box-shadow:0 -3px 8px #C1D3F0 inset;
+}
+.arrow-top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top:20px;
+  border: 6px solid #3E89F5;
+  border-right-color:transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.arrow-top:after {
+  content:'';
+  position:absolute;
+  width: 0;
+  height: 0;
+  border: 12px solid #fff;
+  right: -12px;
+  bottom: -13px;
+  border-right-color:transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
 }

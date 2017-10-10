@@ -1,0 +1,16 @@
+$px: 16rem/750;
+#yanfang {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+}
+
