@@ -24,33 +24,75 @@
       </p>
     </div>
     <div class="caseWrapper">
-      <ul class="caseTitle clearfix" >
-        <li class="fl panorama">
-          720° 全景 （11）
-        </li>
-        <li class="fl">
-          效果图 （21）
-        </li>
-      </ul>
-      <div class="panorama-wrap">
-        <div class="panorama-item">
-          <div class="img-wrap">
-            <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
-            <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+      <ion-segment [(ngModel)]="viewMode" class="caseTitle clearfix" >
+        <ion-segment-button value="panorama">
+        <h3 name="panorama">720° 全景 （11）</h3>
+        </ion-segment-button>
+        <ion-segment-button value="effect" >
+        <h3 name="effect">效果图 （21）</h3>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div class="property-list">
+        <!--全景-->
+        <div class="panorama-wrap" *ngIf="viewMode==='panorama'">
+          <div class="panorama-item">
+            <div class="img-wrap">
+              <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
+              <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+            </div>
+            <p class="text">资金新干线/现代简约</p>
           </div>
-          <p class="text">资金新干线/现代简约</p>
+          <div class="panorama-item">
+            <div class="img-wrap">
+              <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
+              <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+            </div>
+            <p class="text">资金新干线/现代简约</p>
+          </div>
         </div>
-        <div class="panorama-item">
-          <div class="img-wrap">
-            <img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">
-            <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+        <!--效果图-->
+        <div class="case-wrap" *ngIf="viewMode==='effect'" id="effect">
+          <div class="case-list">
+            <div class="case-top clearfix">
+              <div class="caseImg-left fl">
+                <img src="../../assets/image/designer/detail/pic-3@3x.png" alt="">
+              </div>
+              <div class="caseImg-right fl">
+                <div class="img-wrap">
+                  <img src="../../assets/image/designer/detail/pic-4@3x.png" alt="">
+                </div>
+                <div class="img-wrap">
+                  <img src="../../assets/image/designer/detail/pic-5@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="case-bottom">
+              小区青花盛世/混搭
+            </div>
           </div>
-          <p class="text">资金新干线/现代简约</p>
+
+          <div class="case-list">
+            <div class="case-top clearfix">
+              <div class="caseImg-left fl">
+                <img src="../../assets/image/designer/detail/pic-3@3x.png" alt="">
+              </div>
+              <div class="caseImg-right fl">
+                <div class="img-wrap">
+                  <img src="../../assets/image/designer/detail/pic-4@3x.png" alt="">
+                </div>
+                <div class="img-wrap">
+                  <img src="../../assets/image/designer/detail/pic-5@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="case-bottom">
+              小区青花盛世/混搭
+            </div>
+          </div>
         </div>
       </div>
-      <!--<div class="case-wrap">-->
-        <!--效果图-->
-      <!--</div>-->
+
 
     </div>
   </ion-content>

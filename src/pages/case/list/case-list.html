@@ -1,83 +1,162 @@
-<ion-header>
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="segmentModel">
-      <ion-segment-button value="segmentOne">
-        segmentOne
+icon-select@3x.png<ion-header no-shadow no-border>
+  <ion-toolbar color="light">
+    <ion-segment class="top_segment" [(ngModel)]="top_segment">
+      <ion-segment-button (click)="select(0)" value="top_0">
+        <h3>全屋</h3>
       </ion-segment-button>
-      <ion-segment-button value="segmentTwo">
-        segmentTwo
+      <ion-segment-button (click)="select(1)" value="top_1">
+        <h3>单图</h3>
       </ion-segment-button>
-      <ion-segment-button value="segmentThree">
-        segmentThree
+      <ion-segment-button (click)="select(2)" value="top_2">
+        <h3>VR全景</h3>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content (swipe)="swipeEvent($event)">
-  <div [ngSwitch]="segmentModel">
-    <ion-list *ngSwitchCase="'segmentOne'">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/icon/favicon.ico">
-        </ion-thumbnail>
-        <h2>segmentOne</h2>
-      </ion-item>
-    </ion-list>
+<ion-content has-bouncing="false">
 
-    <ion-list *ngSwitchCase="'segmentTwo'">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/icon/favicon.ico">
-        </ion-thumbnail>
-        <h2>segmentTwo</h2>
-      </ion-item>
-    </ion-list>
+  <ion-slides (pan)="panEvent($event)"
+    #mySlider (ionDrag)="onSlideChanged($event)">
+    <ion-slide>
+      <ion-content class="fixed-content">
+        <ion-list *ngIf="selected_segment===0">
+          <div class="tab-select">
+            <div class="tab-list">
+              户型
+              <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            </div>
+            <div class="tab-list">
+              风格
+              <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            </div>
+            <div class="tab-list">
+              面积
+              <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            </div>
+          </div>
+          <div class="full-screen-wrap">
+            <div class="full-screen-item">
+              <div class="img-wrap">
+                <img src="../../assets/image/case/quanwu/pic-1@3x.png" alt="">
+              </div>
+              <div class="full-screen-intro">
+                <div class="full-title">
+                  80m²/北欧/全包
+                </div>
+                <div class="full-move">
+                  <div class="full-move-left fl">
+                    <a href="javascript:;" class="follow-wrap">
+                      <img src="../../assets/image/case/quanwu/icon-2@3x.png" alt="">
+                      <span>2335</span>
+                    </a>
+                    <a href="javascript:;">
+                      <img src="../../assets/image/case/quanwu/icon-3@3x.png" alt="">
+                      <span>150</span>
+                    </a>
+                  </div>
+                  <div class="full-move-right fr">
+                    魏亚茹
+                  </div>
+                </div>
+                <div class="portrait">
+                  <img src="../../assets/image/case/quanwu/design@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="full-screen-item">
+              <div class="img-wrap">
+                <img src="../../assets/image/case/quanwu/pic-1@3x.png" alt="">
+              </div>
+              <div class="full-screen-intro">
+                <div class="full-title">
+                  80m²/北欧/全包
+                </div>
+                <div class="full-move">
+                  <div class="full-move-left fl">
+                    <a href="javascript:;" class="follow-wrap">
+                      <img src="../../assets/image/case/quanwu/icon-2@3x.png" alt="">
+                      <span>2335</span>
+                    </a>
+                    <a href="javascript:;">
+                      <img src="../../assets/image/case/quanwu/icon-3@3x.png" alt="">
+                      <span>150</span>
+                    </a>
+                  </div>
+                  <div class="full-move-right fr">
+                    魏亚茹
+                  </div>
+                </div>
+                <div class="portrait">
+                  <img src="../../assets/image/case/quanwu/design@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="full-screen-item">
+              <div class="img-wrap">
+                <img src="../../assets/image/case/quanwu/pic-1@3x.png" alt="">
+              </div>
+              <div class="full-screen-intro">
+                <div class="full-title">
+                  80m²/北欧/全包
+                </div>
+                <div class="full-move">
+                  <div class="full-move-left fl">
+                    <a href="javascript:;" class="follow-wrap">
+                      <img src="../../assets/image/case/quanwu/icon-2@3x.png" alt="">
+                      <span>2335</span>
+                    </a>
+                    <a href="javascript:;">
+                      <img src="../../assets/image/case/quanwu/icon-3@3x.png" alt="">
+                      <span>150</span>
+                    </a>
+                  </div>
+                  <div class="full-move-right fr">
+                    魏亚茹
+                  </div>
+                </div>
+                <div class="portrait">
+                  <img src="../../assets/image/case/quanwu/design@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-list>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+      <ion-scroll scrollY="true" class="fixed-content">
+        <ion-list>
+          单图
+        </ion-list>
+      </ion-scroll>
+    </ion-slide>
+    <ion-slide>
+      <ion-scroll scrollY="true" class="fixed-content">
+        <div class="tab-select">
+          <div class="tab-list">
+            风格
+            <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+          </div>
+          <div class="tab-list">
+            面积
+            <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+          </div>
+        </div>
+        <div class="panorama-wrap">
+          <div class="panorama-item">
+            <img src="../../assets/image/case/panorama/pic-1@3x.png" alt="">
+            <div class="panorama-button">
+              VR全景
+              <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </ion-slide>
 
-    <ion-list *ngSwitchCase="'segmentThree'">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="assets/icon/favicon.ico">
-        </ion-thumbnail>
-        <h2>segmentThree</h2>
-      </ion-item>
-    </ion-list>
-  </div>
+  </ion-slides>
 </ion-content>
-
-
-
-
-<!--<ion-header>-->
-    <!--<ion-segment [(ngModel)]="viewMode">-->
-      <!--<ion-segment-button value="fullScreen">-->
-        <!--<h3 name="fullScreen">全屋</h3>-->
-      <!--</ion-segment-button>-->
-      <!--<ion-segment-button value="simpleGraph" >-->
-        <!--<h3 name="simpleGraph">单图</h3>-->
-      <!--</ion-segment-button>-->
-      <!--<ion-segment-button value="panorama" >-->
-        <!--<h3 name="panorama">VR全景</h3>-->
-      <!--</ion-segment-button>-->
-    <!--</ion-segment>-->
-  <!--</ion-header>-->
-
-  <!--<ion-content class="property-list">-->
-    <!--<ion-list *ngIf="viewMode==='fullScreen'">-->
-     <!--<div></div>-->
-    <!--</ion-list>-->
-    <!--<div *ngIf="viewMode==='simpleGraph'" style="width:100%;height:100%;" id="simpleGraph">-->
-      <!--sdcdchbdfhbvhjd-->
-    <!--</div>-->
-    <!--<div *ngIf="viewMode==='panorama'" style="width:100%;height:100%;" id="panorama">-->
-      <!--bxsbchjdsbch-->
-    <!--</div>-->
-  <!--</ion-content>-->
-
-
-
-
-
 
 
 
