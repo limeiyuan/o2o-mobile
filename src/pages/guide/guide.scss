@@ -4,7 +4,7 @@ $px: 16rem/750;
   font-size: 60*$px;
   text-align: center;
   color: rgb(145,187,151);
-  margin-bottom: 30*$px;
+  margin-bottom: 2.24%;
 }
 #tips-2 .bigText{
   color: rgb(136,100,74);
@@ -204,7 +204,7 @@ $px: 16rem/750;
   }
 }
 #guidePage .swiper-container .swiper-pagination{
-  bottom: 110*$px;
+  bottom: 8.24%;
 }
 #guidePage .swiper-pagination-bullet{
   background-color: #0d9cfc;
@@ -216,8 +216,9 @@ $px: 16rem/750;
   align-items: stretch;
 }
 #guidePage .swiper-slide img{
-  margin-top: 152*$px;
-  margin-bottom: 150*$px;
+  margin-top: 16%;
+  margin-bottom: 17.2%;
+  height: 43.5%;
 }
 #guidePage .swiper-pagination-bullet{
   width: 12*$px;
@@ -238,6 +239,8 @@ $px: 16rem/750;
   font-size: 35*$px;
   text-align: center;
   line-height: 70*$px;
-  margin-top: 80*$px;
+  position: absolute;
+  bottom: 7%;
+  left: 31%;
 }
 
