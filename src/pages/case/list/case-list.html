@@ -1,35 +1,60 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      案例
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<div id="caseList">
+  <ion-header>
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="puppies">
+          全屋
+        </ion-segment-button>
+        <ion-segment-button value="kittens">
+          单图
+        </ion-segment-button>
+        <ion-segment-button value="ducklings">
+          vr全景
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content class="property-list">
+  <ion-content>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'puppies'">
+        <div>哈哈哈</div>
+      </ion-list>
 
-  <!--下拉刷新-->
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+      <ion-list *ngSwitchCase="'kittens'">
+        单图
+      </ion-list>
 
-  <ion-list>
+      <ion-list *ngSwitchCase="'ducklings'">
+        VR全景
+      </ion-list>
+    </div>
+  </ion-content>
+</div>
 
-    <ion-item-sliding *ngFor="let property of properties">
-      <button ion-item (click)="openPropertyDetail(property)">
-        <ion-thumbnail item-left>
-          <img src="{{property.photoPath}}"/>
-        </ion-thumbnail>
-        <h2>{{property.title}}</h2>
-        <p>{{property.id}}</p>
-      </button>
-      <ion-item-options>
-        <button danger (click)="deleteItem(property)">Delete</button>
-      </ion-item-options>
-    </ion-item-sliding>
+<!--<ion-content class="property-list">-->
+  <!--&lt;!&ndash;下拉刷新&ndash;&gt;-->
+  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
+    <!--<ion-refresher-content></ion-refresher-content>-->
+  <!--</ion-refresher>-->
 
-  </ion-list>
+  <!--<ion-list>-->
 
-  <div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>
+    <!--<ion-item-sliding *ngFor="let property of properties">-->
+      <!--<button ion-item (click)="openPropertyDetail(property)">-->
+        <!--<ion-thumbnail item-left>-->
+          <!--<img src="{{property.photoPath}}"/>-->
+        <!--</ion-thumbnail>-->
+        <!--<h2>{{property.title}}</h2>-->
+        <!--<p>{{property.id}}</p>-->
+      <!--</button>-->
+      <!--<ion-item-options>-->
+        <!--<button danger (click)="deleteItem(property)">Delete</button>-->
+      <!--</ion-item-options>-->
+    <!--</ion-item-sliding>-->
 
-</ion-content>
+  <!--</ion-list>-->
+
+  <!--<div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>-->
+
+<!--</ion-content>-->

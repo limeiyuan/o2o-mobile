@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, IonicPage, Config} from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
 import {CaseDetailPage} from "../detail/case-detail";
+import { Platform } from 'ionic-angular';
 
 @IonicPage({
   segment: 'caseList'
@@ -15,8 +16,13 @@ export class CaseListPage {
   properties: Array<any>;
   currentPageNo = 0;
 
-  constructor(public navCtrl: NavController, public service: CaseService, public config: Config) {
+// tab标题切换
+  pet: string = "puppies";
+  isAndroid: boolean = false;
+
+  constructor(public navCtrl: NavController, public service: CaseService, public config: Config, platform: Platform) {
     this.query();
+    this.isAndroid = platform.is('android');
   }
 
   openPropertyDetail(property: any) {
@@ -29,7 +35,7 @@ export class CaseListPage {
       .then(resp => {
         this.properties = resp.result;
       })
-      .catch(error => alert(error));
+      .catch(error => console.log(error));
 
     console.log(this.properties);
   }

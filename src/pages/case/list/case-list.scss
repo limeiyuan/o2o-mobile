@@ -1,3 +1,28 @@
-page-case-list {
+$px: 16rem/750;
+.ios .ion-page.show-page ~ .nav-decor{
+  background: #f5f5f5 !important;
+}
+#caseList{
+  .toolbar-ios{
+    min-height: 98*$px;
+  }
+  .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+    background-color: #329ff1 !important;
+  }
+  ion-app, ion-nav, ion-tab, ion-tabs, .app-root, .ion-page{
+    background-color: #f5f5f5;
+  }
+  .ion-page.show-page{
+    background-color: #f5f5f5 !important;
+  }
+  .segment-ios .segment-button{
+    border: none;
+    color:#fff;
+    font-size: 36*$px;
+  }
+  .segment-ios .segment-button.segment-activated{
+    border-bottom: 4px solid #fff;
+    background-color: #329ff1;
+  }
 
 }
