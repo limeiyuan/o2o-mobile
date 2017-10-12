@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="title">
+    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    性别
+  </div>
+</ion-header>
+<ion-content>
+  <form (submit)="doSubmit($event)" [formGroup]="langForm">
+    <ion-list radio-group formControlName="langs">
+      <ion-item>
+        <ion-label>保密</ion-label>
+        <ion-radio checked="true" value="保密"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>男</ion-label>
+        <ion-radio  value="男"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>女</ion-label>
+        <ion-radio  value="女"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </form>
+
+</ion-content>

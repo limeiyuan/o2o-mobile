@@ -11,10 +11,18 @@ import {NavController, IonicPage} from 'ionic-angular';
 export class SelfEditDataPage {
 
   constructor(public navCtrl: NavController) {
-
   }
-  directToSetting(){
-    this.navCtrl.push('SelfSettingPage');
+  directToChangeEmail(){
+    this.navCtrl.push('SelfChangeEmailPage');
+  }
+  directToChangeNickname(){
+    this.navCtrl.push('SelfChangeNicknamePage');
+  }
+  directToChangeGender(){
+    this.navCtrl.push('SelfGenderPage');
+  }
+  directToChangePassword(){
+    this.navCtrl.push('selfChangePassword');
   }
   backListPage(){
     this.navCtrl.pop();
