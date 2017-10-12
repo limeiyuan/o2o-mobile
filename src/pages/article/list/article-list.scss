@@ -1,3 +1,171 @@
+$px: 16rem/750;
 page-article-list {
-
+  ion-content{
+    .progress-wrap{
+      padding: 25*$px 0 25*$px 20*$px;
+      background-color: #fff;
+      .progress-step{
+        margin-right: 20*$px;
+        height: 150*$px;
+        img{
+          width: 223*$px;
+          height: 150*$px;
+        }
+      }
+    }
+    .knowledge{
+      margin-top: 30*$px;
+      background-color: #fff;
+      padding-bottom: 10*$px;
+      .title{
+        height: 67*$px;
+        line-height: 67*$px;
+        background-color: #fff;
+        padding: 0 20*$px;
+        margin-bottom: 20*$px;
+        .text{
+          height: 67*$px;
+          line-height: 50*$px;
+          .line{
+            display:inline-block ;
+            width: 2*$px;
+            height: 28*$px;
+            color: #2D98FD;
+            margin-right: 10*$px;
+          }
+          span{
+            font-size: 30*$px;
+            color: rgb(51,51,51);
+          }
+        }
+        .more{
+          height: 67*$px;
+          line-height: 67*$px;
+          font-size: 26*$px;
+          color: rgb(153,153,153);
+          img{
+            width: 10*$px;
+            height: 20*$px;
+          }
+        }
+      }
+      .knowledge-item{
+        padding-left: 20*$px;
+        margin-bottom: 10*$px;
+        .img-wrap{
+          margin-right: 20*$px;
+          img{
+            width: 210*$px;
+            height: 156*$px;
+          }
+        }
+        .text-right{
+          width: 464*$px;
+          .headline{
+            font-size: 26*$px;
+            color: #333;
+            margin-bottom: 10*$px;
+            width: 464*$px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+            display: block;
+          }
+          .text{
+            font-size: 24*$px;
+            color: #575757;
+            line-height: 40*$px;
+            margin-bottom: 10*$px;
+            width: 464*$px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:2;
+          }
+          .time{
+            color: #999;
+            font-size: 18*$px;
+          }
+        }
+      }
+    }
+    .select-material{
+      margin-top: 30*$px;
+      background-color: #fff;
+      padding-bottom: 10*$px;
+      .title{
+        height: 67*$px;
+        line-height: 67*$px;
+        background-color: #fff;
+        padding: 0 20*$px;
+        margin-bottom: 20*$px;
+        .text{
+          height: 67*$px;
+          line-height: 50*$px;
+          .line{
+            display:inline-block ;
+            width: 2*$px;
+            height: 28*$px;
+            color: #2D98FD;
+            margin-right: 10*$px;
+          }
+          span{
+            font-size: 30*$px;
+            color: rgb(51,51,51);
+          }
+        }
+        .more{
+          height: 67*$px;
+          line-height: 67*$px;
+          font-size: 26*$px;
+          color: rgb(153,153,153);
+          img{
+            width: 10*$px;
+            height: 20*$px;
+          }
+        }
+      }
+      .select-material-item{
+        padding-left: 20*$px;
+        margin-bottom: 10*$px;
+        .img-wrap{
+          margin-right: 20*$px;
+          img{
+            width: 210*$px;
+            height: 156*$px;
+          }
+        }
+        .text-right{
+          width: 464*$px;
+          .headline{
+            font-size: 26*$px;
+            color: #333;
+            margin-bottom: 10*$px;
+            width: 464*$px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+            display: block;
+          }
+          .text{
+            font-size: 24*$px;
+            color: #575757;
+            line-height: 40*$px;
+            margin-bottom: 10*$px;
+            width: 464*$px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            display:-webkit-box;
+            -webkit-box-orient:vertical;
+            -webkit-line-clamp:2;
+          }
+          .time{
+            color: #999;
+            font-size: 18*$px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 $px: 16rem/750;
-page-yanfang {
+page-baojia {
   ion-header {
     .title {
       position: relative;
@@ -22,7 +22,7 @@ page-yanfang {
     }
     .form{
       padding: 0 20*$px;
-      input,select,.form-choose{
+      input,select,.form-choose,textarea{
         height: 100*$px;
         line-height: 100*$px;
         padding-left: 36*$px;
@@ -83,6 +83,24 @@ page-yanfang {
       .phone, .address, .detailNum, .submit{
         width: 710*$px;
       }
+      .style-wrap{
+        position: relative;
+        height: 200*$px;
+        margin-bottom: 40*$px;
+        .style{
+          width: 710*$px;
+          height: 200*$px;
+          text-align: left;
+          resize:none;
+        }
+        .impose{
+          position: absolute;
+          color: rgb(153,153,153);
+          font-size: 24*$px;
+          bottom: 20*$px;
+          right: 20*$px;
+        }
+      }
       .submit{
         background-color: #2D98FD;
         color: #fff;
@@ -90,5 +108,5 @@ page-yanfang {
       }
     }
   }
-}
 
+}

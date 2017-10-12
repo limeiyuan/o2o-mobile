@@ -63,18 +63,8 @@ export class CaseListPage {
 
   onSlideChanged($event)
   {
-    if (((($event.touches.startX - $event.touches.currentX) <= 100) || (($event.touches.startX - $event.touches.currentX) > 0)) && (this.slider.isBeginning() || this.slider.isEnd()))
-    {
-    }
-    else
-    {
-    }
-
-  }
-
-  panEvent(e)
-  {
     let currentIndex = this.slider.getActiveIndex();
+    console.log(currentIndex)
     if (currentIndex === 2){
       this.top_segment = 'top_2';
     }
@@ -86,6 +76,20 @@ export class CaseListPage {
     }
   }
 
+  panEvent(e)
+  {
+    let currentIndex = this.slider.getActiveIndex();
+    console.log(currentIndex)
+    if (currentIndex === 2){
+      this.top_segment = 'top_2';
+    }
+    if (currentIndex === 1){
+      this.top_segment = 'top_1';
+    }
+    if (currentIndex === 0){
+      this.top_segment = 'top_0';
+    }
+  }
 }
 // export class CaseListPage {
 //

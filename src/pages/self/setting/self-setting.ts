@@ -2,17 +2,19 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'designerDetail'
+  segment:'selfSetting'
 })
 @Component({
-  selector: 'page-designer-detail',
-  templateUrl: './designer-detail.html'
+  selector: 'page-self-setting',
+  templateUrl: './self-setting.html'
 })
-export class DesignerDetailPage {
-  // 默认tab
-  viewMode: string = "panorama";
+export class SelfSettingPage {
 
   constructor(public navCtrl: NavController) {
+
+  }
+  directToEditData(){
+    this.navCtrl.push('SelfEditDataPage');
   }
   backListPage(){
     this.navCtrl.pop();

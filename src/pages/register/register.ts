@@ -2,29 +2,29 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the YanfangPage page.
+ * Generated class for the RegisterPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @IonicPage({
-    segment: 'yanfang'
-  }
-)
-@Component({
-  selector: 'page-yanfang',
-  templateUrl: 'yanfang.html',
+  segment: 'register'
 })
-export class YanfangPage {
+@Component({
+  selector: 'page-register',
+  templateUrl: 'register.html',
+})
+export class RegisterPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  backListPage(){
-    this.navCtrl.pop();
-  }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad YanfangPage');
+    console.log('ionViewDidLoad RegisterPage');
+  }
+  directToLogin(){
+    this.navCtrl.push('LoginPage');
   }
 
 }

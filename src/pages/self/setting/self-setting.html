@@ -1,0 +1,27 @@
+<ion-header>
+  <div class="title">
+    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    设置
+  </div>
+</ion-header>
+<ion-content>
+  <div class="edit-item setting-item" (click)="directToEditData()">
+    <span class="fl">编辑资料</span>
+    <div class="img-wrap fr">
+      <img src="../../assets/image/home/icon-more@3x.png" class="more" alt="">
+    </div>
+  </div>
+  <div class="message-item setting-item">
+    <span class="fl">消息推送</span>
+    <div class="img-wrap fr">
+      <ion-toggle  checked="true"></ion-toggle>
+    </div>
+  </div>
+  <div class="clear-item setting-item">
+    <span class="fl">清除缓存</span>
+    <div class="img-wrap fr text">
+      1.28M
+    </div>
+  </div>
+  <div class="quit">退出登录</div>
+</ion-content>

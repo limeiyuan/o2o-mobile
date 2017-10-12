@@ -6,24 +6,24 @@
   <ion-content>
     <!--<button (click)="directToDemo()">Demo页</button>-->
     <div class="nav-module">
-      <ion-slides>
+      <ion-slides loop="true" #mySlider (ionSlideDidChange)="onSlideChanged($event)">
         <ion-slide>
-          <img src="../../assets/image/home/ban@3x.png" class="slide-image"/>
+          <img src="../../assets/image/home/ban.jpg" class="slide-image"/>
         </ion-slide>
         <ion-slide>
-          <img src="../../assets/image/home/ban@3x.png" class="slide-image"/>
+          <img src="../../assets/image/home/ban1.jpg" class="slide-image"/>
         </ion-slide>
         <ion-slide>
-          <img src="../../assets/image/home/ban@3x.png" class="slide-image"/>
+          <img src="../../assets/image/home/ban2.jpg" class="slide-image"/>
         </ion-slide>
       </ion-slides>
       <div class="tab-function">
         <ul class="ulList clearfix">
-          <li class="fl listItem listFir">
+          <li class="fl listItem listFir" (click)="directToYanfang()">
             <i><img src="../../assets/image/home/icon-1@3x.png" alt=""></i>
             <p>免费验房</p>
           </li>
-          <li class="fl listItem listSec">
+          <li class="fl listItem listSec" (click)="directToBaojia()">
             <i><img src="../../assets/image/home/icon-2@3x.png" alt=""></i>
             <p>设计报价</p>
           </li>

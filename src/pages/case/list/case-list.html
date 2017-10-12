@@ -15,11 +15,10 @@ icon-select@3x.png<ion-header no-shadow no-border>
 </ion-header>
 
 <ion-content has-bouncing="false">
-
   <ion-slides (pan)="panEvent($event)"
-    #mySlider (ionDrag)="onSlideChanged($event)">
+    #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <ion-slide>
-      <ion-content class="fixed-content">
+      <ion-scroll scrollY="true" class="fixed-content">
         <ion-list *ngIf="selected_segment===0">
           <div class="tab-select">
             <div class="tab-list">
@@ -122,7 +121,7 @@ icon-select@3x.png<ion-header no-shadow no-border>
             </div>
           </div>
         </ion-list>
-      </ion-content>
+      </ion-scroll>
     </ion-slide>
     <ion-slide>
       <ion-scroll scrollY="true" class="fixed-content">

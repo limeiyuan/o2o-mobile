@@ -1,3 +1,85 @@
+$px: 16rem/750;
 page-self-index {
-
+  ion-content{
+    .banner{
+      position: relative;
+      height: 400*$px;
+      background: url(../../assets/image/selefIndex/bg@3x.png) no-repeat center center;
+      background-size: 100% 100%;
+      .topImg{
+        width: 42*$px;
+        height: 40*$px;
+        position: absolute;
+        top:65*$px;
+      }
+      .setting{
+        left: 20*$px;
+      }
+      .news{
+        right: 20*$px;
+      }
+      .portrait-wrap{
+        position: absolute;
+        width: 100%;
+        top:123*$px;
+        text-align: center;
+        img{
+          width: 132*$px;
+          height: 132*$px;
+        }
+        .title{
+          margin-top: 10*$px;
+          font-size: 28*$px;
+          color: rgb(247,247,247);
+        }
+      }
+      .functio-device{
+        position: absolute;
+        width: 670*$px;
+        height: 180*$px;
+        background-color: #fff;
+        bottom: -119*$px;
+        left:5.4%;
+        border-radius: 5*$px;
+        box-shadow: 4*$px 3*$px 10*$px 4*$px rgba(0,167,255,.2);
+        .functio-device-item{
+          font-size: 24*$px;
+          color: rgb(51,51,51);
+          width: 33.33%;
+          text-align: center;
+          padding-top: 35*$px;
+          img{
+            width: 58*$px;
+            height: 58*$px;
+            margin-bottom: 20*$px;
+          }
+        }
+      }
+    }
+    .function-wrap{
+      font-size: 28*$px;
+      margin-top: 147*$px;
+      .function-item{
+        height: 100*$px;
+        background-color: #fff;
+        padding: 30*$px 20*$px;
+        margin-bottom: 20*$px;
+        .fl{
+          img{
+            width: 30*$px;
+            height: 30*$px;
+            vertical-align: -1*$px;
+            margin-right: 20*$px;
+          }
+        }
+        .fr{
+          img{
+            width: 14*$px;
+            height: 24*$px;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
 }

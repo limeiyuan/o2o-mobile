@@ -1,0 +1,29 @@
+
+<ion-content >
+  <div class="banner">
+    <div class="bottom clearfix">
+      <div class="login fl item">
+        登录
+        <img src="../../assets/image/login/sanjiao.png" alt="">
+      </div>
+      <div class="register fl item" (click)="directToRegister()">注册</div>
+    </div>
+  </div>
+  <div class="form">
+    <div class="input-wrap">
+      <div class="phone-wrap">
+        <input class="phone" type="text" placeholder="手机号">
+      </div>
+      <div class="password-wrap">
+        <input class="password" type="text" placeholder="密码">
+      </div>
+    </div>
+    <p class="forget fr" (click)="directToLookpassword()">忘记密码</p>
+    <div class="submit-wrap">
+      <button class="submit">登录</button>
+    </div>
+    <p class="goregister" (click)="directToRegister()">
+      注册新用户
+    </p>
+  </div>
+</ion-content>

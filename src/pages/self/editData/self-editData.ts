@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'selfIndex'
+  segment:'selfEditData'
 })
 @Component({
-  selector: 'page-self-index',
-  templateUrl: './self-index.html'
+  selector: 'page-self-editData',
+  templateUrl: './self-editData.html'
 })
-export class SelfIndexPage {
+export class SelfEditDataPage {
 
   constructor(public navCtrl: NavController) {
 
@@ -16,5 +16,7 @@ export class SelfIndexPage {
   directToSetting(){
     this.navCtrl.push('SelfSettingPage');
   }
-
+  backListPage(){
+    this.navCtrl.pop();
+  }
 }
