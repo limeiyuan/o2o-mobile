@@ -1,14 +1,53 @@
 
 <ion-header>
   <div class="title">
-    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     我的消息
     <span class="save">全部已读</span>
   </div>
 </ion-header>
 <ion-content>
   <div class="setting-item">
-    <input type="text" class="emailInput" placeholder="中天艺美">
-    <img src="../../assets/image/selfchangeEmail/icon-delete@3x.png" alt="">
+    <ion-segment [(ngModel)]="viewMode" class="clearfix"" >
+      <ion-segment-button value="systemMessage">
+        <h3 name="systemMessage">系统消息</h3>
+      </ion-segment-button>
+      <ion-segment-button value="privateLetter">
+        <h3 name="privateLetter">私信</h3>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div class="property-list">
+    <!--全景-->
+    <div class="panorama-wrap" *ngIf="viewMode==='systemMessage'">
+      <div class="panorama-item">
+        <div class="img-wrap">
+          <img src="assets/image/designer/detail/pic-1@3x.png" alt="">
+          <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
+        </div>
+        <p class="text">资金新干线/现代简约</p>
+      </div>
+    </div>
+    <!--效果图-->
+    <div class="case-wrap" *ngIf="viewMode==='privateLetter'" id="privateLetter">
+      <div class="case-list">
+        <div class="case-top clearfix">
+          <div class="caseImg-left fl">
+            <img src="assets/image/designer/detail/pic-3@3x.png" alt="">
+          </div>
+          <div class="caseImg-right fl">
+            <div class="img-wrap">
+              <img src="assets/image/designer/detail/pic-4@3x.png" alt="">
+            </div>
+            <div class="img-wrap">
+              <img src="../../assets/image/designer/detail/pic-5@3x.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="case-bottom">
+          小区青花盛世/混搭
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>

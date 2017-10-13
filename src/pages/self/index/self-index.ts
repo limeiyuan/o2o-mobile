@@ -19,6 +19,15 @@ export class SelfIndexPage {
     modal.present();
   }
   directToFavor(){
-    this.navCtrl.push('SelfFavorPage');
+    let modal = this.modalCtrl.create('SelfFavorPage');
+    modal.present();
+  }
+  directToMyNews(){
+    let modal = this.modalCtrl.create('SelfMyNewsPage');
+    modal.present();
+  }
+  directToMyDesign(){
+    let modal = this.modalCtrl.create('SelfMyDesignPage');
+    modal.present();
   }
 }

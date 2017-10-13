@@ -2,20 +2,19 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'selfMyNews'
+  segment:'selfMyDesign'
 })
 @Component({
-  selector: 'page-self-MyNews',
-  templateUrl: './self-MyNews.html'
+  selector: 'page-self-myDesign',
+  templateUrl: './self-myDesign.html'
 })
-export class SelfMyNewsPage {
-  viewMode: string = "systemMessage";
+export class SelfMyDesignPage {
 
   constructor(public navCtrl: NavController) {
 
   }
-  directToSetting(){
-    this.navCtrl.push('SelfSettingPage');
+  directToEditData(){
+    this.navCtrl.push('SelfEditDataPage');
   }
   backListPage(){
     this.navCtrl.pop();
