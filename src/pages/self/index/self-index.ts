@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, ModalController} from 'ionic-angular';
+import {App, IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage({
   segment: 'selfIndex'
@@ -10,24 +10,23 @@ import {NavController, IonicPage, ModalController} from 'ionic-angular';
 })
 export class SelfIndexPage {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(public appCtrl: App, public navCtrl: NavController) {
 
   }
 
   directToSetting() {
-    let modal = this.modalCtrl.create('SelfSettingPage');
-    modal.present();
+    this.appCtrl.getRootNav().push('SelfSettingPage');
   }
-  directToFavor(){
-    let modal = this.modalCtrl.create('SelfFavorPage');
-    modal.present();
+
+  directToFavor() {
+    this.appCtrl.getRootNav().push('SelfFavorPage');
   }
-  directToMyNews(){
-    let modal = this.modalCtrl.create('SelfMyNewsPage');
-    modal.present();
+
+  directToMyNews() {
+    this.appCtrl.getRootNav().push('SelfMyNewsPage');
   }
-  directToMyDesign(){
-    let modal = this.modalCtrl.create('SelfMyDesignPage');
-    modal.present();
+
+  directToMyDesign() {
+    this.appCtrl.getRootNav().push('SelfMyDesignPage');
   }
 }
