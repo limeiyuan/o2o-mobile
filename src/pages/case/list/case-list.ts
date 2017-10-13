@@ -1,7 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, IonicPage, Config, NavParams} from 'ionic-angular';
-import {CaseService} from "../../../providers/case-service-rest";
-import {CaseDetailPage} from "../detail/case-detail";
+import {NavController, IonicPage, NavParams} from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 
