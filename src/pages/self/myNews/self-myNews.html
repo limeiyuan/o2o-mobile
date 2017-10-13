@@ -7,8 +7,8 @@
   </div>
 </ion-header>
 <ion-content>
-  <div class="setting-item">
-    <ion-segment [(ngModel)]="viewMode" class="clearfix"" >
+  <div class="setting-item headBar">
+    <ion-segment [(ngModel)]="viewMode" class="clearfix">
       <ion-segment-button value="systemMessage">
         <h3 name="systemMessage">系统消息</h3>
       </ion-segment-button>
@@ -18,34 +18,56 @@
     </ion-segment>
   </div>
   <div class="property-list">
-    <!--全景-->
-    <div class="panorama-wrap" *ngIf="viewMode==='systemMessage'">
-      <div class="panorama-item">
-        <div class="img-wrap">
-          <img src="assets/image/designer/detail/pic-1@3x.png" alt="">
-          <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
-        </div>
-        <p class="text">资金新干线/现代简约</p>
+    <!--系统消息-->
+    <div class="systemMessage-wrap" *ngIf="viewMode==='systemMessage'">
+      <div class="systemMessage-item setting-item">
+        <h3 class="fl text">
+          <span class="circle"></span>
+          <span>家装平台正式上线啦！</span>
+        </h3>
+        <h3 class="fr time">2015-04-16</h3>
+      </div>
+      <div class="systemMessage-item setting-item">
+        <h3 class="fl text alreadyRead">
+          <!--<span class="circle"></span>-->
+          <span>家装平台正式上线啦！</span>
+        </h3>
+        <h3 class="fr time">2015-04-16</h3>
       </div>
     </div>
-    <!--效果图-->
-    <div class="case-wrap" *ngIf="viewMode==='privateLetter'" id="privateLetter">
-      <div class="case-list">
-        <div class="case-top clearfix">
-          <div class="caseImg-left fl">
-            <img src="assets/image/designer/detail/pic-3@3x.png" alt="">
+    <!--私信-->
+    <div class="privateLetter-wrap" *ngIf="viewMode==='privateLetter'" id="privateLetter">
+      <div class="privateLetter-item clearfix">
+        <div class="private-img fl">
+          <img src="assets/image/selfNews/pic-3@3x.png" alt="">
+        </div>
+        <div class="leter-wrap fl">
+          <div class="leter-name">
+            李家禹
           </div>
-          <div class="caseImg-right fl">
-            <div class="img-wrap">
-              <img src="assets/image/designer/detail/pic-4@3x.png" alt="">
-            </div>
-            <div class="img-wrap">
-              <img src="../../assets/image/designer/detail/pic-5@3x.png" alt="">
-            </div>
+          <div class="leter-text">
+            欢迎您资讯中天艺美
           </div>
         </div>
-        <div class="case-bottom">
-          小区青花盛世/混搭
+        <div class="time fr">
+          5秒前
+        </div>
+      </div>
+
+      <div class="privateLetter-item clearfix">
+        <div class="private-img fl">
+          <img src="assets/image/selfNews/pic-3@3x.png" alt="">
+        </div>
+        <div class="leter-wrap fl">
+          <div class="leter-name">
+            李家禹
+          </div>
+          <div class="leter-text">
+            欢迎您资讯中天艺美
+          </div>
+        </div>
+        <div class="time fr">
+          5秒前
         </div>
       </div>
     </div>

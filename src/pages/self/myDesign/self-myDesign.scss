@@ -13,6 +13,49 @@ page-self-myDesign {
     }
   }
   ion-content{
-
+    .myDesign-item:nth-last-child{
+      border-bottom: none;
+    }
+    .myDesign-item{
+      padding: 22*$px 20*$px;
+      border-bottom: 1px solid rgb(229, 229, 229);
+      background-color: #fff;
+      .img-wrap{
+        margin-right: 34*$px;
+        img{
+          width: 185*$px;
+          height: 142*$px;
+        }
+      }
+      .design-right{
+        .title{
+          font-size: 30*$px;
+          color: rgb(51,51,51);
+          margin-bottom: 26*$px;
+        }
+        .loaction{
+          font-size: 28*$px;
+          color: rgb(102,102,102);
+          margin-bottom: 26*$px;
+          img{
+            width: 25*$px;
+            height: 25*$px;
+            margin-right: 20*$px;
+          }
+          .addr{
+            margin-right: 20*$px;
+          }
+        }
+        .pic-wrap{
+          font-size: 28*$px;
+          color: rgb(102,102,102);
+          img{
+            width: 25*$px;
+            height: 20*$px;
+            margin-right: 20*$px;
+          }
+        }
+      }
+    }
   }
 }

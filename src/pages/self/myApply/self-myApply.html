@@ -1,0 +1,29 @@
+
+<ion-header>
+  <div class="title">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    我的需求
+  </div>
+</ion-header>
+<ion-content>
+  <div class="setting-item headBar">
+    <ion-segment [(ngModel)]="viewMode" class="clearfix">
+      <ion-segment-button value="finish">
+        <h3 name="finish">完成</h3>
+      </ion-segment-button>
+      <ion-segment-button value="proceed">
+        <h3 name="proceed">进行中</h3>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div class="property-list">
+    <!--完成-->
+    <div class="systemMessage-wrap" *ngIf="viewMode==='finish'">
+
+    </div>
+    <!--进行中-->
+    <div class="privateLetter-wrap" *ngIf="viewMode==='proceed'" id="proceed">
+
+    </div>
+  </div>
+</ion-content>

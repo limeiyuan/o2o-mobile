@@ -30,4 +30,8 @@ export class SelfIndexPage {
     let modal = this.modalCtrl.create('SelfMyDesignPage');
     modal.present();
   }
+  directToMyApply(){
+    let modal = this.modalCtrl.create('SelfMyApplyPage');
+    modal.present();
+  }
 }
