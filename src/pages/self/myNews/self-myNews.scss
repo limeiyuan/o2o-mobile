@@ -1,0 +1,40 @@
+$px: 16rem/750;
+page-self-MyNews{
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+      .save{
+        position: absolute;
+        right: 20*$px;
+        font-size: 26*$px;
+      }
+    }
+  }
+  ion-content{
+    .setting-item{
+      font-size: 28*$px;
+      color: rgb(51,51,51);
+      height: 100*$px;
+      background-color: #fff;
+      line-height: 100*$px;
+      padding: 0 20*$px;
+      input{
+        width: 670*$px;
+        height: 100*$px;
+        line-height: 100*$px;
+      }
+      img{
+        width: 28*$px;
+        height: 28*$px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'selfIndex'
+  segment:'selfMyNews'
 })
 @Component({
-  selector: 'page-self-index',
-  templateUrl: './self-index.html'
+  selector: 'page-self-MyNews',
+  templateUrl: './self-MyNews.html'
 })
-export class SelfIndexPage {
+export class SelfMyNewsPage {
 
   constructor(public navCtrl: NavController) {
 
@@ -16,7 +16,7 @@ export class SelfIndexPage {
   directToSetting(){
     this.navCtrl.push('SelfSettingPage');
   }
-  directToFavor(){
-    this.navCtrl.push('SelfFavorPage');
+  backListPage(){
+    this.navCtrl.pop();
   }
 }
