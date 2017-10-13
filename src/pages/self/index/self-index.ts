@@ -29,4 +29,8 @@ export class SelfIndexPage {
   directToMyDesign() {
     this.appCtrl.getRootNav().push('SelfMyDesignPage');
   }
+  directToMyApply(){
+    let modal = this.modalCtrl.create('SelfMyApplyPage');
+    modal.present();
+  }
 }

@@ -1,0 +1,42 @@
+$px: 16rem/750;
+page-self-myDesignDetail {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .titleBar{
+      padding-top: 25*$px;
+      height: 148*$px;
+      background-color: #fff;
+      border-bottom: 1px solid rgb(229, 229, 229);
+      padding-left: 20*$px;
+      .title{
+        font-size: 30*$px;
+        color: rgb(51,51,51);
+        margin-bottom: 20*$px;
+      }
+      .loaction{
+        font-size: 28*$px;
+        color: rgb(102,102,102);
+        img{
+          width: 25*$px;
+          height: 25*$px;
+          margin-right: 20*$px;
+        }
+        .addr{
+          margin-right: 20*$px;
+        }
+
+      }
+    }
+  }
+}
