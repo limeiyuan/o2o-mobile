@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, App, ModalController} from 'ionic-angular';
+import {NavController, IonicPage, ModalController} from 'ionic-angular';
 
 @IonicPage({
   segment: 'selfIndex'
