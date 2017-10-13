@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, IonicPage, App, ModalController} from 'ionic-angular';
 
 @IonicPage({
-  segment:'selfIndex'
+  segment: 'selfIndex'
 })
 @Component({
   selector: 'page-self-index',
@@ -10,11 +10,13 @@ import {NavController, IonicPage} from 'ionic-angular';
 })
 export class SelfIndexPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
 
   }
-  directToSetting(){
-    this.navCtrl.push('SelfSettingPage');
+
+  directToSetting() {
+    let modal = this.modalCtrl.create('SelfSettingPage');
+    modal.present();
   }
   directToFavor(){
     this.navCtrl.push('SelfFavorPage');
