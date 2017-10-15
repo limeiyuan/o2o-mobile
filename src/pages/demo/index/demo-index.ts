@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, Config} from 'ionic-angular';
+import {Config, IonicPage, ModalController, NavController} from 'ionic-angular';
 import {DemoService} from "../../../providers/demo-service-rest";
 
 @IonicPage({
@@ -13,11 +13,16 @@ export class DemoIndexPage {
 
   properties: Array<any>;
 
-  constructor(public navCtrl: NavController, public service: DemoService, public config: Config) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public service: DemoService, public config: Config) {
 
   }
 
   directToList() {
     this.navCtrl.push('DemoListPage');
+  }
+
+  openModal() {
+    let modal = this.modalCtrl.create('SelfFavorPage');
+    modal.present();
   }
 }
