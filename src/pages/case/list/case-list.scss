@@ -1,233 +1,250 @@
 $px: 16rem/750;
-.ios .ion-page.show-page ~ .nav-decor{
-  background: #f5f5f5 !important;
-}
-ion-segment{
-  flex: inherit;
-}
-.segment-ios .segment-button{
-  flex: inherit;
-}
-page-case-list{
-  ion-segment{
-    padding: 0 18%;
-  }
-  .toolbar-ios{
-    min-height: 98*$px;
-  }
-  .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
-    background-color: #329ff1 !important;
-  }
-  ion-app, ion-nav, ion-tab, ion-tabs, .app-root, .ion-page{
-    background-color: #f5f5f5;
-  }
-  .ion-page.show-page{
-    background-color: #f5f5f5 !important;
-  }
-  .segment-ios .segment-button{
-    border: none;
-    color:#fff;
-    font-size: 36*$px;
-  }
-  .segment-ios .segment-button.segment-activated{
-    background-color: #329ff1;
-  }
-  .segment-ios .segment-button{
-    //width: 18%;
-    height: 98*$px;
-    line-height: 98&$px;
-    flex: inherit;
-    margin-right: 30*$px;
-    text-align: center;
-  }
-  .segment-ios .segment-button.segment-activated h3{
-    border-bottom: 4*$px solid #fff;
-  }
-  .segment-ios .segment-button h3{
-    //width: 140*$px;
-    text-align: center;
-    height: 90*$px;
-    line-height: 98*$px;
-  }
-  .tab-select{
-    background-color: #fff;
-    height: 70*$px;
-    display:flex;
-    display:-webkit-flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid rgb(240,240,240);
-    .tab-list{
-      flex:1;
-      -ms-flex:1;
-      -webkit-flex:1;
-      -webkit-box-flex:1;
-      font-size: 30*$px;
-      color: rgb(102,102,102);
-      .select-dowm{
-        width: 16*$px;
-        height: 12*$px;
+
+  page-case-list{
+    .ios .ion-page.show-page ~ .nav-decor{
+      background: #f5f5f5 !important;
+    }
+    ion-segment{
+      flex: inherit;
+    }
+    .segment-ios .segment-button.segment-activated{
+      background-color: #329ff1;
+    }
+    .segment-ios .segment-button{
+      width: 140*$px;
+      height: 98*$px;
+      line-height: 98&$px;
+      flex: inherit;
+      margin-right: 20*$px;
+    }
+    .segment-ios .segment-button.segment-activated h3{
+      border-bottom: 4*$px solid #fff;
+    }
+    .segment-ios .segment-button h3{
+      width: 140*$px;
+      text-align: center;
+      height: 90*$px;
+      line-height: 98*$px;
+      margin-right: 20*$px;
+      font-size: 36*$px;
+      color: rgb(255,255,255);
+    }
+    .toolbar-md-light .toolbar-background-md{
+      background-color: rgb(45, 152, 253);
+    }
+    ion-segment{
+      padding: 0 18%;
+    }
+    .toolbar-ios{
+      min-height: 98*$px;
+    }
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+      background-color: #329ff1 !important;
+    }
+    ion-app, ion-nav, ion-tab, ion-tabs, .app-root, .ion-page{
+      background-color: #f5f5f5;
+    }
+    .ion-page.show-page{
+      background-color: #f5f5f5 !important;
+    }
+    .segment-ios .segment-button{
+      border: none;
+      color:#fff;
+      font-size: 36*$px;
+    }
+    .segment-md .segment-button.segment-activated{
+      //background-color: #329ff1;
+    }
+    .segment-md .segment-button{
+      //width: 18%;
+      height: 98*$px;
+      line-height: 98&$px;
+      flex: inherit;
+      margin-right: 30*$px;
+      text-align: center;
+    }
+    ion-segment .segment-button.segment-activated h3{
+      border-bottom: 4*$px solid #fff;
+    }
+    .segment-md .segment-button h3{
+      //width: 140*$px;
+      text-align: center;
+      height: 90*$px;
+      line-height: 98*$px;
+    }
+    .tab-select{
+      background-color: #fff;
+      height: 70*$px;
+      display:flex;
+      display:-webkit-flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid rgb(240,240,240);
+      .tab-list{
+        flex:1;
+        -ms-flex:1;
+        -webkit-flex:1;
+        -webkit-box-flex:1;
+        font-size: 30*$px;
+        color: rgb(102,102,102);
+        .select-dowm{
+          width: 16*$px;
+          height: 12*$px;
+        }
       }
     }
-  }
-  .full-screen-wrap{
-    padding: 20*$px;
-    .full-screen-item{
-      background-color: #fff;
-      width: 710*$px;
-      padding-bottom: 15*$px;
-      margin-bottom: 30*$px;
-      .img-wrap{
+    .full-screen-wrap{
+      padding: 20*$px;
+      .full-screen-item{
+        background-color: #fff;
+        width: 710*$px;
+        padding-bottom: 15*$px;
+        margin-bottom: 30*$px;
+        .img-wrap{
+          img{
+            width: 710*$px;
+            height: 300*$px;
+          }
+        }
+        .full-screen-intro{
+          position: relative;
+          margin-top: 10*$px;
+          text-align: left;
+          padding: 20*$px;
+          .full-title{
+            font-size: 26*$px;
+            color: rgb(51,51,51);
+          }
+          .full-move{
+            height: 22*$px;
+            margin-top: 20*$px;
+            color: #878787;
+            font-size: 22*$px;
+            .full-move-left{
+              height: 22*$px;
+              line-height: 22*$px;
+              .follow-wrap{
+                margin-right: 10*$px;
+              }
+              a{
+                color: #878787;
+                font-size: 22*$px;
+                img{
+                  width: 22*$px;
+                  height: 22*$px;
+                  vertical-align: middle;
+                  margin-right: 5*$px;
+                }
+              }
+
+            }
+            .full-move-right{
+              height: 22*$px;
+              line-height: 22*$px;
+            }
+          }
+          .portrait{
+            position: absolute;
+            width: 70*$px;
+            height: 70*$px;
+            right: 20*$px;
+            top: -60*$px;
+          }
+        }
+      }
+    }
+    .panorama-wrap{
+      padding: 20*$px;
+      .panorama-item{
+        position: relative;
         img{
           width: 710*$px;
-          height: 300*$px;
+          height:350*$px;
         }
-      }
-      .full-screen-intro{
-        position: relative;
-        margin-top: 10*$px;
-        text-align: left;
-        padding: 20*$px;
-        .full-title{
-          font-size: 26*$px;
-          color: rgb(51,51,51);
-        }
-        .full-move{
-          height: 22*$px;
-          margin-top: 20*$px;
-          color: #878787;
-          font-size: 22*$px;
-          .full-move-left{
-            height: 22*$px;
-            line-height: 22*$px;
-            .follow-wrap{
-              margin-right: 10*$px;
-            }
-            a{
-              color: #878787;
-              font-size: 22*$px;
-              img{
-                width: 22*$px;
-                height: 22*$px;
-                vertical-align: middle;
-                margin-right: 5*$px;
-              }
-            }
-
-          }
-          .full-move-right{
-            height: 22*$px;
-            line-height: 22*$px;
-          }
-        }
-        .portrait{
+        .panorama-button{
           position: absolute;
-          width: 70*$px;
-          height: 70*$px;
-          right: 20*$px;
-          top: -60*$px;
+          top:32%;
+          left: 41.5%;
+          width: 140*$px;
+          height: 60*$px;
+          line-height: 60*$px;
+          text-align: center;
+          border-radius: 30*$px;
+          background-color: rgba(0,0,0,0.5);
+          color: #fff;
+          font-size: 24*$px;
+          img{
+            width: 19*$px;
+            height: 20*$px;
+            vertical-align: -2*$px;
+            margin-left: 3*$px;
+          }
         }
       }
     }
   }
-  .panorama-wrap{
-    padding: 20*$px;
-    .panorama-item{
-      position: relative;
-      img{
-        width: 710*$px;
-        height:350*$px;
+
+  .tab_default{
+    border-bottom:solid 1px #F2F2F2;
+    padding:6px 0;
+  }
+  .tab_select{
+    border-bottom:solid 1px #3E89F5;
+    box-shadow:0 -3px 8px #C1D3F0 inset;
+  }
+  .arrow-top {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top:20px;
+    border: 6px solid #3E89F5;
+    border-right-color:transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  .arrow-top:after {
+    content:'';
+    position:absolute;
+    width: 0;
+    height: 0;
+    border: 12px solid #fff;
+    right: -12px;
+    bottom: -13px;
+    border-right-color:transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  page-thirdTab {
+    $header-color-bg: #eee;
+    $animation-duration: 0.4s;
+
+    .top_segment{
+      color: #66CCFF;
+    }
+    ion-list {
+      ion-item {
+        background-color: transparent;
+        padding-left: 0;
+        position: relative;
       }
-      .panorama-button{
-        position: absolute;
-        top:32%;
-        left: 41.5%;
-        width: 140*$px;
-        height: 60*$px;
-        line-height: 60*$px;
+      ion-label {
+        div {
+          text-transform: none;
+          font-size: 0.8em;
+          padding: 1em 0;
+          white-space: normal;
+          text-align: justify;
+        }
+      }
+      ion-icon  {
+        font-size: 1.8rem;
+        padding: 0;
         text-align: center;
-        border-radius: 30*$px;
-        background-color: rgba(0,0,0,0.5);
-        color: #fff;
-        font-size: 24*$px;
-        img{
-          width: 19*$px;
-          height: 20*$px;
-          vertical-align: -2*$px;
-          margin-left: 3*$px;
+        position: absolute;
+        &:before {
+          font-weight: bold;
         }
       }
     }
   }
-}
-
-
-
-.tab_default{
-  border-bottom:solid 1px #F2F2F2;
-  padding:6px 0;
-}
-.tab_select{
-  border-bottom:solid 1px #3E89F5;
-  box-shadow:0 -3px 8px #C1D3F0 inset;
-}
-.arrow-top {
-  position: absolute;
-  width: 0;
-  height: 0;
-  top:20px;
-  border: 6px solid #3E89F5;
-  border-right-color:transparent;
-  border-left-color: transparent;
-  border-top-color: transparent;
-}
-.arrow-top:after {
-  content:'';
-  position:absolute;
-  width: 0;
-  height: 0;
-  border: 12px solid #fff;
-  right: -12px;
-  bottom: -13px;
-  border-right-color:transparent;
-  border-left-color: transparent;
-  border-top-color: transparent;
-}
-
-
-
-
-page-thirdTab {
-  $header-color-bg: #eee;
-  $animation-duration: 0.4s;
-
-  .top_segment{
-    color: #66CCFF;
-  }
-  ion-list {
-    ion-item {
-      background-color: transparent;
-      padding-left: 0;
-      position: relative;
-    }
-    ion-label {
-      div {
-        text-transform: none;
-        font-size: 0.8em;
-        padding: 1em 0;
-        white-space: normal;
-        text-align: justify;
-      }
-    }
-    ion-icon  {
-      font-size: 1.8rem;
-      padding: 0;
-      text-align: center;
-      position: absolute;
-      &:before {
-        font-weight: bold;
-      }
-    }
-  }
-}
 
