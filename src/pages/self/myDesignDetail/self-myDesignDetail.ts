@@ -13,8 +13,8 @@ export class SelfMyDesignDetail {
   constructor(public navCtrl: NavController) {
 
   }
-  directToEditData(){
-    this.navCtrl.push('SelfEditDataPage');
+  directToEdit(){
+    this.navCtrl.push('SelfDesignEditPage');
   }
   backListPage(){
     this.navCtrl.pop();

@@ -1,0 +1,39 @@
+$px: 16rem/750;
+page-self-about {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .img-wrap{
+      border-bottom: 1px solid rgb(238,238,238);
+      padding-top: 90*$px;
+      padding-bottom: 30*$px;
+      text-align: center;
+      padding-left: 25*$px;
+      width: 700*$px;
+      margin: 0 auto;
+      img{
+        width: 160*$px;
+        height: 160*$px;
+      }
+    }
+    .text-wrap{
+      padding: 76*$px 25*$px 0 25*$px;
+      .text{
+        text-indent: 2em;
+        font-size: 28*$px;
+        color: rgb(102,102,102);
+        margin-bottom: 30*$px;
+      }
+    }
+  }
+}

@@ -32,4 +32,7 @@ export class SelfIndexPage {
   directToMyApply(){
     this.appCtrl.getRootNav().push('SelfMyApplyPage');
   }
+  directToAbout(){
+    this.appCtrl.getRootNav().push('SelfAboutPage');
+  }
 }

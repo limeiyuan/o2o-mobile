@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content>
   <div class="progress-wrap clearfix">
-    <div class="progress-step fl">
+    <div class="progress-step fl" (click)="directToStep()">
       <img src="../../assets/image/article/pic-before@3x.png" alt="">
     </div>
     <div class="progress-step fl">
@@ -27,7 +27,7 @@
         <img src="../../assets/image/home/icon-more@3x.png" alt="">
       </div>
     </div>
-    <div class="knowledge-item clearfix">
+    <div class="knowledge-item clearfix" (click)="directToArticleDetail()">
       <div class="img-wrap fl">
         <img src="../../assets/image/article/pic-1@3x.png" alt="">
       </div>

@@ -13,6 +13,19 @@ page-self-myDesign {
     }
   }
   ion-content{
+    .myDesign-none{
+      padding-top: 298*$px;
+      text-align: center;
+      img{
+        width: 348*$px;
+        height: 166*$px;
+        margin-bottom: 74*$px;
+      }
+      .text{
+        font-size: 30*$px;
+        color: rgb(102,102,102);
+      }
+    }
     .myDesign-item:nth-last-child{
       border-bottom: none;
     }

@@ -2,14 +2,19 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'articleDetail'
+  segment:'selfAbout'
 })
 @Component({
-  selector: 'page-article-detail',
-  templateUrl: './article-detail.html'
+  selector: 'page-self-about',
+  templateUrl: './self-about.html'
 })
-export class ArticleDetailPage {
+export class SelfAboutPage {
+
   constructor(public navCtrl: NavController) {
+
+  }
+  directToEditData(){
+    this.navCtrl.push('SelfEditDataPage');
   }
   backListPage(){
     this.navCtrl.pop();

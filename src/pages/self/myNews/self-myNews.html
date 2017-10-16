@@ -17,58 +17,73 @@
       </ion-segment-button>
     </ion-segment>
   </div>
-  <div class="property-list">
+  <div class="property-list" style="height: 100%">
     <!--系统消息-->
     <div class="systemMessage-wrap" *ngIf="viewMode==='systemMessage'">
-      <div class="systemMessage-item setting-item">
-        <h3 class="fl text">
-          <span class="circle"></span>
-          <span>家装平台正式上线啦！</span>
-        </h3>
-        <h3 class="fr time">2015-04-16</h3>
+      <!--有消息-->
+      <div class="systemMessage-have" >
+        <div class="systemMessage-item setting-item">
+          <h3 class="fl text">
+            <span class="circle"></span>
+            <span>家装平台正式上线啦！</span>
+          </h3>
+          <h3 class="fr time">2015-04-16</h3>
+        </div>
+        <div class="systemMessage-item setting-item">
+          <h3 class="fl text alreadyRead">
+            <!--<span class="circle"></span>-->
+            <span>家装平台正式上线啦！</span>
+          </h3>
+          <h3 class="fr time">2015-04-16</h3>
+        </div>
       </div>
-      <div class="systemMessage-item setting-item">
-        <h3 class="fl text alreadyRead">
-          <!--<span class="circle"></span>-->
-          <span>家装平台正式上线啦！</span>
-        </h3>
-        <h3 class="fr time">2015-04-16</h3>
+      <!--无消息-->
+      <div class="systemMessage-none" style="display: none">
+        <img src="assets/image/selfNews/none-messenger@3x.png" alt="">
+        <p class="text">暂无消息</p>
       </div>
     </div>
     <!--私信-->
     <div class="privateLetter-wrap" *ngIf="viewMode==='privateLetter'" id="privateLetter">
-      <div class="privateLetter-item clearfix">
-        <div class="private-img fl">
-          <img src="assets/image/selfNews/pic-3@3x.png" alt="">
-        </div>
-        <div class="leter-wrap fl">
-          <div class="leter-name">
-            李家禹
+      <!--有私信-->
+      <div class="privateLetter-have" >
+        <div class="privateLetter-item clearfix">
+          <div class="private-img fl">
+            <img src="assets/image/selfNews/pic-3@3x.png" alt="">
           </div>
-          <div class="leter-text">
-            欢迎您资讯中天艺美
+          <div class="leter-wrap fl">
+            <div class="leter-name">
+              李家禹
+            </div>
+            <div class="leter-text">
+              欢迎您资讯中天艺美
+            </div>
+          </div>
+          <div class="time fr">
+            5秒前
           </div>
         </div>
-        <div class="time fr">
-          5秒前
+        <div class="privateLetter-item clearfix">
+          <div class="private-img fl">
+            <img src="assets/image/selfNews/pic-3@3x.png" alt="">
+          </div>
+          <div class="leter-wrap fl">
+            <div class="leter-name">
+              李家禹
+            </div>
+            <div class="leter-text">
+              欢迎您资讯中天艺美
+            </div>
+          </div>
+          <div class="time fr">
+            5秒前
+          </div>
         </div>
       </div>
-
-      <div class="privateLetter-item clearfix">
-        <div class="private-img fl">
-          <img src="assets/image/selfNews/pic-3@3x.png" alt="">
-        </div>
-        <div class="leter-wrap fl">
-          <div class="leter-name">
-            李家禹
-          </div>
-          <div class="leter-text">
-            欢迎您资讯中天艺美
-          </div>
-        </div>
-        <div class="time fr">
-          5秒前
-        </div>
+      <!--无私信-->
+      <div class="privateLetter-none" style="display: none">
+        <img src="assets/image/selfNews/none-messenger@3x.png" alt="">
+        <p class="text">暂无私信</p>
       </div>
     </div>
   </div>

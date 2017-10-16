@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
 
 @IonicPage({
-  segment:'articleDetail'
+  segment:'articleStep'
 })
 @Component({
-  selector: 'page-article-detail',
-  templateUrl: './article-detail.html'
+  selector: 'page-article-step',
+  templateUrl: './article-step.html'
 })
-export class ArticleDetailPage {
+export class ArticleStepPage {
   constructor(public navCtrl: NavController) {
   }
   backListPage(){

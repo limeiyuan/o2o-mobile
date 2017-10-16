@@ -1,75 +1,36 @@
 $px: 16rem/750;
-page-article-detail {
+page-article-step {
   ion-header {
-    .title{
+    .title {
       position: relative;
-      .back{
+      .back {
         position: absolute;
         width: 24*$px;
         height: 42*$px;
         left: 20*$px;
-        top:30*$px;
-      }
-      .share{
-        position: absolute;
-        width: 42*$px;
-        height: 42*$px;
-        right: 20*$px;
-        top:30*$px;
+        top: 30*$px;
       }
     }
   }
   ion-content{
-    .article-wrap{
+    .progress-wrap{
+      padding: 25*$px 0 25*$px 20*$px;
       background-color: #fff;
-      padding: 30*$px 20*$px;
-      margin-bottom: 20*$px;
-      .titleBar{
-        font-size: 30*$px;
-        color: rgb(51,51,51);
-      }
-      .content{
-        font-size: 28*$px;
-        color: rgb(102,102,102);
+      .progress-step{
+        margin-right: 20*$px;
+        height: 150*$px;
+        img{
+          width: 180*$px;
+          height: 140*$px;
+        }
       }
     }
     .knowledge{
       margin-top: 30*$px;
       background-color: #fff;
       padding-bottom: 10*$px;
-      .title{
-        height: 67*$px;
-        line-height: 67*$px;
-        background-color: #fff;
-        padding: 0 20*$px;
-        margin-bottom: 20*$px;
-        .text{
-          height: 67*$px;
-          line-height: 50*$px;
-          .line{
-            display:inline-block ;
-            width: 2*$px;
-            height: 28*$px;
-            color: #2D98FD;
-            margin-right: 10*$px;
-          }
-          span{
-            font-size: 30*$px;
-            color: rgb(51,51,51);
-          }
-        }
-        .more{
-          height: 67*$px;
-          line-height: 67*$px;
-          font-size: 26*$px;
-          color: rgb(153,153,153);
-          img{
-            width: 10*$px;
-            height: 20*$px;
-          }
-        }
-      }
       .knowledge-item{
+        padding-top: 20*$px;
         padding-left: 20*$px;
         margin-bottom: 10*$px;
         .img-wrap{
