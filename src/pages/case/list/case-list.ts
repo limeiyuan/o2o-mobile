@@ -19,6 +19,7 @@ export class CaseListPage {
   private selected_segment = 0;
   top_segment = 'top_0';
   segment = 'sites';
+  subMenu: string = '';
 
   rootNavCtrl: NavController;
 
@@ -78,15 +79,10 @@ export class CaseListPage {
   {
     let currentIndex = this.slider.getActiveIndex();
     console.log(currentIndex)
-    if (currentIndex === 2){
-      this.top_segment = 'top_2';
-    }
-    if (currentIndex === 1){
-      this.top_segment = 'top_1';
-    }
-    if (currentIndex === 0){
-      this.top_segment = 'top_0';
-    }
+    this.top_segment = `top_${currentIndex}`
+  }
+  showSubMenu(subMenu){
+    this.subMenu = subMenu
   }
 }
 // export class CaseListPage {

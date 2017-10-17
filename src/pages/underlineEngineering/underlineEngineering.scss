@@ -26,22 +26,18 @@ page-underlineEngineering {
     }
     .inner-content{
       padding: 20*$px;
-      .floor-wrap{
-        width: 710*$px;
-        height: 500*$px;
-        .img-wrap{
-          width: 710*$px;
-          height: 500*$px;
-          .swiper-wrapper{
-            .dec-item{
-              img{
-                width: 710*$px;
-                height: 500*$px;
-                border-radius: 20*$px;
-              }
-            }
-          }
-        }
+      .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+        bottom: 80*$px;
+      }
+      .float-title{
+        height: 80*$px;
+        background-color: rgba(255,255,255,0.4);
+        font-size: 32*$px;
+        color: #fff;
+        line-height: 80*$px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
       }
     }
   }

@@ -28,15 +28,11 @@ ion-header{
   height: 98*$px;
   line-height: 98*$px;
 }
-#home ion-slides{
-  width:84%;
-  margin:0 auto;
-  height: auto;
-}
+
 #home .scroll-content{
   margin-top: 0;
 }
-#home{
+.slider-84{
   .swiper-container{
     overflow: visible;
   }
@@ -44,6 +40,13 @@ ion-header{
     transform: scale(.92);
     transform-origin: 50% 0;
   }
+  ion-slides{
+    width:84%;
+    margin:0 auto;
+    height: auto;
+  }
+}
+#home{
   .swiper-slide{
     //box-shadow: 0px 0px 5px 3px blue;
   }
@@ -155,13 +158,17 @@ ion-header{
     }
     .designList{
       padding-left: 20*$px;
-      .design-item{
+      ion-slide{
         width: 240*$px;
         height: 280*$px;
+        //margin-right: 30*$px;
+      }
+      .design-item{
+        width: 240*$px;
+        //height: 280*$px;
         box-shadow: 2*$px 4*$px 6*$px 4*$px rgba(0,167,255,.2);
         text-align: center;
         padding-top: 30*$px;
-        margin-right: 30*$px;
         border-radius: 12*$px;
         img{
           width: 140*$px;

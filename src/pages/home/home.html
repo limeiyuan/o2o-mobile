@@ -5,7 +5,7 @@
   </ion-header>
   <ion-content>
     <!--<button (click)="directToDemo()">Demo页</button>-->
-    <div class="nav-module">
+    <div class="nav-module slider-84">
       <ion-slides loop="true" #mySlider (ionSlideDidChange)="onSlideChanged($event)">
         <ion-slide>
           <img src="../../assets/image/home/ban.jpg" class="slide-image"/>
@@ -79,18 +79,57 @@
         <h1 class="fl">人气设计师</h1>
         <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
-      <ul class="designList clearfix">
-        <li class="fl design-item">
-          <img src="../../assets/image/home/design-1@3x.png" alt="">
-          <h1>李家禹</h1>
-          <h3>首席设计师</h3>
-        </li>
-        <li class="fl design-item">
-          <img src="../../assets/image/home/design-1@3x.png" alt="">
-          <h1>李家禹</h1>
-          <h3>首席设计师</h3>
-        </li>
-      </ul>
+      <ion-slides class="slide-title designList" [slidesPerView]="pageNumber" [pager]="false">
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹4</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹3</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹1</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div class="design-item">
+            <img src="../../assets/image/home/design-1@3x.png" alt="">
+            <h1>李家禹2</h1>
+            <h3>首席设计师</h3>
+          </div>
+        </ion-slide>
+      </ion-slides>
     </div>
     <!--装修攻略-->
     <div class="decorationWrpper">

@@ -9,19 +9,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 
 @IonicPage({
-  segment: 'login'
+  segment: 'account'
 })
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-account',
+  templateUrl: 'account.html',
 })
-export class LoginPage {
-
+export class AccountPage {
+  viewMode = 'login';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+  directTo (target) {
+    this.viewMode = target
   }
   directToRegister(){
     this.navCtrl.push('RegisterPage');

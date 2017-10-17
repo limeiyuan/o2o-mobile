@@ -80,18 +80,9 @@ $px: 16rem/750;
       justify-content: center;
       align-items: center;
       border-bottom: 1px solid rgb(240,240,240);
-      //position: fixed;
-      //top: 68*$px;
-      #overlay{
-        background-color: rgba(0,0,0,.5);
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 2;
-        top: 68*$px;
-        //display: block;
-      }
+      position: fixed;
+      z-index: 2;
+      width: 100%;
       .tab-list{
         flex:1;
         -ms-flex:1;
@@ -126,6 +117,16 @@ $px: 16rem/750;
     }
     .full-screen-wrap{
       padding: 20*$px;
+      padding-top: 90*$px;
+      .overlay-full{
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        //z-index: 2;
+        top: 68*$px;
+      }
       .full-screen-item{
         background-color: #fff;
         width: 710*$px;

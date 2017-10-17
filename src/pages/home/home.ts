@@ -1,8 +1,7 @@
-import {Component,ViewChild} from '@angular/core';
+import {Component,ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import {App, NavController, IonicPage} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Slides } from 'ionic-angular';
-
 
 @IonicPage({
   segment: 'home'
@@ -12,11 +11,31 @@ import { Slides } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  // 设计师可拖拽
+  @Input("slides") slides: string[] = [];
+  @Input("pageNumber") pageNumber: number = 2.6;
+  @Output("slideClick") slideClick = new EventEmitter<number>();
+
+  mySlideOptions;
+  selectedIndex: number = 0;
+
+
   @ViewChild('mySlider') slider: Slides;
 
   constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar) {
     this.statusBar.overlaysWebView(true);
     this.statusBar.backgroundColorByHexString('#329ff1');
+  }
+  ngOnInit() {
+    this.mySlideOptions = {
+      loop: false,
+      autoplay: false,
+      initialSlide: 0,
+      pager: false,
+      slidesPerView: this.pageNumber,
+      paginationHide: true,
+      paginationClickable: true
+    };
   }
 
   onSlideChanged($event) {
