@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, Config} from 'ionic-angular';
+import {App, Config, IonicPage, NavController} from 'ionic-angular';
 import {DemoService} from "../../../providers/demo-service-rest";
-import {DemoDetailPage} from "../detail/demo-detail";
 import {PicService} from "../../../providers/pic-service-rest";
 import {BaseControllerClass} from "../../../providers/base-controller";
 
@@ -12,18 +11,18 @@ import {BaseControllerClass} from "../../../providers/base-controller";
   selector: 'page-demo-list',
   templateUrl: './demo-list.html'
 })
-export class DemoListPage extends BaseControllerClass{
+export class DemoListPage extends BaseControllerClass {
 
   properties = [];
   currentPageNo = 0;
 
-  constructor(public navCtrl: NavController, public service: DemoService, public picService: PicService, public config: Config) {
+  constructor(public navCtrl: NavController, public appCtrl: App, public service: DemoService, public picService: PicService, public config: Config) {
     super(picService);
     this.query();
   }
 
   openPropertyDetail(property: any) {
-    this.navCtrl.push(DemoDetailPage, property);
+    this.appCtrl.getRootNav().push('DemoDetailPage', property);
   }
 
   query(callback = null) {

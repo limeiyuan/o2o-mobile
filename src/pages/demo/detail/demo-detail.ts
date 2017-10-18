@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, Config} from 'ionic-angular';
+import {Config, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {DemoService} from "../../../providers/demo-service-rest";
 
 @IonicPage({
@@ -13,7 +13,7 @@ export class DemoDetailPage {
 
   properties: Array<any>;
 
-  constructor(public navCtrl: NavController, public service: DemoService, public config: Config) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public service: DemoService, public config: Config) {
+    console.log(navParams.data);
   }
 }

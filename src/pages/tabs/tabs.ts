@@ -13,6 +13,7 @@ export class TabsPage {
   tab3Root = 'DesignerListPage';
   tab4Root = 'ArticleListPage';
   tab5Root = 'SelfIndexPage';
+  demoPage = 'DemoIndexPage';
 
   constructor() {
 
