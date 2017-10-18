@@ -2,6 +2,7 @@ import {Component,ViewChild, Input, Output, EventEmitter} from '@angular/core';
 import {App, NavController, IonicPage} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Slides } from 'ionic-angular';
+import {HomeService} from "../../providers/home-service-rest";
 
 @IonicPage({
   segment: 'home'
@@ -19,12 +20,15 @@ export class HomePage {
   mySlideOptions;
   selectedIndex: number = 0;
 
+  properties: Array<any>;
+
 
   @ViewChild('mySlider') slider: Slides;
 
-  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar) {
+  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar, public service: HomeService) {
     this.statusBar.overlaysWebView(true);
     this.statusBar.backgroundColorByHexString('#329ff1');
+    this.query();
   }
   ngOnInit() {
     this.mySlideOptions = {
@@ -61,5 +65,14 @@ export class HomePage {
     this.appCtrl.getRootNav().push('UnderlineEngineeringPage');
   }
 
+// 整合查询
+  query() {
+    this.service.query()
+      .then(data => {
+        this.properties = data;
+        console.log(this.properties);
+      })
+      .catch(error => console.log(error));
+  }
 
 }
