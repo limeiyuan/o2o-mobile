@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {NavController, IonicPage} from 'ionic-angular';
-import * as $ from "jquery";
-import swiper from "swiper";
 
 @IonicPage({
   segment:'underlineEngineering'

@@ -102,7 +102,6 @@ export class CaseListPage {
     this.top_segment = `top_${currentIndex}`
   }
   showSubMenu(subMenu){
-    alert('sub')
     this.subMenu = subMenu
   }
   showSubMenuTwo(subMenuTwo){
@@ -114,9 +113,9 @@ export class CaseListPage {
 
 // 瀑布流
   ionViewDidEnter() {
-    setTimeout(()=>{
+    // setTimeout(()=>{
       this.getNode();
-    }, 3000)
+    // }, 3000)
   }
   getNode() {
     let parentNode = document.getElementById("boxWrap");

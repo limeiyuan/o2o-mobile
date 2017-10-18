@@ -11,6 +11,7 @@ import {CaseService} from '../providers/case-service-rest';
 import {HttpModule} from "@angular/http";
 import {DemoService} from "../providers/demo-service-rest";
 import {PicService} from "../providers/pic-service-rest";
+import {HomeService} from "../providers/home-service-rest";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {PicService} from "../providers/pic-service-rest";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CaseService,
     DemoService,
-    PicService
+    PicService,
+    HomeService,
   ]
 })
 export class AppModule {

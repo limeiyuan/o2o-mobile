@@ -6,12 +6,15 @@ $px: 16rem/750;
         transform: translate(0,0);
         #containerImg{
           padding-top: 90*$px;
+          padding-left: 20*$px;
           #boxWrap{
             position: relative;
           }
           .box {
-            width: 50%;
+            //width: 50%;
             float: left;
+            margin-right: 15*$px;
+            //padding: 10*$px;
             //width: 345*$px!important;
             .box_img {
               box-shadow: 0 0 5px rgba(0,167,255,.2);

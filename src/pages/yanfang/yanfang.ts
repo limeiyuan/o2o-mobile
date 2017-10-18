@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 
 /**
  * Generated class for the YanfangPage page.
@@ -17,8 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'yanfang.html',
 })
 export class YanfangPage {
+  username: string = '';
+  phone: string = '';
+  address: string = '';
+  houseNum: string = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
   }
   backListPage(){
     this.navCtrl.pop();
@@ -26,5 +30,29 @@ export class YanfangPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad YanfangPage');
   }
-
+  directToSubmit(){
+    if(this.username == ''){
+      this.doAlert('请输入姓名');
+      return false;
+    }
+    if(this.phone == ''){
+      this.doAlert('请输入手机号');
+      return false;
+    }
+    if(this.address == ''){
+      this.doAlert('请输入小区号');
+      return false;
+    }
+    if(this.houseNum == ''){
+      this.doAlert('请输入房间号');
+      return false;
+    }
+  }
+  doAlert(Msg) {
+    let alert = this.alerCtrl.create({
+      message: Msg,
+      buttons: ['好的']
+    });
+    alert.present()
+  }
 }
