@@ -15,15 +15,15 @@
   <div class="form" *ngIf="viewMode==='login'">
     <div class="input-wrap">
       <div class="phone-wrap">
-        <input class="phone" type="text" placeholder="手机号">
+        <input class="phone" type="text" placeholder="手机号" maxlength="11" [(ngModel)]="login.username">
       </div>
       <div class="password-wrap">
-        <input class="password" type="text" placeholder="密码">
+        <input class="password" type="text" placeholder="密码" [(ngModel)]="login.password">
       </div>
     </div>
     <p class="forget fr" (click)="directToLookpassword()">忘记密码</p>
     <div class="submit-wrap">
-      <button class="submit">登录</button>
+      <button class="submit" (click)="directToLogin()">登录</button>
     </div>
     <p class="goregister" (click)="directTo('register')">
       注册新用户
@@ -32,18 +32,35 @@
   <div class="registerform" *ngIf="viewMode==='register'">
     <div class="input-wrap">
       <div class="phone-wrap">
-        <input class="phone" type="text" placeholder="手机号">
+        <input class="phone" type="text" placeholder="手机号" maxlength="11" [(ngModel)]="register.username">
       </div>
       <div class="validation-wrap">
-        <input class="validation" type="text" placeholder="验证码">
-        <span class="getCode">获取验证码</span>
+        <input class="validation" type="text" placeholder="验证码" [(ngModel)]="register.code">
+        <button class="getCode" [disabled]="disabled" (click)="getCode($event)">{{tips}}</button>
       </div>
       <div class="password-wrap">
-        <input class="password" type="text" placeholder="密码">
+        <input class="password" type="text" placeholder="密码" [(ngModel)]="register.password">
       </div>
-      <div class="select-wrap">
-        <input class="select" type="text" placeholder="普通用户">
-        <img src="../../assets/image/register/xiala.png" alt="">
+
+      <div class="select-wrap" (click)="isShow=!isShow">
+        <div class="select" type="text">普通用户</div>
+        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
+        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
+        <ul class="option-wrap" *ngIf="isShow">
+          <div style="width: 100%" (click)="changeRole()">
+            <li class="free">自由设计师</li>
+          </div>
+          <div>
+            <li>企业设计师</li>
+          </div>
+          <div>
+            <li>监理</li>
+          </div>
+          <div>
+            <li>普通用户</li>
+          </div>
+          <!--data-value="DESIGNER"-->
+        </ul>
       </div>
     </div>
     <div class="agree-wrap">
@@ -51,7 +68,9 @@
       <span>我已阅读并接受 <span class="clause">《装修常见问题条款》</span></span>
     </div>
     <div class="submit-wrap">
-      <button class="submit">完成</button>
+      <button class="submit" (click)="directToRegister()">完成</button>
     </div>
   </div>
 </ion-content>
+
+

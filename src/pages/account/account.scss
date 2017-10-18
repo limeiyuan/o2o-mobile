@@ -1,5 +1,23 @@
 $px: 16rem/750;
- page-account{
+$toast-ios-title-font-size: 1rem;
+
+.toast-ios .toast-wrapper{
+  width: 50%;
+  text-align: center;
+  background-color: rgba(0,0,0,.7);
+}
+page-account{
+  .item-ios{
+    padding-left: 10*$px;
+    font-size: 30*$px;
+    color: rgb(153,153,153);
+    background-color: #f6f6f6;
+    max-height: 114*$px;
+  }
+  .item-block{
+    min-height: 0;
+  }
+   position: relative;
   .fixed-content, .scroll-content{
     background-color: #f9f9f9;
   }
@@ -39,7 +57,7 @@ $px: 16rem/750;
       width: 590*$px;
       height: 230*$px;
       border-radius: 36*$px;
-      border: 1px solid rgb(230,230,230);
+      //border: 1px solid rgb(230,230,230);
       padding: 0 48*$px;
       color: rgb(153,153,153);
       font-size: 30*$px;
@@ -50,6 +68,7 @@ $px: 16rem/750;
         height: 113*$px;
         line-height: 113*$px;
         border: none;
+        padding-left: 20*$px;
       }
       .phone-wrap{
         border-bottom: 2*$px solid rgb(230,230,230);
@@ -84,7 +103,7 @@ $px: 16rem/750;
       text-align: center;
     }
   }
-   .registerform{
+  .registerform{
      background-color: #f9f9f9;
      padding-top: 5.9%;
      .input-wrap{
@@ -92,7 +111,7 @@ $px: 16rem/750;
        width: 590*$px;
        height: 34.4%;
        border-radius: 36*$px;
-       border: 1px solid rgb(230,230,230);
+       //border: 1px solid rgb(230,230,230);
        padding: 0 48*$px;
        color: rgb(153,153,153);
        font-size: 30*$px;
@@ -106,6 +125,10 @@ $px: 16rem/750;
            color: rgb(69,178,255);
            font-size: 30*$px;
            bottom: 30*$px;
+           background-color: #fff;
+         }
+         .getCode:disabled{
+           color: rgb(102,102,102);
          }
        }
        input{
@@ -114,6 +137,7 @@ $px: 16rem/750;
          line-height: 113*$px;
          border: none;
          background-color: #f6f6f6;
+         padding-left: 20*$px;
        }
        .phone-wrap,.validation-wrap,.password-wrap{
          border-bottom: 2*$px solid rgb(230,230,230);
@@ -149,6 +173,31 @@ $px: 16rem/750;
          right:0;
          bottom: 51*$px;
        }
+       .select{
+         width: 492*$px;
+         height: 113*$px;
+         line-height: 113*$px;
+         border: none;
+         background-color: #f6f6f6;
+         padding-left: 20*$px;
+       }
+       .option-wrap{
+         width: 100%;
+         position: absolute;
+         left: 0;
+         top:85*$px;
+         padding: 0 20*$px;
+         background-color: #f6f6f6;
+         li{
+           width: 100%;
+           height: 82*$px;
+           line-height: 82*$px;
+           border-bottom: 1px solid rgb(234,234,234);
+           font-size: 30*$px;
+           color: rgb(51,51,51);
+           //padding-left: 20*$px;
+         }
+       }
      }
      .goregister{
        margin-top: 3.4%;
@@ -170,5 +219,29 @@ $px: 16rem/750;
          color: rgb(69,178,255);
        }
      }
+   }
+  #box{
+    position: absolute;
+    display: none;
+    top:39%;
+    left: 25%;
+    width: 50%;
+    height: 120*$px;
+    line-height: 120*$px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 28*$px;
+    text-align: center;
+    h4{
+      font-size: 28*$px;
+      color: #fff;
+      height: 120*$px;
+      line-height: 120*$px;
+    }
+  }
+   .toast-ios .toast-message,.toast-message{
+     //font-size: 28*$px;
+     color: #fff;
+     height: 120*$px;
+     line-height: 120*$px;
    }
 }

@@ -10,7 +10,7 @@ import {NavController, IonicPage} from 'ionic-angular';
 })
 export class SelfSettingPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,) {
 
   }
   directToEditData(){
@@ -19,4 +19,5 @@ export class SelfSettingPage {
   backListPage(){
     this.navCtrl.pop();
   }
+
 }

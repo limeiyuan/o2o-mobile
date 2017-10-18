@@ -158,23 +158,133 @@
         </ion-list>
       </ion-scroll>
     </ion-slide>
-    <ion-slide>
+    <!--单图-->
+    <ion-slide class="slideTwo">
       <ion-scroll scrollY="true" class="fixed-content">
         <ion-list>
-          单图
+          <div class="tab-selectTwo">
+            <div class="tab-list" (click)="showSubMenuTwo('houseTypeTwo')">
+              户型
+              <img class="select-dowm" *ngIf="subMenuTwo !== 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenuTwo === 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenuTwo" *ngIf="subMenuTwo==='houseTypeTwo'">
+                <li class="fl" >不限</li>
+                <li class="fl">一居</li>
+                <li class="fl">二居</li>
+                <li class="fl">三居</li>
+                <li class="fl">四居</li>
+                <li class="fl">小户型</li>
+                <li class="fl">复式</li>
+                <li class="fl">别墅</li>
+              </ul>
+            </div>
+            <div class="tab-list" (click)="showSubMenuTwo('style')">
+              风格
+              <img class="select-dowm" *ngIf="subMenuTwo !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenuTwo === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenuTwo" *ngIf="subMenuTwo==='style'">
+                <li class="fl">不限</li>
+                <li class="fl">欧式</li>
+                <li class="fl">二居</li>
+                <li class="fl">三居</li>
+                <li class="fl">四居</li>
+                <li class="fl">小户型</li>
+                <li class="fl">复式</li>
+                <li class="fl">别墅</li>
+              </ul>
+            </div>
+            <div class="tab-list" (click)="showSubMenuTwo('area')">
+              面积
+              <img class="select-dowm" *ngIf="subMenuTwo !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenuTwo === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenuTwo" *ngIf="subMenuTwo==='area'">
+                <li class="fl">不限</li>
+                <li class="fl">10*30</li>
+                <li class="fl">二居</li>
+                <li class="fl">三居</li>
+                <li class="fl">四居</li>
+                <li class="fl">小户型</li>
+                <li class="fl">复式</li>
+                <li class="fl">别墅</li>
+              </ul>
+            </div>
+          </div>
+          <div id="containerImg" class="clearfix">
+            <!--<div class="box" *ngFor="let image of img_data">-->
+              <!--<div class="box_img">-->
+                <!--![]({{image.src}})-->
+              <!--</div>-->
+            <!--</div>-->
+            <div id="boxWrap">
+              <div class="box">
+                <div class="box_img">
+                  <img src="assets/image/case/dantu/pic-1@3x.png" alt="">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box_img">
+                  <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box_img">
+                  <img src="assets/image/case/dantu/pic-3@3x.png" alt="">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box_img">
+                  <img src="assets/image/case/dantu/pic-4@3x.png" alt="">
+                </div>
+              </div>
+              <div class="box">
+                <div class="box_img">
+                  <img src="assets/image/case/dantu/pic-5@3x.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+
+          <div class="overlay-simple" *ngIf="subMenuTwo!==''" (click)="showSubMenuTwo('')"></div>
         </ion-list>
       </ion-scroll>
     </ion-slide>
-    <ion-slide>
+    <!--VR全景-->
+    <ion-slide class="slideThree">
       <ion-scroll scrollY="true" class="fixed-content">
         <div class="tab-select">
-          <div class="tab-list">
+          <div class="tab-list" (click)="showSubMenuThree('style')">
             风格
-            <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenuThree !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenuThree === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenuThree==='style'">
+              <li class="fl">不限</li>
+              <li class="fl">一居</li>
+              <li class="fl">二居</li>
+              <li class="fl">三居</li>
+              <li class="fl">四居</li>
+              <li class="fl">小户型</li>
+              <li class="fl">复式</li>
+              <li class="fl">别墅</li>
+            </ul>
           </div>
-          <div class="tab-list">
+          <div class="tab-list" (click)="showSubMenuThree('area')">
             面积
-            <img class="select-dowm" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenuThree !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenuThree === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenuThree==='area'">
+              <li class="fl">不限</li>
+              <li class="fl">10*30</li>
+              <li class="fl">二居</li>
+              <li class="fl">三居</li>
+              <li class="fl">四居</li>
+              <li class="fl">小户型</li>
+              <li class="fl">复式</li>
+              <li class="fl">别墅</li>
+            </ul>
           </div>
         </div>
         <div class="panorama-wrap">
@@ -185,13 +295,19 @@
               <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
             </div>
           </div>
+          <div class="panorama-item">
+            <img src="../../assets/image/case/panorama/pic-1@3x.png" alt="">
+            <div class="panorama-button">
+              VR全景
+              <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
+            </div>
+          </div>
+          <div class="overlay-panorama" *ngIf="subMenuThree!==''" (click)="showSubMenuThree('')"></div>
         </div>
       </ion-scroll>
     </ion-slide>
   </ion-slides>
 </ion-content>
-
-
 
 <!--<ion-content class="property-list">-->
   <!--&lt;!&ndash;下拉刷新&ndash;&gt;-->

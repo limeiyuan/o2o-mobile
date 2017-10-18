@@ -6,17 +6,43 @@
 </ion-header>
 
 <ion-content>
-  <div class="progress-wrap clearfix">
-    <div class="progress-step fl" >
-      <img src="../../assets/image/step/before-1@3x.png" alt="">
-    </div>
-    <div class="progress-step fl">
-      <img src="../../assets/image/step/before-2@3x.png" alt="">
-    </div>
-    <div class="progress-step fl">
-      <img src="../../assets/image/step/before-3@3x.png" alt="">
-    </div>
-  </div>
+  <!--<div class="progress-wrap clearfix">-->
+    <ion-slides class="progress-wrap" [slidesPerView]="pageNumber" [pager]="false">
+      <ion-slide >
+        <div class="progress-step fl" >
+        <img src="../../assets/image/step/before-1@3x.png" alt="">
+        </div>
+      </ion-slide>
+      <ion-slide >
+        <div class="progress-step fl" >
+          <img src="../../assets/image/step/before-2@3x.png" alt="">
+        </div>
+      </ion-slide>
+      <ion-slide >
+        <div class="progress-step fl" >
+          <img src="../../assets/image/step/before-3@3x.png" alt="">
+        </div>
+      </ion-slide>
+      <ion-slide >
+        <div class="progress-step fl" >
+          <img src="../../assets/image/step/before-4@3x.png" alt="">
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+    <!--<div class="progress-step fl" >-->
+      <!--<img src="../../assets/image/step/before-1@3x.png" alt="">-->
+    <!--</div>-->
+    <!--<div class="progress-step fl">-->
+      <!--<img src="../../assets/image/step/before-2@3x.png" alt="">-->
+    <!--</div>-->
+    <!--<div class="progress-step fl">-->
+      <!--<img src="../../assets/image/step/before-3@3x.png" alt="">-->
+    <!--</div>-->
+    <!--<div class="progress-step fl">-->
+      <!--<img src="../../assets/image/step/before-4@3x.png" alt="">-->
+    <!--</div>-->
+  <!--</div>-->
   <div class="knowledge">
     <div class="knowledge-item clearfix">
       <div class="img-wrap fl">

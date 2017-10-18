@@ -1,6 +1,50 @@
 $px: 16rem/750;
-
   page-case-list{
+    ion-content{
+      padding-left:20*$px;
+      .slideTwo{
+        transform: translate(0,0);
+        #containerImg{
+          padding-top: 90*$px;
+          #boxWrap{
+            position: relative;
+          }
+          .box {
+            width: 50%;
+            float: left;
+            //width: 345*$px!important;
+            .box_img {
+              box-shadow: 0 0 5px rgba(0,167,255,.2);
+              border-radius: 4*$px;
+              img {
+                width: 345*$px!important;
+                height: auto;
+              }
+            }
+          }
+        }
+        .overlay-simple{
+          background-color: rgba(0,0,0,.5);
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          //z-index: 2;
+          top: 68*$px;
+        }
+      }
+      .slideThree{
+        transform: translate(0,0);
+        .overlay-panorama{
+          background-color: rgba(0,0,0,.5);
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 68*$px;
+        }
+      }
+    }
     .ios .ion-page.show-page ~ .nav-decor{
       background: #f5f5f5 !important;
     }
@@ -72,7 +116,7 @@ $px: 16rem/750;
       height: 90*$px;
       line-height: 98*$px;
     }
-    .tab-select{
+    .tab-select,.tab-selectTwo{
       background-color: #fff;
       height: 70*$px;
       display:flex;
@@ -83,7 +127,7 @@ $px: 16rem/750;
       position: fixed;
       z-index: 2;
       width: 100%;
-      .tab-list{
+      .tab-list,.tab-listTwo{
         flex:1;
         -ms-flex:1;
         -webkit-flex:1;
@@ -94,7 +138,7 @@ $px: 16rem/750;
           width: 16*$px;
           height: 12*$px;
         }
-        .submenu{
+        .submenu,.submenuTwo,submenuThree{
           position: fixed;
           padding: 40*$px 0 0 40*$px;
           top: 68*$px;
@@ -102,6 +146,10 @@ $px: 16rem/750;
           z-index: 3;
           right: 0;
           left: 0;
+          .active{
+            background-color: rgb(53,171,254);
+            color: #fff;
+          }
           li{
             width: 196*$px;
             height: 56*$px;

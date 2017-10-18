@@ -16,12 +16,17 @@ page-article-step {
     .progress-wrap{
       padding: 25*$px 0 25*$px 20*$px;
       background-color: #fff;
-      .progress-step{
-        margin-right: 20*$px;
+      height: 186*$px;
+      ion-slide{
+        width: 180*$px;
         height: 150*$px;
-        img{
-          width: 180*$px;
-          height: 140*$px;
+        .progress-step{
+          //margin-right: 20*$px;
+          height: 150*$px;
+          img{
+            width: 180*$px;
+            height: 140*$px;
+          }
         }
       }
     }
