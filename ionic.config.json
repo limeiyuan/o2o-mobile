@@ -8,7 +8,7 @@
   "proxies": [
     {
       "path": "/mobile",
-      "proxyUrl": "http://47.92.28.110/mobile"
+      "proxyUrl": "http://127.0.0.1:8080/mobile"
     },
     {
       "path": "/file",

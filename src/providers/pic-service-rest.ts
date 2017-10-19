@@ -11,7 +11,6 @@ export class PicService {
   }
 
   getPicture(path) {
-    console.log('getPicture' + path);
     return FILE_SERVER_URL + 'getPhoto/' + path;
   }
 

@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import {SERVER_URL} from "./config";
 import "rxjs/add/operator/toPromise";
 
-let baseUrl = SERVER_URL + 'case/';
+let baseUrl = SERVER_URL + 'demo/';
 
 @Injectable()
 export class DemoService {
@@ -12,12 +12,6 @@ export class DemoService {
   pageSize = 10;
 
   constructor(public http: Http) {
-  }
-
-  findAll() {
-    return this.http.get(baseUrl + 'query.htm')
-      .map(res => res.json())
-      .toPromise();
   }
 
   query(pageNo, pageSize = null) {

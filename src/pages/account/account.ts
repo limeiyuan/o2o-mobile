@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NgModel } from '@angular/forms';
 import { ToastController } from 'ionic-angular';
 import { accountService } from "../../providers/account-service-rest";
 
