@@ -31,12 +31,16 @@ export class YanfangPage {
     console.log('ionViewDidLoad YanfangPage');
   }
   directToSubmit(){
+    let phoneReg = /^(13|14|15|17|18)[0-9]{9}$/;
     if(this.username == ''){
       this.doAlert('请输入姓名');
       return false;
     }
     if(this.phone == ''){
       this.doAlert('请输入手机号');
+      return false;
+    }else if(!phoneReg.test(this.phone)){
+      this.doAlert("请输入正确的手机号");
       return false;
     }
     if(this.address == ''){

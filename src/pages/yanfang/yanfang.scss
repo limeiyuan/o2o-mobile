@@ -1,7 +1,7 @@
 $px: 16rem/750;
-.alert-ios .alert-wrapper，.alert-wrapper{
-  max-width: 60%;
-  min-width: 60%;
+.app-root .alert-ios .alert-wrapper，.app-root .alert-wrapper{
+  max-width: 540*$px;
+  min-width: 540*$px;
 }
 page-yanfang {
   ion-header {

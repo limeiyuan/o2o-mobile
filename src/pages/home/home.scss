@@ -120,6 +120,11 @@ ion-header{
           padding: 0 22*$px;
           .caseTitle{
             color: rgb(51,51,51);
+            width: 295*$px;
+            height: 26*$px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
           .caseStyle{
             color: rgb(153,153,153);
@@ -227,6 +232,14 @@ ion-header{
         .decoration-des{
           font-size: 22*$px;
           color: #797979;
+          width: 560*$px;
+          height: 63*$px;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          margin-bottom: 20*$px;
         }
         .decoration-bottom{
           margin-top: 14*$px;

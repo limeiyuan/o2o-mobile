@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgModel } from '@angular/forms';
 import { ToastController } from 'ionic-angular';
+import { accountService } from "../../providers/account-service-rest";
 
 
 @IonicPage({
@@ -10,14 +11,18 @@ import { ToastController } from 'ionic-angular';
 @Component({
   selector: 'page-account',
   templateUrl: 'account.html',
+  providers: [
+    accountService
+  ]
 })
 export class AccountPage {
   viewMode: string = 'login';
+  role : string = '普通用户';
   login: {username: string, password: string} = {username: '', password: ''};
   register: {username: string, password: string, code: string} = {username: '', password: '', code:''};
   public tips = '获取验证码';
   public disabled = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
   }
 
   ionViewDidLoad() {
@@ -35,17 +40,21 @@ export class AccountPage {
     this.disabled = true;
     const that = this;
     that.tips = number + 's';
-
-    const timer = setInterval(function () {
-      number --;
-      if (number === 0) {
-        that.disabled = false;
-        that.tips = '获取验证码';
-        clearInterval(timer);
-      } else {
-        that.tips = number + 's';
-      }
-    }, 1000);
+    this.service.sendCode(this.register.username)
+      .then(data => {
+        console.log(data.result.length);
+        const timer = setInterval(function () {
+          number --;
+          if (number === 0) {
+            that.disabled = false;
+            that.tips = '获取验证码';
+            clearInterval(timer);
+          } else {
+            that.tips = number + 's';
+          }
+        }, 1000);
+      })
+      .catch(error => alert(JSON.stringify(error)));
   }
   // 登录
   directToLogin(){
@@ -81,7 +90,14 @@ export class AccountPage {
       this.presentToast("密码为6-12位字母数字结合");
       return false;
     }
+    this.service.doRegister(this.register.username, this.register.password, this.register.code)
+      .then(data => {
+       console.log(data);
+      })
+      .catch(error => alert(JSON.stringify(error)));
   }
+
+
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
@@ -89,5 +105,8 @@ export class AccountPage {
       position: 'middle'
     });
     toast.present();
+  }
+  changeRole(eng, role){
+    this.role = role;
   }
 }

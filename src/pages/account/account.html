@@ -43,20 +43,20 @@
       </div>
 
       <div class="select-wrap" (click)="isShow=!isShow">
-        <div class="select" type="text">普通用户</div>
+        <div class="select" type="text">{{role}}</div>
         <img src="../../assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
         <img src="../../assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
         <ul class="option-wrap" *ngIf="isShow">
-          <div style="width: 100%" (click)="changeRole()">
+          <div style="width: 100%" (click)="changeRole('FRDESIGNER','自由设计师')">
             <li class="free">自由设计师</li>
           </div>
-          <div>
+          <div (click)="changeRole('DESIGNER','企业设计师')">
             <li>企业设计师</li>
           </div>
-          <div>
+          <div (click)="changeRole('SUPERVISOR','监理')">
             <li>监理</li>
           </div>
-          <div>
+          <div (click)="changeRole('','普通用户')">
             <li>普通用户</li>
           </div>
           <!--data-value="DESIGNER"-->

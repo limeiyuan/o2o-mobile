@@ -19,7 +19,12 @@ export class CaseService {
       .map(res => res.json())
       .toPromise();
   }
-
+  // 获得案例搜索条件
+  queryCondition() {
+    return this.http.get(baseUrl + 'queryConditionByDic.action')
+      .map(res => res.json())
+      .toPromise();
+  }
   query(pageNo, pageSize = null) {
     if (pageSize == null) {
       pageSize = this.pageSize;
@@ -33,5 +38,4 @@ export class CaseService {
       .map(res => res.json())
       .toPromise();
   }
-
 }

@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <input class="phone" type="text" placeholder="手机号码" [(ngModel)]="phone">
+    <input class="phone" type="text" placeholder="手机号码" [(ngModel)]="phone" maxlength="11">
     <input class="address" type="text" placeholder="所在小区" [(ngModel)]="address">
     <input class="detailNum" type="text" placeholder="所在房号" [(ngModel)]="houseNum">
     <input type="button" value="提交信息" class="submit" (click)="directToSubmit()">

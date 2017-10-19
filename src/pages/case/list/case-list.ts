@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, IonicPage, NavParams} from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
+import {CaseService} from "../../../providers/case-service-rest";
 
 
 
@@ -43,7 +44,7 @@ export class CaseListPage {
   },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public service: CaseService) {
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.platform = platform;
 
@@ -56,6 +57,18 @@ export class CaseListPage {
         showDetails: false
       });
     }
+  }
+// 获得案例搜索条件
+  queryCondition(subMenu){
+      this.subMenu = subMenu;
+    this.service.queryCondition()
+      .then(data=>{
+        console.log(data);
+        // this.areaList = data.result.AREA.list;
+        // this.styleList = data.result.STYLE.list;
+        // this.areaList = data.result.AREA;
+      })
+      .catch(error => console.log(error));
   }
 
   data_group: Array<{id:number, title: string, details: any, icon: string, showDetails: boolean}> = [];
@@ -101,15 +114,15 @@ export class CaseListPage {
     console.log(currentIndex)
     this.top_segment = `top_${currentIndex}`
   }
-  showSubMenu(subMenu){
-    this.subMenu = subMenu
-  }
-  showSubMenuTwo(subMenuTwo){
-    this.subMenuTwo = subMenuTwo
-  }
-  showSubMenuThree(subMenuThree){
-    this.subMenuThree = subMenuThree
-  }
+  // queryCondition(subMenu){
+  //   this.subMenu = subMenu
+  // }
+  // showSubMenuTwo(subMenuTwo){
+  //   this.subMenuTwo = subMenuTwo
+  // }
+  // showSubMenuThree(subMenuThree){
+  //   this.subMenuThree = subMenuThree
+  // }
 
 // 瀑布流
   ionViewDidEnter() {

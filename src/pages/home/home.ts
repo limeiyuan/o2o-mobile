@@ -1,5 +1,5 @@
 import {Component,ViewChild, Input, Output, EventEmitter} from '@angular/core';
-import {App, NavController, IonicPage} from 'ionic-angular';
+import {App, NavController, IonicPage, Config} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Slides } from 'ionic-angular';
 import {HomeService} from "../../providers/home-service-rest";
@@ -19,13 +19,14 @@ export class HomePage {
 
   mySlideOptions;
   selectedIndex: number = 0;
-
-  properties: Array<any>;
+  articleList: Array<any>;
+  caseList: Array<any>;
+  designerList: Array<any>;
 
 
   @ViewChild('mySlider') slider: Slides;
 
-  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar, public service: HomeService) {
+  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar, public service: HomeService, public config: Config) {
     this.statusBar.overlaysWebView(true);
     this.statusBar.backgroundColorByHexString('#329ff1');
     this.query();
@@ -69,10 +70,11 @@ export class HomePage {
   query() {
     this.service.query()
       .then(data => {
-        this.properties = data;
-        console.log(this.properties);
+        this.articleList = data.result.article.article;
+        this.caseList = data.result.article.case;
+        this.designerList = data.result.designer;
+        console.log(data);
       })
       .catch(error => console.log(error));
   }
-
 }

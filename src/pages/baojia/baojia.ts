@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the BaojiaPage page.
@@ -14,8 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'baojia.html',
 })
 export class BaojiaPage {
+  username: string = '';
+  phone: string = '';
+  address: string = '';
+  style: string = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
   }
   backListPage(){
     this.navCtrl.pop();
@@ -24,4 +28,29 @@ export class BaojiaPage {
     console.log('ionViewDidLoad BaojiaPage');
   }
 
+  directToSubmit(){
+    let phoneReg = /^(13|14|15|17|18)[0-9]{9}$/;
+    if(this.username == ''){
+      this.doAlert('请输入姓名');
+      return false;
+    }
+    if(this.phone == ''){
+      this.doAlert('请输入手机号');
+      return false;
+    }else if(!phoneReg.test(this.phone)){
+      this.doAlert("请输入正确的手机号");
+      return false;
+    }
+    if(this.address == ''){
+      this.doAlert('请输入小区号');
+      return false;
+    }
+  }
+  doAlert(Msg) {
+    let alert = this.alerCtrl.create({
+      message: Msg,
+      buttons: ['好的']
+    });
+    alert.present()
+  }
 }

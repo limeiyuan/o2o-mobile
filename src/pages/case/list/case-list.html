@@ -21,12 +21,12 @@
       <ion-scroll scrollY="true" class="fixed-content">
         <ion-list *ngIf="selected_segment===0">
           <div class="tab-select">
-            <div class="tab-list" (click)="showSubMenu('houseType')">
+            <div class="tab-list" (click)="queryCondition('houseType')">
               户型
               <img class="select-dowm" *ngIf="subMenu !== 'houseType'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'houseType'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseType'">
-                <li class="fl">不限</li>
+                <li class="fl active">不限</li>
                 <li class="fl">一居</li>
                 <li class="fl">二居</li>
                 <li class="fl">三居</li>
@@ -36,7 +36,7 @@
                 <li class="fl">别墅</li>
               </ul>
             </div>
-            <div class="tab-list" (click)="showSubMenu('style')">
+            <div class="tab-list" (click)="queryCondition('style')">
               风格
               <img class="select-dowm" *ngIf="subMenu !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
@@ -51,7 +51,7 @@
                 <li class="fl">别墅</li>
               </ul>
             </div>
-            <div class="tab-list" (click)="showSubMenu('area')">
+            <div class="tab-list" (click)="queryCondition('area')">
               面积
               <img class="select-dowm" *ngIf="subMenu !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
@@ -153,7 +153,7 @@
               </div>
             </div>
             <!--遮罩-->
-            <div class="overlay-full" *ngIf="subMenu!==''" (click)="showSubMenu('')"></div>
+            <div class="overlay-full" *ngIf="subMenu!==''" (click)="queryCondition('')"></div>
           </div>
         </ion-list>
       </ion-scroll>
@@ -162,12 +162,12 @@
     <ion-slide class="slideTwo">
       <ion-scroll scrollY="true" class="fixed-content">
         <ion-list>
-          <div class="tab-selectTwo">
-            <div class="tab-list" (click)="showSubMenuTwo('houseTypeTwo')">
+          <div class="tab-select">
+            <div class="tab-list" (click)="queryCondition('houseTypeTwo')">
               户型
-              <img class="select-dowm" *ngIf="subMenuTwo !== 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenuTwo === 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenuTwo" *ngIf="subMenuTwo==='houseTypeTwo'">
+              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenu" *ngIf="subMenu==='houseTypeTwo'">
                 <li class="fl" >不限</li>
                 <li class="fl">一居</li>
                 <li class="fl">二居</li>
@@ -178,11 +178,11 @@
                 <li class="fl">别墅</li>
               </ul>
             </div>
-            <div class="tab-list" (click)="showSubMenuTwo('style')">
+            <div class="tab-list" (click)="queryCondition('style')">
               风格
-              <img class="select-dowm" *ngIf="subMenuTwo !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenuTwo === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenuTwo" *ngIf="subMenuTwo==='style'">
+              <img class="select-dowm" *ngIf="subMenu !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenu" *ngIf="subMenu==='style'">
                 <li class="fl">不限</li>
                 <li class="fl">欧式</li>
                 <li class="fl">二居</li>
@@ -193,11 +193,11 @@
                 <li class="fl">别墅</li>
               </ul>
             </div>
-            <div class="tab-list" (click)="showSubMenuTwo('area')">
+            <div class="tab-list" (click)="queryCondition('area')">
               面积
-              <img class="select-dowm" *ngIf="subMenuTwo !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenuTwo === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenuTwo" *ngIf="subMenuTwo==='area'">
+              <img class="select-dowm" *ngIf="subMenu !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <ul class="submenu" *ngIf="subMenu==='area'">
                 <li class="fl">不限</li>
                 <li class="fl">10*30</li>
                 <li class="fl">二居</li>
@@ -248,7 +248,7 @@
             </ion-infinite-scroll-content>
           </ion-infinite-scroll>
 
-          <div class="overlay-simple" *ngIf="subMenuTwo!==''" (click)="showSubMenuTwo('')"></div>
+          <div class="overlay-simple" *ngIf="subMenu!==''" (click)="queryCondition('')"></div>
         </ion-list>
       </ion-scroll>
     </ion-slide>
@@ -256,11 +256,11 @@
     <ion-slide class="slideThree">
       <ion-scroll scrollY="true" class="fixed-content">
         <div class="tab-select">
-          <div class="tab-list" (click)="showSubMenuThree('style')">
+          <div class="tab-list" (click)="queryCondition('style')">
             风格
-            <img class="select-dowm" *ngIf="subMenuThree !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-            <img class="select-dowm" *ngIf="subMenuThree === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-            <ul class="submenu" *ngIf="subMenuThree==='style'">
+            <img class="select-dowm" *ngIf="subMenu !== 'style'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'style'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenu==='style'">
               <li class="fl">不限</li>
               <li class="fl">一居</li>
               <li class="fl">二居</li>
@@ -271,11 +271,11 @@
               <li class="fl">别墅</li>
             </ul>
           </div>
-          <div class="tab-list" (click)="showSubMenuThree('area')">
+          <div class="tab-list" (click)="queryCondition('area')">
             面积
-            <img class="select-dowm" *ngIf="subMenuThree !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-            <img class="select-dowm" *ngIf="subMenuThree === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-            <ul class="submenu" *ngIf="subMenuThree==='area'">
+            <img class="select-dowm" *ngIf="subMenu !== 'area'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'area'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenu==='area'">
               <li class="fl">不限</li>
               <li class="fl">10*30</li>
               <li class="fl">二居</li>
@@ -302,7 +302,7 @@
               <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
             </div>
           </div>
-          <div class="overlay-panorama" *ngIf="subMenuThree!==''" (click)="showSubMenuThree('')"></div>
+          <div class="overlay-panorama" *ngIf="subMenu!==''" (click)="queryCondition('')"></div>
         </div>
       </ion-scroll>
     </ion-slide>
