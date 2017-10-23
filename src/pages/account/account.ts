@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { accountService } from "../../providers/account-service-rest";
 
@@ -17,11 +17,12 @@ import { accountService } from "../../providers/account-service-rest";
 export class AccountPage {
   viewMode: string = 'login';
   role : string = '普通用户';
+  stringRole : string = 'USER';
   login: {username: string, password: string} = {username: '', password: ''};
   register: {username: string, password: string, code: string} = {username: '', password: '', code:''};
   public tips = '获取验证码';
   public disabled = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
+  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
   }
 
   ionViewDidLoad() {
@@ -41,7 +42,7 @@ export class AccountPage {
     that.tips = number + 's';
     this.service.sendCode(this.register.username)
       .then(data => {
-        console.log(data.result.length);
+        console.log(data);
         const timer = setInterval(function () {
           number --;
           if (number === 0) {
@@ -58,7 +59,7 @@ export class AccountPage {
   // 登录
   directToLogin(){
     if(this.login.username == ''){
-      this.presentToast('请输入用户名');
+      this.presentToast('请输入手机号');
       return false;
     }
     if(this.login.password == ''){
@@ -72,7 +73,7 @@ export class AccountPage {
     let passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/ig;
 
     if(this.register.username == ''){
-      this.presentToast('请输入用户名');
+      this.presentToast('请输入手机号');
       return false;
     }else if(!phoneReg.test(this.register.username)){
       this.presentToast("请输入正确的手机号");
@@ -89,9 +90,16 @@ export class AccountPage {
       this.presentToast("密码为6-12位字母数字结合");
       return false;
     }
-    this.service.doRegister(this.register.username, this.register.password, this.register.code)
+    this.service.doRegister(this.register.username, this.register.password, this.stringRole, this.register.code)
       .then(data => {
        console.log(data);
+       if(data.message == "该电话号码已经进行注册过"){
+         this.presentToast("该手机号已注册");
+         return false;
+       };
+       if(data.success == true){
+         this.appCtrl.getRootNav().push('TabsPage');
+       }
       })
       .catch(error => alert(JSON.stringify(error)));
   }
@@ -105,7 +113,8 @@ export class AccountPage {
     });
     toast.present();
   }
-  changeRole(eng, role){
+  changeRole(stringRole, role){
     this.role = role;
+    this.stringRole = stringRole;
   }
 }

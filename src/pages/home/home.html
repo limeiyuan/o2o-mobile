@@ -7,15 +7,16 @@
     <!--<button (click)="directToDemo()">Demo页</button>-->
     <div class="nav-module slider-84">
       <ion-slides loop="true" #mySlider (ionSlideDidChange)="onSlideChanged($event)">
-        <ion-slide>
-          <img src="../../assets/image/home/ban.jpg" class="slide-image"/>
-        </ion-slide>
-        <ion-slide>
-          <img src="../../assets/image/home/ban1.jpg" class="slide-image"/>
-        </ion-slide>
-        <ion-slide>
-          <img src="../../assets/image/home/ban2.jpg" class="slide-image"/>
-        </ion-slide>
+          <ion-slide *ngFor="let banner of bannerList">
+            <img src="../../assets/image/home/ban.jpg" class="slide-image"/>
+            <!--<img src="{{getPhoto(banner.photo.path)}}" class="slide-image"/>-->
+          </ion-slide>
+        <!--<ion-slide>-->
+          <!--<img src="../../assets/image/home/ban1.jpg" class="slide-image"/>-->
+        <!--</ion-slide>-->
+        <!--<ion-slide>-->
+          <!--<img src="../../assets/image/home/ban2.jpg" class="slide-image"/>-->
+        <!--</ion-slide>-->
       </ion-slides>
       <div class="tab-function">
         <ul class="ulList clearfix">
@@ -46,7 +47,10 @@
       </div>
       <div class="caseWrapper">
         <div class="case-item" *ngFor="let case of caseList">
-          <img src="../../assets/image/home/pic-1@3x.png" alt="">
+          <div class="img-wrap">
+            <!--<img src="../../assets/image/home/pic-1@3x.png" alt="">-->
+            <!--<img src="{{getPhoto(case.photo.path)}}" alt="">-->
+          </div>
           <div class="text-wrap clearfix">
             <div class="caseTitle fl">{{case.title}}</div>
             <div class="caseStyle fr">
@@ -70,7 +74,10 @@
         <div *ngFor="let designer of designerList">
           <ion-slide>
             <div class="design-item">
-              <img src="../../assets/image/home/design-1@3x.png" alt="">
+              <!--<img src="../../assets/image/home/design-1@3x.png" alt="">-->
+              <div class="img-wrap">
+                <img src="{{getPhoto(designer.cover)}}" alt="">
+              </div>
               <h1>{{designer.nickname}}</h1>
               <h3>{{designer.position}}</h3>
             </div>
@@ -86,7 +93,7 @@
       </div>
       <div class="decoration-item clearfix" *ngFor="let article of articleList">
         <div class="img-wrap fl">
-          <!--<img src="{{getPhoto(article.photo.path)}}" alt="">-->
+          <img src="{{getPhoto(article.photo.path)}}" alt="">
           <!--<img src="../../assets/image/home/pic-3@3x.png" alt="">-->
         </div>
         <div class="decoration-text fl">

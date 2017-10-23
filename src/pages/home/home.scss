@@ -110,18 +110,23 @@ ion-header{
         border-radius: 6*$px;
         box-shadow: 4*$px 3*$px 10*$px 4*$px rgba(0,167,255,.2);
         margin-bottom: 30*$px;
-        img{
+        .img-wrap{
           height: 300*$px;
+          img{
+            height: 300*$px;
+          }
         }
         .text-wrap{
           font-size: 26*$px;
           height: 85*$px;
+          line-height: 85*$px;
           margin-top: 10*$px;
           padding: 0 22*$px;
           .caseTitle{
             color: rgb(51,51,51);
             width: 295*$px;
-            height: 26*$px;
+            height: 85*$px;
+            line-height: 85*$px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -175,10 +180,14 @@ ion-header{
         text-align: center;
         padding-top: 30*$px;
         border-radius: 12*$px;
-        img{
+        .img-wrap{
           width: 140*$px;
           height: 140*$px;
           margin-bottom: 5*$px;
+          img{
+            width: 140*$px;
+            height: 140*$px;
+          }
         }
         h1{
           font-size: 26*$px;
@@ -196,6 +205,7 @@ ion-header{
   .decorationWrpper{
     margin-top: 20*$px;
     background-color: #fff;
+    padding-bottom: 30*$px;
     .title{
       padding: 20*$px;
       h1{
@@ -216,9 +226,13 @@ ion-header{
       padding-left: 20*$px;
       margin-bottom: 15*$px;
       .img-wrap{
+        width: 140*$px;
+        height: 150*$px;
+        border-radius: 4*$px;
         img{
           width: 140*$px;
           height: 150*$px;
+          border-radius: 4*$px;
         }
       }
       .decoration-text{
@@ -228,6 +242,12 @@ ion-header{
           font-size: 24*$px;
           color: #000;
           margin-bottom: 10*$px;
+          width: 560*$px;
+          height: 30*$px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: block;
+          white-space: nowrap;
         }
         .decoration-des{
           font-size: 22*$px;

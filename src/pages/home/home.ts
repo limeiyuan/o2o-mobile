@@ -3,6 +3,8 @@ import {App, NavController, IonicPage, Config} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Slides } from 'ionic-angular';
 import {HomeService} from "../../providers/home-service-rest";
+import {BaseControllerClass} from "../../providers/base-controller";
+import {PicService} from "../../providers/pic-service-rest";
 
 @IonicPage({
   segment: 'home'
@@ -11,7 +13,7 @@ import {HomeService} from "../../providers/home-service-rest";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage extends BaseControllerClass {
   // 设计师可拖拽
   @Input("slides") slides: string[] = [];
   @Input("pageNumber") pageNumber: number = 2.6;
@@ -22,11 +24,13 @@ export class HomePage {
   articleList: Array<any>;
   caseList: Array<any>;
   designerList: Array<any>;
+  bannerList: Array<any>;
 
 
   @ViewChild('mySlider') slider: Slides;
 
-  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar, public service: HomeService, public config: Config) {
+  constructor(public appCtrl: App, public navCtrl: NavController,public statusBar:StatusBar, public service: HomeService,public picService:PicService, public config: Config) {
+    super(picService);
     this.statusBar.overlaysWebView(true);
     this.statusBar.backgroundColorByHexString('#329ff1');
     this.query();
@@ -73,6 +77,7 @@ export class HomePage {
         this.articleList = data.result.article.article;
         this.caseList = data.result.article.case;
         this.designerList = data.result.designer;
+        this.bannerList = data.result.banner;
         console.log(data);
       })
       .catch(error => console.log(error));

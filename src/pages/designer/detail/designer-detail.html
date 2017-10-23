@@ -10,13 +10,13 @@
       <div class="img-wrap">
         <img src="../../assets/image/designer/design-1@3x.png" alt="">
       </div>
-      <h1>魏亚茹</h1>
+      <h1>{{designerData.nickname}}</h1>
       <h3 class="sec">
-        <span>北京</span>
-        <span>3年工作经验</span>
+        <span>{{designerData.userExtend.location.provinceName}}</span>
+        <span>{{designerData.userExtend.workingTime}}年工作经验</span>
       </h3>
       <h3>
-        擅长风格：地中海 现代简约 新中式
+        擅长风格：<span *ngFor="let style of goodStyles">{{style.name}}</span>
       </h3>
       <p class="button-wrap">
         <button class="appoint">预约Ta</button>

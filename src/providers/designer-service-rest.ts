@@ -4,10 +4,10 @@ import 'rxjs/add/operator/map';
 import {SERVER_URL} from "./config";
 import "rxjs/add/operator/toPromise";
 
-let baseUrl = SERVER_URL + 'case/';
+let baseUrl = SERVER_URL;
 
 @Injectable()
-export class CaseService {
+export class DesignerService {
 
   pageSize = 10;
 
@@ -19,28 +19,29 @@ export class CaseService {
       .map(res => res.json())
       .toPromise();
   }
-  // 获得案例搜索条件
-  queryCondition() {
-    return this.http.get(baseUrl + 'selectBydict.htm')
-      .map(res => res.json())
-      .toPromise();
-  }
-  // 效果图查询
-  query(pageNo, pageSize = null, style_id = undefined, type_id = undefined, area_id = undefined, type = undefined) {
+  // 设计师列表查询
+  query(pageNo, pageSize = null) {
     if (pageSize == null) {
       pageSize = this.pageSize;
     }
-    return this.http.get(baseUrl + 'query.action', {
+    return this.http.get(baseUrl + 'designer/selectDisigner.htm', {
       params: {
         pageSize: pageSize,
         pageNo: pageNo,
-        style_id: style_id,
-        type_id: type_id,
-        area_id: area_id,
-        type: type,
       }
     })
       .map(res => res.json())
       .toPromise();
   }
+  // 设计师详情-资料
+  querydata(id) {
+    return this.http.get(baseUrl + 'user/selectDesigner.htm', {
+      params: {
+       id:id
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
+
 }

@@ -12,6 +12,8 @@ import {HttpModule} from "@angular/http";
 import {DemoService} from "../providers/demo-service-rest";
 import {PicService} from "../providers/pic-service-rest";
 import {HomeService} from "../providers/home-service-rest";
+import {DesignerService} from "../providers/designer-service-rest";
+import {ArticleService} from "../providers/article-service-rest";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import {HomeService} from "../providers/home-service-rest";
     DemoService,
     PicService,
     HomeService,
+    DesignerService,
+    ArticleService
   ]
 })
 export class AppModule {

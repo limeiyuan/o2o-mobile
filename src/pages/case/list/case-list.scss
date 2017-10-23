@@ -11,7 +11,7 @@ $px: 16rem/750;
             position: relative;
           }
           .box {
-            //width: 50%;
+            width: 345*$px!important;
             float: left;
             margin-right: 15*$px;
             //padding: 10*$px;
@@ -130,7 +130,7 @@ $px: 16rem/750;
       position: fixed;
       z-index: 2;
       width: 100%;
-      .tab-list,.tab-listTwo{
+      .tab-list{
         flex:1;
         -ms-flex:1;
         -webkit-flex:1;
@@ -141,7 +141,7 @@ $px: 16rem/750;
           width: 16*$px;
           height: 12*$px;
         }
-        .submenu,.submenuTwo,submenuThree{
+        .submenu{
           position: fixed;
           padding: 40*$px 0 0 40*$px;
           top: 68*$px;
@@ -184,6 +184,8 @@ $px: 16rem/750;
         padding-bottom: 15*$px;
         margin-bottom: 30*$px;
         .img-wrap{
+          width: 710*$px;
+          height: 300*$px;
           img{
             width: 710*$px;
             height: 300*$px;
@@ -238,11 +240,16 @@ $px: 16rem/750;
     }
     .panorama-wrap{
       padding: 20*$px;
+      padding-top: 90*$px;
       .panorama-item{
         position: relative;
-        img{
+        .img-wrap{
           width: 710*$px;
           height:350*$px;
+          img{
+            width: 710*$px;
+            height:350*$px;
+          }
         }
         .panorama-button{
           position: absolute;

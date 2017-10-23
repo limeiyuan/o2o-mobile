@@ -7,102 +7,38 @@
   </ion-header>
   <ion-content >
     <div class="desigerWrapper">
-      <div class="designer-item">
+      <div class="designer-item" *ngFor="let designer of designerList">
         <div class="designer-top clearfix">
           <div class="desiger-left fl">
-            <img src="../../assets/image/designer/design-1@3x.png" (click)="openDetailsPage()" alt="">
+            <img src="../../assets/image/designer/design-1@3x.png" (click)="openDetailsPage(designer.id)" alt="">
+            <!--<img src="{{getPicture(designer.photo.path)}}" (click)="openDetailsPage(designer.id)" alt="">-->
           </div>
           <div class="designer-middle fl">
-            <h1>魏亞茹</h1>
+            <h1>{{designer.nickname}}</h1>
             <p class="attention">
-              <span class="care">关注<span class="num">521</span></span>
-              <span class="bargin">成交<span class="num">5121</span></span>
+              <span class="care">
+                关注
+                <span class="num">{{designer.stareCount}}</span>
+              </span>
+              <span class="bargin">
+                成交
+                <span class="num">{{designer.caseCount}}</span>
+              </span>
             </p>
             <p class="brief">
-              <span>北京</span>
+              <span>{{designer.userExtend.location.provinceName}}</span>
               <span>|</span>
-              <span>3年设计经验</span>
+              <span>{{designer.userExtend.workingTime}}年设计经验</span>
             </p>
           </div>
           <div class="designer-right fl">
-            <button class="appoint">预约Ta</button>
+            <button class="appoint" (click)="directToBaojia(designer.id)">预约Ta</button>
           </div>
         </div>
         <div class="designer-bottom clearfix">
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-1@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-2@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-3@3x.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="designer-item">
-        <div class="designer-top clearfix">
-          <div class="desiger-left fl">
-            <img src="../../assets/image/designer/design-1@3x.png" alt="">
-          </div>
-          <div class="designer-middle fl">
-            <h1>魏亞茹</h1>
-            <p class="attention">
-              <span class="care">关注<span class="num">521</span></span>
-              <span class="bargin">成交<span class="num">5121</span></span>
-            </p>
-            <p class="brief">
-              <span>北京</span>
-              <span>|</span>
-              <span>3年设计经验</span>
-            </p>
-          </div>
-          <div class="designer-right fl">
-            <button class="appoint">预约Ta</button>
-          </div>
-        </div>
-        <div class="designer-bottom clearfix">
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-1@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-2@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-3@3x.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="designer-item">
-        <div class="designer-top clearfix">
-          <div class="desiger-left fl">
-            <img src="../../assets/image/designer/design-1@3x.png" alt="">
-          </div>
-          <div class="designer-middle fl">
-            <h1>魏亞茹</h1>
-            <p class="attention">
-              <span class="care">关注<span class="num">521</span></span>
-              <span class="bargin">成交<span class="num">5121</span></span>
-            </p>
-            <p class="brief">
-              <span>北京</span>
-              <span>|</span>
-              <span>3年设计经验</span>
-            </p>
-          </div>
-          <div class="designer-right fl">
-            <button class="appoint">预约Ta</button>
-          </div>
-        </div>
-        <div class="designer-bottom clearfix">
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-1@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-2@3x.png" alt="">
-          </div>
-          <div class="img-wrap fl">
-            <img src="../../assets/image/designer/pic-3@3x.png" alt="">
+          <div class="img-wrap fl" *ngFor="let caseDto of designer.caseDtos">
+              <img src="../../assets/image/designer/pic-1@3x.png" alt="">
+            <!--<img src="{{getPicture(caseDto.photo.path)}}" alt="">-->
           </div>
         </div>
       </div>

@@ -7,14 +7,12 @@
 </ion-header>
 
 <ion-content class="property-list">
-
   <!--下拉刷新-->
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
-
     <ion-item-sliding *ngFor="let property of properties">
       <button ion-item (click)="openPropertyDetail(property)">
         <ion-thumbnail item-left>

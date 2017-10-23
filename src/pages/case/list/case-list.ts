@@ -1,8 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, IonicPage, NavParams} from 'ionic-angular';
+import {NavController, IonicPage, NavParams, Config} from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
+import {BaseControllerClass} from "../../../providers/base-controller";
+import {PicService} from "../../../providers/pic-service-rest";
+
 
 
 
@@ -13,18 +16,49 @@ import {CaseService} from "../../../providers/case-service-rest";
   selector: 'page-case-list',
   templateUrl: './case-list.html'
 })
-export class CaseListPage {
+export class CaseListPage extends BaseControllerClass{
 
   @ViewChild('mySlider') slider: Slides;
+  areaList: Array<any>;
+  styleList: Array<any>;
+  typeList: Array<any>;
+  fullScreenList :Array<any>;
+  halfpackList :Array<any>;
+  panramaList :Array<any>;
+  typename: string = 'inclusive';
+  currentPageNo = 0;
+
+
+
+  pageNo : Number = 0;
 
   private selected_segment = 0;
   top_segment = 'top_0';
   segment = 'sites';
   subMenu: string = '';
-  subMenuTwo: string = '';
-  subMenuThree: string = '';
-
   rootNavCtrl: NavController;
+
+  typeId:number = undefined;
+  styleId:number = undefined;
+  areaId:number = undefined;
+  activeIndex:number;
+  activeObj:Object = {
+    inclusive: {
+      type: -1,
+      style: -1,
+      area: -1
+    },
+    halfpack: {
+      type: -1,
+      style: -1,
+      area: -1
+    },
+    panrama: {
+      type: -1,
+      style: -1,
+      area: -1
+    }
+  };
 
   // 瀑布流
   img_data = [{
@@ -44,7 +78,10 @@ export class CaseListPage {
   },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public service: CaseService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public service: CaseService, public picService: PicService, public config: Config) {
+    super(picService);
+    this.query(-1);
+
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.platform = platform;
 
@@ -60,16 +97,66 @@ export class CaseListPage {
   }
 // 获得案例搜索条件
   queryCondition(subMenu){
-      this.subMenu = subMenu;
+    this.subMenu = subMenu;
     this.service.queryCondition()
       .then(data=>{
         console.log(data);
-        // this.areaList = data.result.AREA.list;
-        // this.styleList = data.result.STYLE.list;
-        // this.areaList = data.result.AREA;
+        this.areaList = data.result.area;
+        this.styleList = data.result.style;
+        this.typeList = data.result.type;
       })
       .catch(error => console.log(error));
   }
+// 查询效果图
+  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, ) {
+    let target
+    if (typeId!==undefined) {
+      target = 'type'
+    }
+    if (styleId!==undefined) {
+      target = 'style'
+    }
+    if (areaId!==undefined) {
+      target = 'area'
+    }
+    this.activeObj[this.typename][target] = index;
+    if (styleId === undefined) {
+      styleId = this.styleId;
+    } else if(styleId == 0){
+      this.styleId = styleId = undefined;
+    } else {
+      this.styleId = styleId;
+    }
+    if (typeId === undefined) {
+      typeId = this.typeId;
+    } else if(typeId == 0){
+      this.typeId = typeId = undefined;
+    } else {
+      this.typeId = typeId;
+    }
+    if (areaId === undefined) {
+      areaId = this.areaId;
+    } else if(areaId == 0){
+      this.areaId = areaId = undefined;
+    } else {
+      this.areaId = areaId;
+    }
+
+    this.service.query(this.pageNo,undefined, styleId, typeId, areaId, typename)
+      .then(data => {
+        console.log(data);
+        if(typename == 'inclusive'){
+          this.fullScreenList = data.result;
+        }else if(typename == 'halfpack'){
+          this.halfpackList = data.result;
+        }else if(typename == 'panrama'){
+          this.panramaList = data.result;
+        }
+        this.subMenu = '';
+      })
+      .catch(error => console.log(error));
+  }
+
 
   data_group: Array<{id:number, title: string, details: any, icon: string, showDetails: boolean}> = [];
 
@@ -96,15 +183,21 @@ export class CaseListPage {
   onSlideChanged($event)
   {
     let currentIndex = this.slider.getActiveIndex();
-    console.log(currentIndex)
+    console.log(currentIndex);
     if (currentIndex === 2){
       this.top_segment = 'top_2';
+      this.typename = 'panrama';
+      this.query(0);
     }
     if (currentIndex === 1){
       this.top_segment = 'top_1';
+      this.typename = 'halfpack';
+      this.query(0);
     }
     if (currentIndex === 0){
       this.top_segment = 'top_0';
+      this.typename = 'inclusive';
+      this.query(0);
     }
   }
 
@@ -114,15 +207,7 @@ export class CaseListPage {
     console.log(currentIndex)
     this.top_segment = `top_${currentIndex}`
   }
-  // queryCondition(subMenu){
-  //   this.subMenu = subMenu
-  // }
-  // showSubMenuTwo(subMenuTwo){
-  //   this.subMenuTwo = subMenuTwo
-  // }
-  // showSubMenuThree(subMenuThree){
-  //   this.subMenuThree = subMenuThree
-  // }
+
 
 // 瀑布流
   ionViewDidEnter() {
@@ -165,20 +250,38 @@ export class CaseListPage {
     }
   }
 //这里是借助ionic的上拉加载代替网页的滚动监听实现加载更多
-  doInfinite(infiniteScroll) {
-    let parentNode = document.getElementById("container");
-    for (var i = 0; i < this.img_data.length; i++) {
-      let divNode = document.createElement("div"); //创建div节点
-      divNode.className = "box";//为节点添加box类名
-      parentNode.appendChild(divNode);//添加根元素
-      let subDivNode = document.createElement("div");//创建节点
-      subDivNode.className = "box_img";//为节点添加类名
-      divNode.appendChild(subDivNode);//添加根元素
-      var img = document.createElement("img");//创建节点
-      img.src = this.img_data[i].src;//图片加载路径
-      subDivNode.appendChild(img);//添加根元素
-    }
-    this.getNode();
-    setTimeout(() => { infiniteScroll.complete() }, 1000);
+//   doInfinite(infiniteScroll) {
+//     let parentNode = document.getElementById("container");
+//     for (var i = 0; i < this.img_data.length; i++) {
+//       let divNode = document.createElement("div"); //创建div节点
+//       divNode.className = "box";//为节点添加box类名
+//       parentNode.appendChild(divNode);//添加根元素
+//       let subDivNode = document.createElement("div");//创建节点
+//       subDivNode.className = "box_img";//为节点添加类名
+//       divNode.appendChild(subDivNode);//添加根元素
+//       var img = document.createElement("img");//创建节点
+//       img.src = this.img_data[i].src;//图片加载路径
+//       subDivNode.appendChild(img);//添加根元素
+//     }
+//     this.getNode();
+//     setTimeout(() => { infiniteScroll.complete() }, 1000);
+//   }
+
+
+
+  //下拉刷新整个页面
+  doRefresh(refresh, $event: Event) {
+    this.currentPageNo = 0;
+    this.fullScreenList = [];
+    this.query(function () {
+      refresh.complete();
+    });
+  }
+
+  //上拉加载更多
+  doInfinite(infiniteScroll, $event: Event) {
+    this.query(function () {
+      infiniteScroll.complete();
+    })
   }
 }

@@ -21,11 +21,12 @@ export class accountService {
       .map(res => res.json())
       .toPromise();
   }
-  doRegister(username:string,password:string,signature:string) {
-    return this.http.get(baseUrl + 'register.htm',{
+  doRegister(username:string,password:string,type:string,signature:string) {
+    return this.http.get(baseUrl + 'designer/register.htm',{
       params: {
         username:username,
         password:password,
+        type:type,
         signature:signature,
       }
     })
