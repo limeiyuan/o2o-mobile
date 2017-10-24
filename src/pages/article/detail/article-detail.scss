@@ -27,10 +27,18 @@ page-article-detail {
       .titleBar{
         font-size: 30*$px;
         color: rgb(51,51,51);
+        width: 710*$px;
+        height: 40*$px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: block;
+        margin-bottom: 20*$px;
       }
       .content{
         font-size: 28*$px;
         color: rgb(102,102,102);
+        text-indent: 2em;
       }
     }
     .knowledge{
@@ -71,9 +79,11 @@ page-article-detail {
       }
       .knowledge-item{
         padding-left: 20*$px;
-        margin-bottom: 10*$px;
+        margin-bottom: 20*$px;
         .img-wrap{
           margin-right: 20*$px;
+          width: 210*$px;
+          height: 156*$px;
           img{
             width: 210*$px;
             height: 156*$px;
@@ -94,6 +104,7 @@ page-article-detail {
           .text{
             font-size: 24*$px;
             color: #575757;
+            height: 76*$px;
             line-height: 40*$px;
             margin-bottom: 10*$px;
             width: 464*$px;

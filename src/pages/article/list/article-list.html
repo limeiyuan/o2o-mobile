@@ -5,46 +5,37 @@
 </ion-header>
 <ion-content>
   <div class="progress-wrap clearfix">
-    <div class="progress-step fl" (click)="directToStep()">
+    <div class="progress-step fl" (click)="directToStep(37)">
       <img src="../../assets/image/article/pic-before@3x.png" alt="">
     </div>
-    <div class="progress-step fl">
+    <div class="progress-step fl" (click)="directToStep(38)">
       <img src="../../assets/image/article/pic-decorating@3x.png" alt="">
     </div>
-    <div class="progress-step fl">
+    <div class="progress-step fl" (click)="directToStep(39)">
     <img src="../../assets/image/article/pic-After@3x.png" alt="">
     </div>
   </div>
   <!--装修知识-->
-  <div class="knowledge">
+  <div class="knowledge select-material">
     <div class="title clearfix">
       <div class="fl text">
         <span class="line">|</span>
         <span>装修知识</span>
       </div>
       <div class="more fr">
-        <span>更多</span>
+        <span (click)="directToMoreArticle(38)">更多</span>
         <img src="../../assets/image/home/icon-more@3x.png" alt="">
       </div>
     </div>
-    <div class="knowledge-item clearfix" (click)="directToArticleDetail()">
+    <div class="knowledge-item select-material-item clearfix" (click)="directToArticleDetail(knowledge.id)" *ngFor="let knowledge of knowledgeList">
       <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-1@3x.png" alt="">
+        <!--<img src="../../assets/image/article/pic-1@3x.png" alt="">-->
+        <img src="{{getPicture(knowledge.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">2017-05-24</p>
-      </div>
-    </div>
-    <div class="knowledge-item clearfix">
-      <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-1@3x.png" alt="">
-      </div>
-      <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">2017-05-24</p>
+        <div class="headline">{{knowledge.title}}</div>
+        <p class="text">{{knowledge.intro}}</p>
+        <p class="time">{{knowledge.times}}</p>
       </div>
     </div>
   </div>
@@ -56,31 +47,68 @@
         <span>装修选材</span>
       </div>
       <div class="more fr">
-        <span>更多</span>
+        <span (click)="directToMoreArticle(37)">更多</span>
         <img src="../../assets/image/home/icon-more@3x.png" alt="">
       </div>
     </div>
-    <div class="select-material-item clearfix">
+    <div class="select-material-item clearfix" (click)="directToArticleDetail(selectMaterial.id)"  *ngFor="let selectMaterial of selectMaterialList">
       <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-3@3x.png" alt="">
+        <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
+        <img src="{{getPicture(selectMaterial.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">2017-05-24</p>
+        <div class="headline">{{selectMaterial.title}}</div>
+        <p class="text">{{selectMaterial.intro}}</p>
+        <p class="time">{{selectMaterial.times}}</p>
       </div>
     </div>
-    <div class="select-material-item clearfix">
-      <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-3@3x.png" alt="">
-      </div>
-      <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">2017-05-24</p>
-      </div>
-    </div>
-
   </div>
-
+    <!--家居风水与保养-->
+    <div class="select-material">
+      <div class="title clearfix">
+        <div class="fl text">
+          <span class="line">|</span>
+          <span>家居风水与保养</span>
+        </div>
+        <div class="more fr">
+          <span (click)="directToMoreArticle(39)">更多</span>
+          <img src="../../assets/image/home/icon-more@3x.png" alt="">
+        </div>
+      </div>
+      <div class="select-material-item clearfix" (click)="directToArticleDetail(geomancy.id)" *ngFor="let geomancy of geomancyList">
+        <div class="img-wrap fl">
+          <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
+          <img src="{{getPicture(geomancy.photo.path)}}" alt="">
+        </div>
+        <div class="text-right fl">
+          <div class="headline">{{geomancy.title}}</div>
+          <p class="text">{{geomancy.intro}}</p>
+          <p class="time">{{geomancy.times}}</p>
+        </div>
+      </div>
+    </div>
+      <!--装修风格与技巧-->
+      <div class="select-material">
+        <div class="title clearfix">
+          <div class="fl text">
+            <span class="line">|</span>
+            <span>装修风格与技巧</span>
+          </div>
+          <div class="more fr">
+            <span (click)="directToMoreArticle(40)">更多</span>
+            <img src="../../assets/image/home/icon-more@3x.png" alt="">
+          </div>
+        </div>
+        <div class="select-material-item clearfix" (click)="directToArticleDetail(style.id)" *ngFor="let style of styleList">
+          <div class="img-wrap fl">
+            <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
+            <img src="{{getPicture(style.photo.path)}}" alt="">
+          </div>
+          <div class="text-right fl">
+            <div class="headline">{{style.title}}</div>
+            <p class="text">{{style.intro}}</p>
+            <p class="time">{{style.times}}</p>
+          </div>
+        </div>
+      </div>
 </ion-content>

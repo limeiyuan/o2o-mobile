@@ -11,23 +11,26 @@
   <div class="form">
     <div class="name-wrap">
       <input class="name" type="text" name="name" placeholder="您的姓名" [(ngModel)]="username">
-      <div class="form-choose">
-        <span>先生</span>
+      <div class="form-choose" (click)="isShow=!isShow">
+        <span>{{gender}}</span>
         <img src="../../assets/image/yanfang/icon-select@3x.png" alt="">
-        <div class="select-click">
-          <div class="top">
+        <div class="select-click" *ngIf="isShow">
+          <div class="top" (click)="changeGender('MALE', '先生')">
             <span>先生</span>
             <img src="../../assets/image/yanfang/icon-select@3x.png" alt="">
           </div>
-          <div class="bottom">
+          <div class="bottom" (click)="changeGender('FEMALE', '女士')">
             女士
           </div>
         </div>
       </div>
     </div>
     <input class="phone" type="text" placeholder="手机号码" [(ngModel)]="phone" maxlength="11">
-    <input class="address" type="text" placeholder="所在小区" [(ngModel)]="address">
-    <input class="detailNum" type="text" placeholder="所在房号" [(ngModel)]="houseNum">
+    <div class="address">北京</div>
+    <div class="style-wrap">
+      <textarea name="" id="" cols="30" rows="10" class="style" placeholder="请输入您想要的风格类型以及其他要求" [(ngModel)]="style" maxlength="20"></textarea>
+      <span class="impose">最多输入20字</span>
+    </div>
     <input type="button" value="提交信息" class="submit" (click)="directToSubmit()">
   </div>
 </ion-content>

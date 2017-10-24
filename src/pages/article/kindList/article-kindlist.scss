@@ -1,5 +1,17 @@
 $px: 16rem/750;
-page-article-list {
+page-article-kindlist {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
   ion-content{
     .progress-wrap{
       padding: 25*$px 0 25*$px 20*$px;
@@ -128,7 +140,7 @@ page-article-list {
       }
       .select-material-item{
         padding-left: 20*$px;
-        margin-bottom: 20*$px;
+        margin-bottom: 10*$px;
         .img-wrap{
           width: 210*$px;
           height: 156*$px;
@@ -161,7 +173,6 @@ page-article-list {
             display:-webkit-box;
             -webkit-box-orient:vertical;
             -webkit-line-clamp:2;
-            height: 76*$px;
           }
           .time{
             color: #999;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
+import {DesignerService} from "../../providers/designer-service-rest";
 
 /**
  * Generated class for the YanfangPage page.
@@ -19,10 +20,13 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 export class YanfangPage {
   username: string = '';
   phone: string = '';
-  address: string = '';
-  houseNum: string = '';
+  address: string = '北京';
+  style: string = '';
+  gender: string = '先生';
+  designerId : Number;
+  stringGender : string = 'MALE';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
+  constructor(public navCtrl: NavController,  public service: DesignerService, public navParams: NavParams, public alerCtrl: AlertController) {
   }
   backListPage(){
     this.navCtrl.pop();
@@ -43,14 +47,15 @@ export class YanfangPage {
       this.doAlert("请输入正确的手机号");
       return false;
     }
-    if(this.address == ''){
-      this.doAlert('请输入小区号');
-      return false;
-    }
-    if(this.houseNum == ''){
-      this.doAlert('请输入房间号');
-      return false;
-    }
+    this.service.makeAppointment(this.style, this.phone, this.address, this.username, this.stringGender)
+      .then(data => {
+        console.log(data);
+        if(data.success == true){
+          this.doAlert("预约成功");
+          this.navCtrl.pop();
+        }
+      })
+      .catch(error => console.log(error));
   }
   doAlert(Msg) {
     let alert = this.alerCtrl.create({
@@ -58,5 +63,9 @@ export class YanfangPage {
       buttons: ['好的']
     });
     alert.present()
+  }
+  changeGender(stringGender, gender){
+    this.stringGender = stringGender;
+    this.gender = gender;
   }
 }

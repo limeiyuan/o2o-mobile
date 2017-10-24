@@ -16,12 +16,23 @@ export class DesignerDetailPage extends BaseControllerClass{
   designerId : Number;
   designerData : object;
   goodStyles : Array<any>;
+  nickname : string = '';
+  provinceName : string = '北京市';
+  workingTime : string = '';
+  photoPath : string = '';
+  panorama : object;
+  pageNo : Number = 1;
+  panoramaList : Array<any>;
+  caseList : Array<any>;
+
 
   constructor(public navCtrl: NavController, public NavParams: NavParams, public picService: PicService, public service: DesignerService, public config: Config) {
     super(picService);
     this.designerId = NavParams.get('id');
     console.log(this.designerId);
     this.querydata(this.designerId);
+    this.queryPanorama(this.designerId);
+    this.queryCase(this.designerId);
   }
   backListPage(){
     this.navCtrl.pop();
@@ -31,7 +42,26 @@ export class DesignerDetailPage extends BaseControllerClass{
       .then(data =>{
         console.log(data);
         this.designerData = data.result;
+        this.nickname = data.result.nickname;
+        this.provinceName = data.result.userExtend.location.provinceName;
+        this.workingTime = data.result.userExtend.workingTime;
         this.goodStyles = data.result.userExtend.goodsStyles
+      })
+      .catch(error => console.log(error));
+  }
+  queryPanorama(id){
+    this.service.queryPanorama(this.pageNo, undefined, id)
+      .then(data =>{
+        console.log(data);
+        this.panoramaList = data.result;
+      })
+      .catch(error => console.log(error));
+  }
+  queryCase(id){
+    this.service.queryCase(this.pageNo, undefined, id)
+      .then(data =>{
+        console.log(data);
+        this.caseList = data.result;
       })
       .catch(error => console.log(error));
   }

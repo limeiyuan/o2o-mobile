@@ -22,7 +22,7 @@ page-baojia {
     }
     .form{
       padding: 0 20*$px;
-      input,select,.form-choose,textarea{
+      input,select,.form-choose,textarea,.address{
         height: 100*$px;
         line-height: 100*$px;
         padding-left: 36*$px;
@@ -50,7 +50,7 @@ page-baojia {
             margin-left: 30*$px;
           }
           .select-click{
-            display: none;
+            //display: none;
             position: absolute;
             padding-left: 0;
             right: -1px;

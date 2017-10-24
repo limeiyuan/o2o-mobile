@@ -1,67 +1,59 @@
 <ion-header>
   <div class="title">
     <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
-    装修前
+    {{articleTitle}}
   </div>
 </ion-header>
 
 <ion-content>
-  <!--<div class="progress-wrap clearfix">-->
     <ion-slides class="progress-wrap" [slidesPerView]="pageNumber" [pager]="false">
-      <ion-slide >
+      <ion-slide>
         <div class="progress-step fl" >
-        <img src="../../assets/image/step/before-1@3x.png" alt="">
+        <img *ngIf="articleTitle === '装修前'" src="../../assets/image/step/before-1@3x.png" alt="">
+        <img *ngIf="articleTitle === '装修中'" src="../../assets/image/step/decorating-1@3x.png" alt="">
+        <img *ngIf="articleTitle === '装修后'" src="../../assets/image/step/after-1@3x.png" alt="">
         </div>
       </ion-slide>
-      <ion-slide >
+      <ion-slide>
         <div class="progress-step fl" >
-          <img src="../../assets/image/step/before-2@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修前'" src="../../assets/image/step/before-2@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修中'" src="../../assets/image/step/decorating-2@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修后'" src="../../assets/image/step/after-2@3x.png" alt="">
         </div>
       </ion-slide>
-      <ion-slide >
+      <ion-slide>
         <div class="progress-step fl" >
-          <img src="../../assets/image/step/before-3@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修前'" src="../../assets/image/step/before-3@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修中'" src="../../assets/image/step/decorating-3@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修后'" src="../../assets/image/step/after-3@3x.png" alt="">
         </div>
       </ion-slide>
-      <ion-slide >
+      <ion-slide>
         <div class="progress-step fl" >
-          <img src="../../assets/image/step/before-4@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修前'" src="../../assets/image/step/before-4@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修中'" src="../../assets/image/step/decorating-4@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修后'" src="../../assets/image/step/after-4@3x.png" alt="">
         </div>
       </ion-slide>
+      <ion-slide>
+        <div class="progress-step fl" >
+          <img *ngIf="articleTitle === '装修前'" src="../../assets/image/step/before-5@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修中'" src="../../assets/image/step/decorating-5@3x.png" alt="">
+          <img *ngIf="articleTitle === '装修后'" src="../../assets/image/step/after-4@3x.png" alt="">
 
+        </div>
+      </ion-slide>
     </ion-slides>
-    <!--<div class="progress-step fl" >-->
-      <!--<img src="../../assets/image/step/before-1@3x.png" alt="">-->
-    <!--</div>-->
-    <!--<div class="progress-step fl">-->
-      <!--<img src="../../assets/image/step/before-2@3x.png" alt="">-->
-    <!--</div>-->
-    <!--<div class="progress-step fl">-->
-      <!--<img src="../../assets/image/step/before-3@3x.png" alt="">-->
-    <!--</div>-->
-    <!--<div class="progress-step fl">-->
-      <!--<img src="../../assets/image/step/before-4@3x.png" alt="">-->
-    <!--</div>-->
-  <!--</div>-->
   <div class="knowledge">
-    <div class="knowledge-item clearfix">
+    <div class="knowledge-item clearfix" (click)="directToArticleDetail(article.id)" *ngFor="let article of articleList">
       <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-1@3x.png" alt="">
+        <!--<img src="../../assets/image/article/pic-1@3x.png" alt="">-->
+        <img src="{{getPicture(article.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">10分钟前</p>
-      </div>
-    </div>
-    <div class="knowledge-item clearfix">
-      <div class="img-wrap fl">
-        <img src="../../assets/image/article/pic-1@3x.png" alt="">
-      </div>
-      <div class="text-right fl">
-        <div class="headline">教你选购一款好壁纸</div>
-        <p class="text">如今的家居环境越来越富有主题，几面墙甚至只是一面墙，利用墙纸带来的……</p>
-        <p class="time">10分钟前</p>
+        <div class="headline">{{article.title}}</div>
+        <p class="text">{{article.intro}}</p>
+        <p class="time">{{article.times}}</p>
       </div>
     </div>
   </div>

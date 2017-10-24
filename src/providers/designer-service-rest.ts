@@ -14,11 +14,6 @@ export class DesignerService {
   constructor(public http: Http) {
   }
 
-  findAll() {
-    return this.http.get(baseUrl + 'query.htm')
-      .map(res => res.json())
-      .toPromise();
-  }
   // 设计师列表查询
   query(pageNo, pageSize = null) {
     if (pageSize == null) {
@@ -33,11 +28,70 @@ export class DesignerService {
       .map(res => res.json())
       .toPromise();
   }
+  // 报价预约
+  makeAppointment(description, tel, address, name, gender) {
+    return this.http.get(baseUrl + 'request/save.htm',{
+      params: {
+        description: description,
+        tel: tel,
+        address: address,
+        name:name,
+        gender:gender
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
+  // 设计师预约
+  makeAppointmentDesigner(description, designerId, phone, address, applicant, gender) {
+    return this.http.get(baseUrl + 'designer/subscribeDesigner.action',{
+      params: {
+        description: description,
+        designerId: designerId,
+        phone: phone,
+        address: address,
+        applicant:applicant,
+        gender:gender
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
   // 设计师详情-资料
   querydata(id) {
     return this.http.get(baseUrl + 'user/selectDesigner.htm', {
       params: {
        id:id
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
+  // 设计师全景图列表查询
+  queryPanorama(pageNo, pageSize = null, id) {
+    if (pageSize == null) {
+      pageSize = this.pageSize;
+    }
+    return this.http.get(baseUrl + 'designer/selectMyDesignertCaseByPanorama.htm', {
+      params: {
+        pageSize: pageSize,
+        pageNo: pageNo,
+        id: id
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
+  // 设计师案例列表查询
+  queryCase(pageNo, pageSize = null, id) {
+    if (pageSize == null) {
+      pageSize = this.pageSize;
+    }
+    return this.http.get(baseUrl + 'designer/selectDesignerCase.htm', {
+      params: {
+        pageSize: pageSize,
+        pageNo: pageNo,
+        id: id
       }
     })
       .map(res => res.json())

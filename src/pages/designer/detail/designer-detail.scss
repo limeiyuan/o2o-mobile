@@ -41,6 +41,9 @@ page-designer-detail{
     h3{
       font-size: 30*$px;
       color: rgb(102,102,102);
+      .style{
+        margin-right: 5*$px;
+      }
     }
     .button-wrap{
       margin-top: 22*$px;
@@ -78,12 +81,18 @@ page-designer-detail{
       }
     }
     .panorama-item{
-      padding: 30*$px 20*$px;
+      padding: 30*$px 30*$px;
       background-color: #fff;
       margin-bottom: 30*$px;
       .img-wrap{
         position: relative;
         margin-bottom: 20*$px;
+        width: 686*$px;
+        height: 516*$px;
+        img{
+          width: 686*$px;
+          height: 516*$px;
+        }
         .panorama-vr{
           position: absolute;
           width: 170*$px;
@@ -95,6 +104,7 @@ page-designer-detail{
       .text{
         font-size: 26*$px;
         color: rgb(51,51,51);
+        height: 30*$px;
       }
     }
     .case-wrap{
@@ -105,6 +115,8 @@ page-designer-detail{
         .case-top{
           .caseImg-left{
             margin-right: 32*$px;
+            width: 446*$px;
+            height: 446*$px;
             img{
               width: 446*$px;
               height: 446*$px;
@@ -112,10 +124,14 @@ page-designer-detail{
           }
           .caseImg-right{
             height: 476*$px;
-            img{
+            .img-wrap{
               width: 209*$px;
               height: 209*$px;
-              margin-bottom: 10*$px;
+              margin-bottom: 20*$px;
+              img{
+                width: 209*$px;
+                height: 209*$px;
+              }
             }
           }
         }

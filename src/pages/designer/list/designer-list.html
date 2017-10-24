@@ -1,11 +1,10 @@
-<div id="designerList" cache-view="false" style="height: 100%; width: 100%">
   <ion-header>
     <div class="title">
       找设计
       <img class="newsIcon fr" src="../../assets/image/designer/icon-news@3x.png" alt="">
     </div>
   </ion-header>
-  <ion-content >
+  <ion-content>
     <div class="desigerWrapper">
       <div class="designer-item" *ngFor="let designer of designerList">
         <div class="designer-top clearfix">
@@ -26,9 +25,9 @@
               </span>
             </p>
             <p class="brief">
-              <span>{{designer.userExtend.location.provinceName}}</span>
+              <span>{{designer.userExtend?.location?.provinceName}}</span>
               <span>|</span>
-              <span>{{designer.userExtend.workingTime}}年设计经验</span>
+              <span>{{designer.userExtend?.workingTime}}年设计经验</span>
             </p>
           </div>
           <div class="designer-right fl">
@@ -44,5 +43,4 @@
       </div>
     </div>
   </ion-content>
-</div>
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {DesignerService} from "../../providers/designer-service-rest";
 
 /**
  * Generated class for the BaojiaPage page.
@@ -16,16 +17,20 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 export class BaojiaPage {
   username: string = '';
   phone: string = '';
-  address: string = '';
+  address: string = '北京';
   style: string = '';
+  gender: string = '先生';
+  designerId : Number;
+  stringGender : string = 'MALE';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alerCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public service: DesignerService, public navParams: NavParams, public alerCtrl: AlertController) {
+    this.designerId = navParams.get('id');
+    console.log(this.designerId);
   }
   backListPage(){
     this.navCtrl.pop();
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BaojiaPage');
   }
 
   directToSubmit(){
@@ -41,9 +46,26 @@ export class BaojiaPage {
       this.doAlert("请输入正确的手机号");
       return false;
     }
-    if(this.address == ''){
-      this.doAlert('请输入小区号');
-      return false;
+    if(this.designerId == undefined){
+      this.service.makeAppointment(this.style, this.phone, this.address, this.username, this.stringGender)
+        .then(data => {
+          console.log(data);
+          if(data.success == true){
+            this.doAlert("预约成功");
+            this.navCtrl.pop();
+          }
+        })
+        .catch(error => console.log(error));
+    }else{
+      this.service.makeAppointmentDesigner(this.style, this.designerId, this.phone, this.address, this.username, this.stringGender)
+        .then(data => {
+          console.log(data);
+          if(data.success == true){
+            this.doAlert("预约成功");
+            this.navCtrl.pop();
+          }
+        })
+        .catch(error => console.log(error));
     }
   }
   doAlert(Msg) {
@@ -52,5 +74,9 @@ export class BaojiaPage {
       buttons: ['好的']
     });
     alert.present()
+  }
+  changeGender(stringGender, gender){
+    this.stringGender = stringGender;
+    this.gender = gender;
   }
 }
