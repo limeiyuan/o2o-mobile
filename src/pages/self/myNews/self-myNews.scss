@@ -1,4 +1,24 @@
 $px: 16rem/750;
+.item-ios,.item {
+  padding-left: 0;
+  border-radius: 0;
+  position: relative;
+  font-size: 26*$px;
+  color: rgb(51,51,51);
+  background-color: #fff;
+}
+.item-block{
+  min-height: 100*$px;
+}
+.list-ios ion-item-options{
+  border: none;
+}
+.list-md ion-item-options{
+  border: none;
+}
+.list-md{
+  margin: 0;
+}
 page-self-MyNews{
   ion-header {
     .title {
@@ -39,6 +59,17 @@ page-self-MyNews{
       }
       .systemMessage-item{
         border-bottom: 1px solid rgb(234,234,234);
+        ion-item-options{
+          button{
+            width: 100*$px;
+            height: 100*$px;
+            background-color: #329ff1;
+            img{
+              width: 44*$px;
+              height: 47*$px;
+            }
+          }
+        }
         .circle{
           display: inline-block;
           width: 16*$px;
@@ -48,7 +79,11 @@ page-self-MyNews{
           margin-right: 20*$px;
         }
         .text{
+          width: 440*$px;
           color: rgb(51,51,51);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .alreadyRead{
           color: rgb(102,102,102);

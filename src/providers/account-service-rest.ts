@@ -33,4 +33,15 @@ export class accountService {
       .map(res => res.json())
       .toPromise();
   }
+  // 登录
+  doLogin(username:string,password:string){
+    return this.http.get(baseUrl + 'user/login.htm',{
+      params: {
+        username:username,
+        password:password,
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
 }

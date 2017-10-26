@@ -2,7 +2,7 @@
     <div class="title">
       <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
       设计师详情
-      <img class="share" src="../../assets/image/designer/detail/icon-share@3x.png" alt="">
+      <img class="share" src="../../assets/image/designer/detail/icon-share@3x.png" alt="" (click)="isShow=!isShow">
     </div>
   </ion-header>
   <ion-content>
@@ -19,7 +19,7 @@
         擅长风格：<span class="style" *ngFor="let style of goodStyles">{{style.name}}</span>
       </h3>
       <p class="button-wrap">
-        <button class="appoint">预约Ta</button>
+        <button class="appoint" (click)="directToBaojia(designerId)">预约Ta</button>
         <button class="private">私信Ta</button>
       </p>
     </div>
@@ -53,7 +53,7 @@
                 <!--<img src="../../assets/image/designer/detail/pic-3@3x.png" alt="">-->
               </div>
               <div class="caseImg-right fl">
-                <div class="img-wrap" *ngfor="let caseItem of case.photos.cover">
+                <div class="img-wrap" *ngFor="let caseItem of case.photos.cover">
                   <img src="{{getPicture(caseItem.photo_path)}}" alt="">
                   <!--<img src="../../assets/image/designer/detail/pic-4@3x.png" alt="">-->
                 </div>
@@ -65,8 +65,34 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </ion-content>
+  <div id="overlay" *ngIf="isShow" (click)="isShow=!isShow">
+    <div class="share-wrap">
+      <p class="title">
+        <span class="line"></span>
+        <span class="text">分享至</span>
+        <span class="line"></span>
+      </p>
+      <div class="step-wrap clearfix">
+        <div class="step-item fl">
+          <img src="assets/image/share/icon-WeChat@3x.png" alt="">
+          <p>微信</p>
+        </div>
+        <div class="step-item fl">
+          <img src="assets/image/share/icon-friends@3x.png" alt="">
+          <p>朋友圈</p>
+        </div>
+        <div class="step-item fl">
+          <img src="assets/image/share/icon-qq@3x.png" alt="">
+          <p>QQ</p>
+        </div>
+        <div class="step-item last fl">
+          <img src="assets/image/share/icon-weibo@3x.png" alt="">
+          <p>微博</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 

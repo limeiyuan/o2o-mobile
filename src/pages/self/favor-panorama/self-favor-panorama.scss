@@ -1,0 +1,50 @@
+$px: 16rem/750;
+page-self-favor-panorama {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .panorama-wrap{
+      padding: 20*$px;
+      .panorama-item{
+        position: relative;
+        .img-wrap{
+          width: 710*$px;
+          height:350*$px;
+          img{
+            width: 710*$px;
+            height:350*$px;
+          }
+        }
+        .panorama-button{
+          position: absolute;
+          top:32%;
+          left: 41.5%;
+          width: 140*$px;
+          height: 60*$px;
+          line-height: 60*$px;
+          text-align: center;
+          border-radius: 30*$px;
+          background-color: rgba(0,0,0,0.5);
+          color: #fff;
+          font-size: 24*$px;
+          img{
+            width: 19*$px;
+            height: 20*$px;
+            vertical-align: -2*$px;
+            margin-left: 3*$px;
+          }
+        }
+      }
+    }
+  }
+}

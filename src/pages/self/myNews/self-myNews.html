@@ -3,7 +3,7 @@
   <div class="title">
     <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     我的消息
-    <span class="save">全部已读</span>
+    <span class="save" (click)="allReadNews()">全部已读</span>
   </div>
 </ion-header>
 <ion-content>
@@ -22,20 +22,23 @@
     <div class="systemMessage-wrap" *ngIf="viewMode==='systemMessage'">
       <!--有消息-->
       <div class="systemMessage-have" >
-        <div class="systemMessage-item setting-item">
-          <h3 class="fl text">
-            <span class="circle"></span>
-            <span>家装平台正式上线啦！</span>
-          </h3>
-          <h3 class="fr time">2015-04-16</h3>
-        </div>
-        <div class="systemMessage-item setting-item">
-          <h3 class="fl text alreadyRead">
-            <!--<span class="circle"></span>-->
-            <span>家装平台正式上线啦！</span>
-          </h3>
-          <h3 class="fr time">2015-04-16</h3>
-        </div>
+        <ion-list>
+          <!--class="systemMessage-item setting-item"-->
+          <ion-item-sliding  class="systemMessage-item setting-item" *ngFor="let myNews of myNewsList">
+            <ion-item (click)="directToNewsDeatil(myNews.id, myNews.content)">
+              <div class="fl text">
+                <span class="circle" *ngIf="myNews.has_read == '10B'"></span>
+                <span>{{myNews.content}}</span>
+              </div>
+              <div class="fr time">{{myNews.push_time | date:'yyyy-MM-dd'}}</div>
+            </ion-item>
+            <ion-item-options>
+              <button  (click)="removeItem(myNews.id)">
+                <img src="assets/image/selfNews/icon-delete@3x.png" alt="">
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
       </div>
       <!--无消息-->
       <div class="systemMessage-none" style="display: none">

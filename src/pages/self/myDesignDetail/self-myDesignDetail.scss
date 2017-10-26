@@ -44,6 +44,8 @@ page-self-myDesignDetail {
       .img-wrap{
         width: 100%;
         text-align: center;
+        width: 600*$px;
+        height: 455*$px;
         img{
           width: 600*$px;
           height: 455*$px;
@@ -86,9 +88,10 @@ page-self-myDesignDetail {
           margin-bottom: 30*$px;
         }
         .img-wrap{
-          widows:730*$px;
+          width:730*$px;
           img{
             width: 345*$px;
+            height: 258*$px;
           }
         }
         .num-text{

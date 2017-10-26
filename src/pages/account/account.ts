@@ -66,6 +66,18 @@ export class AccountPage {
       this.presentToast('请输入密码');
       return false;
     }
+    this.service.doLogin(this.login.username, this.login.password)
+      .then(data => {
+        console.log(data);
+        if(data.message == "用户名或者密码不正确"){
+          this.presentToast("用户名或密码不正确");
+          return false;
+        };
+        if(data.success == true){
+          this.appCtrl.getRootNav().push('TabsPage');
+        }
+      })
+      .catch(error => alert(JSON.stringify(error)));
   }
   // 注册
   directToRegister(){

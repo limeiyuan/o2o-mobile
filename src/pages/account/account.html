@@ -2,11 +2,11 @@
 <ion-content >
   <div class="banner">
     <div class="bottom clearfix">
-      <div class="login fl item" (click)="directTo('login')">
+      <div class="login fl bottom-item" (click)="directTo('login')">
         登录
         <img *ngIf="viewMode==='login'" src="../../assets/image/login/sanjiao.png" alt="">
       </div>
-      <div class="register fl item" (click)="directTo('register')">
+      <div class="register fl bottom-item" (click)="directTo('register')">
         注册
         <img *ngIf="viewMode==='register'" src="../../assets/image/login/sanjiao.png" alt="">
       </div>
@@ -18,7 +18,7 @@
         <input class="phone" type="text" placeholder="手机号" maxlength="11" [(ngModel)]="login.username">
       </div>
       <div class="password-wrap">
-        <input class="password" type="text" placeholder="密码" [(ngModel)]="login.password">
+        <input class="password" type="password" placeholder="密码" [(ngModel)]="login.password">
       </div>
     </div>
     <p class="forget fr" (click)="directToLookpassword()">忘记密码</p>

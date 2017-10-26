@@ -14,6 +14,10 @@ import {PicService} from "../providers/pic-service-rest";
 import {HomeService} from "../providers/home-service-rest";
 import {DesignerService} from "../providers/designer-service-rest";
 import {ArticleService} from "../providers/article-service-rest";
+import {myNewsService} from "../providers/myNews-service-rest";
+import {myDesignService} from "../providers/myDesign-service-rest";
+import {favorService} from "../providers/favor-service-rest";
+import {settingService} from "../providers/setting-service-rest";
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import {ArticleService} from "../providers/article-service-rest";
     PicService,
     HomeService,
     DesignerService,
-    ArticleService
+    ArticleService,
+    myNewsService,
+    myDesignService,
+    favorService,
+    settingService
   ]
 })
 export class AppModule {

@@ -6,44 +6,24 @@
 </ion-header>
 <ion-content>
   <div class="myDesign-have" >
-    <div class="myDesign-item clearfix" (click)="directToDesignDetail()">
+    <div class="myDesign-item clearfix" (click)="directToDesignDetail(myDesign.id)" *ngFor="let myDesign of myDesignList">
       <div class="img-wrap fl">
-        <img src="assets/image/selfDesign/pic-1@3x.png" alt="">
+        <!--<img src="assets/image/selfDesign/pic-1@3x.png" alt="">-->
+        <img src="{{getPicture(myDesign.photo.path)}}" alt="">
       </div>
       <div class="design-right fl">
         <p class="title">
-          <span>北京_早安北京</span>
-          <span>2017-09-19-1</span>
+          <span>{{myDesign.name}}</span>
+          <span>{{myDesign.createTime|date:'yyyy-MM-dd'}}</span>
         </p>
         <p class="loaction">
           <img src="assets/image/selfDesign/icon-position@3x.png" alt="">
           <span class="addr">北京</span>
-          <span>98m²</span>
+          <span>{{myDesign.acreage}}m²</span>
         </p>
         <div class="pic-wrap">
           <img src="assets/image/selfDesign/icon-picture@3x.png" alt="">
-          <span>2</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="myDesign-item clearfix">
-      <div class="img-wrap fl">
-        <img src="assets/image/selfDesign/pic-1@3x.png" alt="">
-      </div>
-      <div class="design-right fl">
-        <p class="title">
-          <span>北京_早安北京</span>
-          <span>2017-09-19-1</span>
-        </p>
-        <p class="loaction">
-          <img src="assets/image/selfDesign/icon-position@3x.png" alt="">
-          <span class="addr">北京</span>
-          <span>98m²</span>
-        </p>
-        <div class="pic-wrap">
-          <img src="assets/image/selfDesign/icon-picture@3x.png" alt="">
-          <span>2</span>
+          <span>{{myDesign.photoCount}}</span>
         </div>
       </div>
     </div>

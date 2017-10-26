@@ -3,7 +3,6 @@ import {App, NavController, IonicPage, Config} from 'ionic-angular';
 import {PicService} from "../../../providers/pic-service-rest";
 import {DesignerService} from "../../../providers/designer-service-rest";
 import {BaseControllerClass} from "../../../providers/base-controller";
-import * as $ from "jquery";
 
 
 @IonicPage({

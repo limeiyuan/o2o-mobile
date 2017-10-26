@@ -37,6 +37,9 @@ export class DesignerDetailPage extends BaseControllerClass{
   backListPage(){
     this.navCtrl.pop();
   }
+  directToBaojia(id){
+    this.navCtrl.push('BaojiaPage', { id: id });
+  }
   querydata(id){
     this.service.querydata(id)
       .then(data =>{

@@ -13,8 +13,14 @@ export class SelfFavorPage {
   constructor(public navCtrl: NavController) {
 
   }
-  directToEditData(){
-    this.navCtrl.push('SelfEditDataPage');
+  directToInclusive(){
+    this.navCtrl.push('SelfFavorInclusivePage');
+  }
+  directToHalfpack(){
+    this.navCtrl.push('SelfFavorHalfpackPage');
+  }
+  directToPanorama(){
+    this.navCtrl.push('SelfFavorPanoramaPage');
   }
   backListPage(){
     this.navCtrl.pop();

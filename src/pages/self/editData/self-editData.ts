@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, IonicPage,Platform, ActionSheetController} from 'ionic-angular';
+import {settingService} from "../../../providers/setting-service-rest";
 
 @IonicPage({
   segment:'selfEditData'
@@ -9,19 +10,20 @@ import {NavController, IonicPage,Platform, ActionSheetController} from 'ionic-an
   templateUrl: './self-editData.html'
 })
 export class SelfEditDataPage {
-  constructor(public navCtrl: NavController, public platform: Platform,public actionsheetCtrl: ActionSheetController) {
+  editData : object;
+  constructor(public navCtrl: NavController, public platform: Platform,public actionsheetCtrl: ActionSheetController, public service: settingService) {
+   this.queryData();
   }
   directToChangeEmail(){
     this.navCtrl.push('SelfChangeEmailPage');
   }
-  directToChangeNickname(){
-    this.navCtrl.push('SelfChangeNicknamePage');
+  directToChangeNickname(nickname){
+    this.navCtrl.push('SelfChangeNicknamePage',{nickname: nickname});
   }
   directToChangeGender(){
     this.navCtrl.push('SelfGenderPage');
   }
   directToChangePassword(){
-    // debugger;
     this.navCtrl.push('SelfChangePasswordPage');
   }
   backListPage(){
@@ -59,5 +61,14 @@ export class SelfEditDataPage {
       ]
     });
     actionSheet.present();
+  }
+  // 回显资料
+  queryData() {
+    this.service.queryData()
+      .then(data => {
+        console.log(data);
+        this.editData = data.result;
+      })
+      .catch(error => console.log(error));
   }
 }

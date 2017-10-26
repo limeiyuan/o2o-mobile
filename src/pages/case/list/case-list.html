@@ -19,10 +19,6 @@
     #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <ion-slide>
       <ion-scroll scrollY="true" class="fixed-content">
-        <!--下拉刷新-->
-        <ion-refresher (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content></ion-refresher-content>
-        </ion-refresher>
         <ion-list *ngIf="selected_segment===0">
           <div class="tab-select">
             <div class="tab-list">
@@ -53,6 +49,10 @@
               </ul>
             </div>
           </div>
+          <!--下拉刷新-->
+          <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content></ion-refresher-content>
+          </ion-refresher>
           <div class="full-screen-wrap">
             <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList">
               <div class="img-wrap">

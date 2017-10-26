@@ -3,9 +3,9 @@
   <div class="title">
     <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     编辑详情
-    <span class="save">保存</span>
+    <span class="save" (click)="editDesignIdea()">保存</span>
   </div>
 </ion-header>
 <ion-content>
-  <textarea type="text" class="intro" placeholder="介绍一下你的设计理念吧"></textarea>
+  <textarea type="text" class="intro" placeholder="介绍一下你的设计理念吧" maxlength="235" [(ngModel)]="designContent"></textarea>
 </ion-content>

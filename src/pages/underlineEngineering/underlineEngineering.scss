@@ -1,4 +1,10 @@
 $px: 16rem/750;
+.swiper-pagination-bullet{
+  background: rgba(0,0,0,0.9);
+}
+.swiper-pagination-bullet-active{
+  background: rgb(255,255,255);
+}
 page-underlineEngineering {
   ion-header {
     .title {

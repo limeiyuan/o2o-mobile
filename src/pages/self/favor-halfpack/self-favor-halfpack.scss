@@ -1,0 +1,39 @@
+$px: 16rem/750;
+page-self-favor-halfpack {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    #containerImg{
+      padding-top: 20*$px;
+      padding-left: 20*$px;
+      #boxWrap{
+        position: relative;
+      }
+      .box {
+        width: 345*$px!important;
+        float: left;
+        margin-right: 15*$px;
+        //padding: 10*$px;
+        //width: 345*$px!important;
+        .box_img {
+          box-shadow: 0 0 5px rgba(0,167,255,.2);
+          border-radius: 4*$px;
+          img {
+            width: 345*$px!important;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

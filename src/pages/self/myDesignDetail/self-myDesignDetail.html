@@ -1,41 +1,41 @@
 <ion-header>
   <div class="title">
-    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
-    设置
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    我的云设计
   </div>
 </ion-header>
 <ion-content>
   <div class="titleBar">
     <p class="title">
-      <span>北京_早安北京</span>
-      <span>2017-09-19-1</span>
+      <span>{{designDetailData?.name}}</span>
+      <span>{{designDetailData?.createTime|date:'yyyy-MM-dd'}}</span>
     </p>
     <p class="loaction">
       <img src="assets/image/selfDesign/icon-position@3x.png" alt="">
       <span class="addr">北京</span>
-      <span>98m²</span>
+      <span>{{designDetailData?.acreage}}m²</span>
     </p>
   </div>
   <div class="intro">
     <div class="img-wrap">
-      <img src="assets/image/selefDetail/pic-1@3x.png" alt="">
+      <!--<img src="assets/image/selefDetail/pic-1@3x.png" alt="">-->
+      <img src="{{getPicture(designDetailData?.photo?.path)}}" alt="">
     </div>
-    <p class="intro-text">什么样的业主+设计手法（风格）+方案特色(从功能、材质、空间等方面)+对业主产生了什么利益（如考虑了老人、小孩、新婚夫妇等)</p>
-    <p class="edit">编辑</p>
+    <p class="intro-text">{{designDetailData?.content}}</p>
+    <p class="edit" (click)="directToEdit(designDetailData.id, undefined, designDetailData?.content)">编辑</p>
   </div>
   <div class="room-wrap">
-    <div class="room-item">
-      <h3>客厅</h3>
+    <div class="room-item" *ngFor="let expand of designDetailData?.detail">
+      <h3>{{expand?.type?.chineseName}}</h3>
       <div class="idea">
-        介绍一下你的设计理念吧
+        {{expand?.content}}
       </div>
-      <div class="edit" (click)="directToEdit()">编辑</div>
-      <div class="img-wrap">
-        <img src="assets/image/selefDetail/pic-2@3x.png" alt="">
-        <img src="assets/image/selefDetail/pic-2@3x.png" alt="">
-        <img src="assets/image/selefDetail/pic-2@3x.png" alt="">
+      <div class="edit" (click)="directToEdit(designDetailData.id, expand.id, expand?.content )">编辑</div>
+      <div class="img-wrap" *ngFor="let expand of expand?.photos">
+        <img src="{{getPicture(expand?.photo?.path)}}" alt="">
+        <!--<img src="assets/image/selefDetail/pic-2@3x.png" alt="">-->
       </div>
-      <p class="num-text">共1张</p>
+      <p class="num-text">共{{expand?.photos.length}}张</p>
     </div>
   </div>
 </ion-content>

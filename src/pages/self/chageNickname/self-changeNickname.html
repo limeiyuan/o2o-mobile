@@ -3,12 +3,12 @@
   <div class="title">
     <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     昵称
-    <span class="save">保存</span>
+    <span class="save" (click)="save()">保存</span>
   </div>
 </ion-header>
 <ion-content>
   <div class="setting-item">
-    <input type="text" class="emailInput" placeholder="中天艺美">
+    <input type="text" class="emailInput" placeholder="请输入昵称" [(ngModel)]="nickname">
     <img src="../../assets/image/selfchangeEmail/icon-delete@3x.png" alt="">
   </div>
 </ion-content>

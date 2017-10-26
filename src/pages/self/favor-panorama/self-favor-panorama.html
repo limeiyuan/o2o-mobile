@@ -1,0 +1,20 @@
+<ion-header>
+  <div class="title">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    我的收藏-全景图
+  </div>
+</ion-header>
+<ion-content>
+  <div class="panorama-wrap">
+    <div class="panorama-item" *ngFor="let panrama of panramaList">
+      <div class="img-wrap">
+        <img src="assets/image/case/panorama/pic-1@3x.png" alt="">
+        <!--<img src="{{getPicture(panrama.photoPath)}}" alt="">-->
+      </div>
+      <div class="panorama-button">
+        VR全景
+        <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,71 @@
+$px: 16rem/750;
+page-self-favor-inclusive {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .full-screen-wrap{
+      padding: 20*$px;
+      //padding-top: 20*$px;
+      .overlay-full{
+        background-color: rgba(0,0,0,.5);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        //z-index: 2;
+        top: 68*$px;
+      }
+      .full-screen-item{
+        background-color: #fff;
+        width: 710*$px;
+        padding-bottom: 25*$px;
+        margin-bottom: 30*$px;
+        .img-wrap{
+          width: 710*$px;
+          height: 300*$px;
+          img{
+            width: 710*$px;
+            height: 300*$px;
+          }
+        }
+        .full-screen-intro{
+          position: relative;
+          margin-top: 10*$px;
+          text-align: left;
+          padding: 20*$px;
+          height: 50*$px;
+          line-height: 50*$px;
+          .full-title{
+            font-size: 26*$px;
+            color: rgb(51,51,51);
+            height: 50*$px;
+            line-height: 50*$px;
+          }
+          .full-move-right{
+            font-size: 22*$px;
+            color: rgb(102,102,102);
+            height: 50*$px;
+            line-height: 50*$px;
+          }
+          .portrait{
+            position: absolute;
+            width: 70*$px;
+            height: 70*$px;
+            right: 20*$px;
+            top: -60*$px;
+          }
+        }
+      }
+    }
+  }
+}

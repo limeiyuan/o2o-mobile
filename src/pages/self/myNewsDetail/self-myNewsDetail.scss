@@ -1,0 +1,27 @@
+$px: 16rem/750;
+page-self-MyNewsDetail {
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .content{
+      margin-top: 20*$px;
+      height: 100%;
+      background-color: #fff;
+      font-size: 30*$px;
+      text-indent: 2em;
+      color: rgb(51,51,51);
+      line-height: 50*$px;
+      padding:20*$px;
+    }
+  }
+}

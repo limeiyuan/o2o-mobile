@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import {NavController, IonicPage, Config, NavParams} from 'ionic-angular';
+import {myDesignService} from "../../../providers/myDesign-service-rest";
+import {PicService} from "../../../providers/pic-service-rest";
+import {BaseControllerClass} from "../../../providers/base-controller";
 
 @IonicPage({
   segment:'selfMyDesignDetail'
@@ -8,15 +11,29 @@ import {NavController, IonicPage} from 'ionic-angular';
   selector: 'page-self-myDesignDetail',
   templateUrl: './self-myDesignDetail.html'
 })
-export class SelfMyDesignDetail {
-
-  constructor(public navCtrl: NavController) {
-
+export class SelfMyDesignDetail extends BaseControllerClass{
+  mydesignId : string = '';
+  designDetailData : object;
+  constructor(public navCtrl: NavController, public NavParams: NavParams, public service: myDesignService,  public picService: PicService, public config: Config) {
+    super(picService);
+    this.mydesignId = NavParams.get('id');
+    console.log(this.mydesignId);
+    this.queryDesignDetail(this.mydesignId);
   }
-  directToEdit(){
-    this.navCtrl.push('SelfDesignEditPage');
+  // 编辑理念
+  directToEdit(id, detailId, content){
+    this.navCtrl.push('SelfDesignEditPage',{id:id, detailId:detailId, content:content});
   }
   backListPage(){
     this.navCtrl.pop();
+  }
+  // 云设计详情
+  queryDesignDetail(id) {
+    this.service.queryDesignDetail(id)
+      .then(data => {
+        console.log(data);
+        this.designDetailData = data.result;
+      })
+      .catch(error => console.log(error));
   }
 }

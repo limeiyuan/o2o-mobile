@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="title">
+    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    我的收藏-单图
+  </div>
+</ion-header>
+<ion-content>
+  <div id="containerImg" class="clearfix">
+    <div id="boxWrap">
+      <div class="box" *ngFor="let halfpack of halfpackList">
+        <div class="box_img">
+          <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
+          <!--<img src="{{getPicture(halfpackImg.photo.path)}}" alt="">-->
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
