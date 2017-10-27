@@ -11,7 +11,7 @@ import {BaseControllerClass} from "../../../providers/base-controller";
   selector: 'page-self-myDesignDetail',
   templateUrl: './self-myDesignDetail.html'
 })
-export class SelfMyDesignDetail extends BaseControllerClass{
+export class SelfMyDesignDetailPage extends BaseControllerClass{
   mydesignId : string = '';
   designDetailData : object;
   constructor(public navCtrl: NavController, public NavParams: NavParams, public service: myDesignService,  public picService: PicService, public config: Config) {

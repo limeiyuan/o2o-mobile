@@ -31,7 +31,9 @@ export class SelfDesignEditPage {
     this.service.editDesignIdea(this.mydesignId, this.detailId, this.designContent)
       .then(data => {
         console.log(data);
-        this.navCtrl.pop();
+        if(data.success == true){
+          this.navCtrl.push('SelfMyDesignDetailPage',{id: this.mydesignId});
+        }
       })
       .catch(error => console.log(error));
   }

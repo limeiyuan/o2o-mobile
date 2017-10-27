@@ -107,9 +107,61 @@ export class CaseListPage extends BaseControllerClass{
       })
       .catch(error => console.log(error));
   }
+  // 点赞
+  good(index, caseId){
+   let operation = 'ADD';
+    if (this.fullScreenList[index].goods == '10A') {
+      operation = "DELETE";
+    }
+    this.service.doCollect('POINT', operation, caseId)
+      .then(data=>{
+        console.log(data);
+        if(data.success == true){
+          if(this.fullScreenList[index].goods == '10A'){
+            this.fullScreenList[index].goodsCount --;
+            if(this.fullScreenList[index].goodsCount < 0){
+              this.fullScreenList[index].goodsCount = 0
+            }
+            this.fullScreenList[index].goods = '10B';
+          }else{
+            this.fullScreenList[index].goodsCount ++;
+            this.fullScreenList[index].goods = '10A';
+          }
+        }else{
+          this.navCtrl.push('AccountPage');
+        }
+      })
+      .catch(error => console.log(error));
+  }
+  // 收藏
+  favor(index, caseId){
+    let operation = 'ADD';
+    if (this.fullScreenList[index].favor == '10A') {
+      operation = "DELETE";
+    }
+    this.service.doCollect('FOLLOW', operation, caseId)
+      .then(data=>{
+        console.log(data);
+        if(data.success == true){
+          if(this.fullScreenList[index].favor == '10A'){
+            this.fullScreenList[index].favorCount --;
+            if(this.fullScreenList[index].favorCount < 0){
+              this.fullScreenList[index].favorCount = 0
+            }
+            this.fullScreenList[index].favor = '10B';
+          }else{
+            this.fullScreenList[index].favorCount ++;
+            this.fullScreenList[index].favor = '10A';
+          }
+        }else{
+          this.navCtrl.push('AccountPage');
+        }
+      })
+      .catch(error => console.log(error));
+  }
 // 查询效果图
-  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, ) {
-    let target
+  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename) {
+    let target;
     if (typeId!==undefined) {
       target = 'type'
     }

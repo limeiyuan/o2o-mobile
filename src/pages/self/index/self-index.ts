@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {App, IonicPage, NavController} from 'ionic-angular';
+import {settingService} from "../../../providers/setting-service-rest";
 
 @IonicPage({
   segment: 'selfIndex'
@@ -9,9 +10,9 @@ import {App, IonicPage, NavController} from 'ionic-angular';
   templateUrl: './self-index.html'
 })
 export class SelfIndexPage {
-
-  constructor(public appCtrl: App, public navCtrl: NavController) {
-
+  username : string = '艺美家美';
+  constructor(public appCtrl: App, public navCtrl: NavController,  public service: settingService) {
+    this.queryData();
   }
 
   directToSetting() {
@@ -34,5 +35,13 @@ export class SelfIndexPage {
   }
   directToAbout(){
     this.appCtrl.getRootNav().push('SelfAboutPage');
+  }
+  queryData() {
+    this.service.queryData()
+      .then(data => {
+        console.log(data);
+        this.username = data.result.username;
+      })
+      .catch(error => console.log(error));
   }
 }

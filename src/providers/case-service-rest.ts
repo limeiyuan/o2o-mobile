@@ -43,4 +43,16 @@ export class CaseService {
       .map(res => res.json())
       .toPromise();
   }
+  // 点赞/收藏
+  doCollect(operateType, operation, caseId) {
+    return this.http.get(baseUrl + 'pointAndFollow.action',{
+      params: {
+        operateType: operateType,
+        operation: operation,
+        caseId: caseId,
+      }
+    })
+      .map(res => res.json())
+      .toPromise();
+  }
 }

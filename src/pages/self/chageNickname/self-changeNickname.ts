@@ -36,6 +36,9 @@ export class SelfChangeNicknamePage {
     this.service.settingData(this.nickname, undefined, undefined, undefined)
       .then(data => {
         console.log(data);
+        if(data.success == true){
+          this.navCtrl.push('SelfEditDataPage');
+        }
       })
       .catch(error => console.log(error));
   }

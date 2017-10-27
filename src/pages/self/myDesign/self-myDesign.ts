@@ -21,7 +21,7 @@ export class SelfMyDesignPage extends BaseControllerClass{
     this.navCtrl.push('SelfEditDataPage');
   }
   directToDesignDetail(id){
-    this.navCtrl.push('SelfMyDesignDetail',{id:id});
+    this.navCtrl.push('SelfMyDesignDetailPage',{id:id});
   }
   backListPage(){
     this.navCtrl.pop();

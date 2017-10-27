@@ -1,11 +1,11 @@
 import {IonicPageModule} from "ionic-angular";
 import {NgModule} from "@angular/core";
-import {SelfMyDesignDetail} from "./self-myDesignDetail";
+import {SelfMyDesignDetailPage} from "./self-myDesignDetail";
 
 @NgModule({
-  declarations: [SelfMyDesignDetail],
-  imports: [IonicPageModule.forChild(SelfMyDesignDetail)],
-  entryComponents: [SelfMyDesignDetail]
+  declarations: [SelfMyDesignDetailPage],
+  imports: [IonicPageModule.forChild(SelfMyDesignDetailPage)],
+  entryComponents: [SelfMyDesignDetailPage]
 })
 export class SelfMyDesignDetailModule {
 }

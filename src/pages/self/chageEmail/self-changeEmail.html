@@ -1,14 +1,14 @@
 
 <ion-header>
   <div class="title">
-    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     更换邮箱
-    <span class="save">保存</span>
+    <span class="save" (click)="save()">保存</span>
   </div>
 </ion-header>
 <ion-content>
   <div class="setting-item">
-    <input type="text" class="emailInput" placeholder="563526352@qq.com">
-    <img src="../../assets/image/selfchangeEmail/icon-delete@3x.png" alt="">
+    <input type="text" class="emailInput" placeholder="563526352@qq.com" [(ngModel)]="email">
+    <img src="assets/image/selfchangeEmail/icon-delete@3x.png" alt="">
   </div>
 </ion-content>

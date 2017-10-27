@@ -211,6 +211,11 @@ $px: 16rem/750;
               .follow-wrap{
                 margin-right: 10*$px;
               }
+              .hasFollow, .hasFavor{
+                span{
+                  color: #329ff1;
+                }
+              }
               a{
                 color: #878787;
                 font-size: 22*$px;

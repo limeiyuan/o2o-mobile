@@ -19,8 +19,8 @@ export class settingService {
   }
   // 编辑资料
   settingData(nickName:string,gender:string,email:string,xian:string) {
-    return this.http.post(baseUrl + 'user/updateDetail.htm',{
-      data: {
+    return this.http.get(baseUrl + 'user/updateDetail.htm',{
+      params: {
         nickName:nickName,
         gender:gender,
         email:email,
