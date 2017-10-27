@@ -22,12 +22,13 @@
         <ion-list *ngIf="selected_segment===0">
           <div class="tab-select">
             <div class="tab-list">
-              <span (click)="queryCondition('houseTypeOne')">户型</span>
+              <span (click)="queryCondition('houseTypeOne')">{{housetypeName}}</span>
               <img class="select-dowm" *ngIf="subMenu !== 'houseTypeOne'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'houseTypeOne'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseTypeOne'">
                 <li class="fl" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.inclusive.type==-1}">不限</li>
                 <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.type}" *ngFor="let type of typeList; index as i" (click)="query(i, type.id)">{{type.name}}</li>
+                <!--undefined, undefined, undefined, type.name-->
               </ul>
             </div>
             <div class="tab-list">
@@ -86,14 +87,15 @@
             </div>
             <!--遮罩-->
             <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
+            <!--加载更多-->
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="加载更多...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
           </div>
         </ion-list>
-        <!--加载更多-->
-        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-          <ion-infinite-scroll-content
-            loadingSpinner="bubbles"
-            loadingText="加载更多..."></ion-infinite-scroll-content>
-        </ion-infinite-scroll>
       </ion-scroll>
     </ion-slide>
     <!--单图-->

@@ -1,4 +1,20 @@
 $px: 16rem/750;
+.refresher-pulling-icon, .refresher-refreshing-icon{
+  font-size: 28*$px;
+  color: rgb(102,102,102);
+}
+.refresher-pulling-text, .refresher-refreshing-text{
+  font-size: 28*$px;
+  color: rgb(102,102,102);
+}
+.refresher-pulling, .refresher-refreshing{
+  font-size: 28*$px;
+  color: rgb(102,102,102);
+}
+.infinite-loading-text{
+  font-size: 28*$px;
+  color: rgb(102,102,102);
+}
 page-designer-list{
   .title{
     position: relative;

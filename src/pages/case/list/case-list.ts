@@ -19,18 +19,19 @@ import {PicService} from "../../../providers/pic-service-rest";
 export class CaseListPage extends BaseControllerClass{
 
   @ViewChild('mySlider') slider: Slides;
+  pageNo = 0;
   areaList: Array<any>;
   styleList: Array<any>;
   typeList: Array<any>;
-  fullScreenList :Array<any>;
+  fullScreenList = [];
   halfpackList :Array<any>;
   panramaList :Array<any>;
   typename: string = 'inclusive';
+  housetypeName: string = '户型';
   currentPageNo = 0;
 
 
 
-  pageNo : Number = 0;
 
   private selected_segment = 0;
   top_segment = 'top_0';
@@ -160,7 +161,10 @@ export class CaseListPage extends BaseControllerClass{
       .catch(error => console.log(error));
   }
 // 查询效果图
-  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename) {
+  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename,callback = null) {
+    // this.housetypeName = tabname;
+    this.pageNo++;
+
     let target;
     if (typeId!==undefined) {
       target = 'type'
@@ -193,16 +197,18 @@ export class CaseListPage extends BaseControllerClass{
     } else {
       this.areaId = areaId;
     }
-
     this.service.query(this.pageNo,undefined, styleId, typeId, areaId, typename)
       .then(data => {
         console.log(data);
         if(typename == 'inclusive'){
-          this.fullScreenList = data.result;
+          this.fullScreenList = this.fullScreenList.concat(data.result);
+          if (callback) {
+            callback();
+          }
         }else if(typename == 'halfpack'){
-          this.halfpackList = data.result;
+          this.halfpackList = this.halfpackList.concat(data.result);
         }else if(typename == 'panrama'){
-          this.panramaList = data.result;
+          this.panramaList = this.panramaList.concat(data.result);
         }
         this.subMenu = '';
       })
@@ -323,7 +329,7 @@ export class CaseListPage extends BaseControllerClass{
 
   //下拉刷新整个页面
   doRefresh(refresh, $event: Event) {
-    this.currentPageNo = 0;
+    this.pageNo = 0;
     this.fullScreenList = [];
     this.query(function () {
       refresh.complete();

@@ -13,8 +13,9 @@ import {BaseControllerClass} from "../../../providers/base-controller";
   templateUrl: './designer-list.html'
 })
 export class DesignerListPage extends BaseControllerClass{
-  pageNo : Number = 0;
-  designerList: Array<any>;
+  currentPageNo = 0;
+  designerList = [];
+
 
   constructor(public appCtrl: App, public navCtrl: NavController, public picService: PicService, public service: DesignerService, public config: Config) {
     super(picService);
@@ -27,13 +28,30 @@ export class DesignerListPage extends BaseControllerClass{
     this.appCtrl.getRootNav().push('BaojiaPage', { id: id });
   }
 // 设计师列表查询
-  query() {
-    this.service.query(this.pageNo,undefined)
+  query(callback = null) {
+    this.currentPageNo++;
+    this.service.query(this.currentPageNo)
       .then(data => {
         console.log(data);
-        this.designerList = data.result;
-
+        this.designerList = this.designerList.concat(data.result);
+        if (callback) {
+          callback();
+        }
       })
       .catch(error => console.log(error));
   }
+  // 下拉刷新
+  doRefresh(refresh, $event: Event) {
+    this.currentPageNo = 0;
+    this.designerList = [];
+    this.query(function () {
+      refresh.complete();
+    });
+    }
+  // 上拉加载
+   doInfinite(infiniteScroll, $event: Event) {
+     this.query(function () {
+       infiniteScroll.complete();
+     })
+ }
 }

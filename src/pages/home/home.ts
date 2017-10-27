@@ -82,4 +82,12 @@ export class HomePage extends BaseControllerClass {
       })
       .catch(error => console.log(error));
   }
+  // 文章详情
+  directToArticleDetail(id) {
+    this.appCtrl.getRootNav().push('ArticleDetailPage',{ id : id});
+  }
+  // 设计师详情
+  openDetailsPage(id) {
+    this.appCtrl.getRootNav().push('DesignerDetailPage',{ id: id });
+  }
 }

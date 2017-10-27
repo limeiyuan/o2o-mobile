@@ -70,8 +70,8 @@
         <h1 class="fl">人气设计师</h1>
         <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
-      <ion-slides class="slide-title designList" [slidesPerView]="pageNumber" [pager]="false">
-        <div *ngFor="let designer of designerList">
+      <ion-slides class="slide-title designList" [slidesPerView]="pageNumber" [pager]="false" >
+        <div *ngFor="let designer of designerList" (click)="openDetailsPage(designer.id)">
           <ion-slide>
             <div class="design-item">
               <!--<img src="../../assets/image/home/design-1@3x.png" alt="">-->
@@ -91,7 +91,7 @@
         <h1 class="fl">装修攻略</h1>
         <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
-      <div class="decoration-item clearfix" *ngFor="let article of articleList">
+      <div class="decoration-item clearfix" *ngFor="let article of articleList" (click)="directToArticleDetail(article.id)" >
         <div class="img-wrap fl">
           <img src="{{getPhoto(article.photo.path)}}" alt="">
           <!--<img src="../../assets/image/home/pic-3@3x.png" alt="">-->

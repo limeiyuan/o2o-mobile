@@ -5,6 +5,9 @@
     </div>
   </ion-header>
   <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div class="desigerWrapper">
       <div class="designer-item" *ngFor="let designer of designerList">
         <div class="designer-top clearfix">
@@ -16,8 +19,8 @@
             <h1>{{designer.nickname}}</h1>
             <p class="attention">
               <span class="care">
-                关注
-                <span class="num">{{designer.stareCount}}</span>
+                预约
+                <span class="num">{{designer.requestCount}}</span>
               </span>
               <span class="bargin">
                 成交
@@ -42,5 +45,12 @@
         </div>
       </div>
     </div>
+     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
   </ion-content>
 
