@@ -18,12 +18,25 @@ export class DemoService {
     if (pageSize == null) {
       pageSize = this.pageSize;
     }
-    return this.http.get(baseUrl + 'query.htm', {
-      params: {
-        pageSize: pageSize,
-        pageNo: pageNo
-      }
-    })
+    return this.http.get(baseUrl + 'query.htm',
+      {
+        params: {
+          pageSize: pageSize,
+          pageNo: pageNo
+        }
+      })
+      .map(res => res.json())
+      .toPromise();
+  }
+
+  queryDetail(id) {
+    return this.http.get(SERVER_URL + 'case/selectCaseDetail.htm',
+      {
+        params:
+          {
+            id: id
+          }
+      })
       .map(res => res.json())
       .toPromise();
   }
