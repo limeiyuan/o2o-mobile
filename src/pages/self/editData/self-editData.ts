@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, IonicPage,Platform, ActionSheetController} from 'ionic-angular';
 import {settingService} from "../../../providers/setting-service-rest";
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage({
   segment:'selfEditData'
@@ -29,33 +30,29 @@ export class SelfEditDataPage {
   backListPage(){
     this.navCtrl.pop();
   }
+
   changePortrait() {
     // debugger;
     let actionSheet = this.actionsheetCtrl.create({
-      cssClass: 'action-sheets-basic-page',
+      title: '',
       buttons: [
         {
           text: '拍照',
-          // role: 'destructive',
-          icon: !this.platform.is('ios') ? 'trash' : null,
           handler: () => {
-            console.log('Delete clicked');
+            // this.getPhoto();
+            console.log('拍照 clicked');
           }
-        },
-        {
-          text: '从相册中选择',
-          icon: !this.platform.is('ios') ? 'share' : null,
+        }, {
+          text: '相册',
           handler: () => {
-            console.log('Share clicked');
+            // this.getImage();
+            console.log('相册 clicked');
           }
-        },
-
-        {
+        }, {
           text: '取消',
-          // role: 'cancel', // will always sort to be on the bottom
-          icon: !this.platform.is('ios') ? 'close' : null,
+          role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
+            console.log('取消 clicked');
           }
         }
       ]
