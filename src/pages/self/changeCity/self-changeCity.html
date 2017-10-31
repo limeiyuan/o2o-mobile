@@ -1,0 +1,44 @@
+<ion-header>
+  <div class="title">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    选择城市
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="content-top">
+    <div class="location-city-wrap">
+      <p>定位城市</p>
+      <div class="location-city">
+        北京
+      </div>
+    </div>
+    <div class="hot-city-wrap" id="cityHot">
+      <p>热门城市</p>
+      <div class="hot-city-container clearfix">
+        <div class="hot-city fl">北京</div>
+        <div class="hot-city fl">天津</div>
+        <div class="hot-city fl">上海</div>
+        <div class="hot-city fl">广州</div>
+        <div class="hot-city fl">深圳</div>
+        <div class="hot-city fl">南京</div>
+        <div class="hot-city fl">河北</div>
+        <div class="hot-city fl">武汉</div>
+        <div class="hot-city fl">重庆</div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let item of cityDatas" class="cityWrap">
+      <p class="letter" id="city{{item.letter}}">{{item.letter | uppercase}}</p>
+      <ul>
+        <li *ngFor="let city of item.citys" class="itemCity" (click)="save(city.id)">{{city.name}}</li>
+      </ul>
+  </div>
+  <div class="positionWrap">
+    <p class="hotLetter" (click)="scrollToHot()">热</p>
+    <div *ngFor="let item of cityDatas">
+      <p (click)="scrollToTop(item.letter)">{{item.letter | uppercase}}</p>
+    </div>
+  </div>
+
+</ion-content>

@@ -7,19 +7,18 @@
 <ion-content>
   <form (submit)="doSubmit($event)" [formGroup]="langForm">
     <ion-list radio-group formControlName="langs">
-      <ion-item>
+      <ion-item >
         <ion-label>保密</ion-label>
-        <ion-radio checked="true" value="保密"></ion-radio>
-      </ion-item>
+        <ion-radio checked="true" value="OTHER" (click)="save('OTHER')"></ion-radio>
+      </ion-item >
       <ion-item>
         <ion-label>男</ion-label>
-        <ion-radio  value="男"></ion-radio>
+        <ion-radio  value="MALE" (click)="save('MALE')"></ion-radio>
       </ion-item>
       <ion-item>
         <ion-label>女</ion-label>
-        <ion-radio  value="女"></ion-radio>
+        <ion-radio  value="FEMALE" (click)="save('FEMALE')"></ion-radio>
       </ion-item>
     </ion-list>
   </form>
-
 </ion-content>

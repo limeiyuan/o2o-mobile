@@ -194,7 +194,7 @@ export class CaseListPage extends BaseControllerClass{
     } else {
       this.areaId = areaId;
     }
-    this.service.query(this.pageNo,undefined, styleId, typeId, areaId, typename)
+    this.service.query(this.pageNo, undefined, styleId, typeId, areaId, typename)
       .then(data => {
         console.log(data);
         if(typename == 'inclusive'){

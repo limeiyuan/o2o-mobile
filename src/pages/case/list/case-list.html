@@ -51,49 +51,60 @@
             </div>
           </div>
           <div class="full-screen-wrap">
-            <!--下拉刷新-->
-            <ion-refresher (ionRefresh)="doRefresh($event)">
-              <ion-refresher-content></ion-refresher-content>
-            </ion-refresher>
-            <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList; index as i">
-              <div class="img-wrap">
-                <img src="{{getPicture(fullScreen.longphoto)}}" alt="">
-              </div>
-              <div class="full-screen-intro">
-                <div class="full-title">
-                  <span>{{fullScreen.acreage}}</span>m²/{{fullScreen.style}}/{{fullScreen.type_case}}
+            <div class="fullScreenHave" >
+              <!--下拉刷新-->
+              <ion-refresher (ionRefresh)="doRefresh($event)">
+                <ion-refresher-content></ion-refresher-content>
+              </ion-refresher>
+              <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList; index as i">
+                <div class="img-wrap">
+                  <img src="{{getPicture(fullScreen.longphoto)}}" alt="">
                 </div>
-                <div class="full-move">
-                  <div class="full-move-left fl">
-                    <a href="javascript:;" class="follow-wrap"  [ngClass]="{'hasFollow': fullScreen.goods == '10A'}">
-                      <img *ngIf="fullScreen.goods == '10B'" src="assets/image/case/quanwu/icon-2@3x.png" alt="" (click)="good(i, fullScreen.id)">
-                      <img *ngIf="fullScreen.goods == '10A'" src="assets/image/case/quanwu/icon-2-blue@3x.png" alt="" (click)="good(i, fullScreen.id)">
-                      <span>{{fullScreen.goodsCount}}</span>
-                    </a>
-                    <a href="javascript:;"  [ngClass]="{'hasFavor': fullScreen.favor == '10A'}">
-                      <img *ngIf="fullScreen.favor == '10B'" src="assets/image/case/quanwu/icon-3@3x.png" alt="" (click)="favor(i, fullScreen.id)">
-                      <img *ngIf="fullScreen.favor == '10A'" src="assets/image/case/quanwu/icon-3-blue@3x.png" alt="" (click)="favor(i, fullScreen.id)">
-                      <span>{{fullScreen.favorCount}}</span>
-                    </a>
+                <div class="full-screen-intro">
+                  <div class="full-title">
+                    <span>{{fullScreen.acreage}}</span>m²/{{fullScreen.style}}/{{fullScreen.type_case}}
                   </div>
-                  <div class="full-move-right fr">
-                    <span>{{fullScreen.designer.nickname}}</span>
+                  <div class="full-move">
+                    <div class="full-move-left fl">
+                      <a href="javascript:;" class="follow-wrap"  [ngClass]="{'hasFollow': fullScreen.goods == '10A'}">
+                        <img *ngIf="fullScreen.goods == '10B'" src="assets/image/case/quanwu/icon-2@3x.png" alt="" (click)="good(i, fullScreen.id)">
+                        <img *ngIf="fullScreen.goods == '10A'" src="assets/image/case/quanwu/icon-2-blue@3x.png" alt="" (click)="good(i, fullScreen.id)">
+                        <span>{{fullScreen.goodsCount}}</span>
+                      </a>
+                      <a href="javascript:;"  [ngClass]="{'hasFavor': fullScreen.favor == '10A'}">
+                        <img *ngIf="fullScreen.favor == '10B'" src="assets/image/case/quanwu/icon-3@3x.png" alt="" (click)="favor(i, fullScreen.id)">
+                        <img *ngIf="fullScreen.favor == '10A'" src="assets/image/case/quanwu/icon-3-blue@3x.png" alt="" (click)="favor(i, fullScreen.id)">
+                        <span>{{fullScreen.favorCount}}</span>
+                      </a>
+                    </div>
+                    <div class="full-move-right fr">
+                      <span>{{fullScreen.designer.nickname}}</span>
+                    </div>
+                  </div>
+                  <div class="portrait">
+                    <img src="{{getPicture(fullScreen.photoPath)}}" alt="">
                   </div>
                 </div>
-                <div class="portrait">
-                  <img src="{{getPicture(fullScreen.photoPath)}}" alt="">
-                </div>
               </div>
+              <!--加载更多-->
+              <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content
+                  loadingSpinner="bubbles"
+                  loadingText="加载更多...">
+                </ion-infinite-scroll-content>
+              </ion-infinite-scroll>
+              <!--遮罩-->
+              <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
             </div>
-            <!--加载更多-->
-            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-              <ion-infinite-scroll-content
-                loadingSpinner="bubbles"
-                loadingText="加载更多...">
-              </ion-infinite-scroll-content>
-            </ion-infinite-scroll>
-            <!--遮罩-->
-            <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
+            <div class="fullScreenNone" style="display: none">
+              <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
+              <p class="text">
+                暂时没有找到符合的图片哦~
+              </p>
+              <p class="text">
+                看看其他的吧
+              </p>
+            </div>
           </div>
         </ion-list>
       </ion-scroll>
@@ -139,11 +150,6 @@
                   <!--<img src="{{getPicture(halfpackImg.photo.path)}}" alt="">-->
                 </div>
               </div>
-              <!--<div class="box">-->
-                <!--<div class="box_img">-->
-                  <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
-                <!--</div>-->
-              <!--</div>-->
             </div>
           </div>
           <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
@@ -180,14 +186,16 @@
         </div>
         <div class="panorama-wrap">
           <div class="panorama-item" *ngFor="let panrama of panramaList">
-            <div class="img-wrap">
-              <!--<img src="../../assets/image/case/panorama/pic-1@3x.png" alt="">-->
-              <img src="{{getPicture(panrama.longphoto)}}" alt="">
-            </div>
-            <div class="panorama-button">
-              VR全景
-              <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
-            </div>
+            <a href="{{panrama.panorama}}">
+              <div class="img-wrap">
+                <!--<img src="../../assets/image/case/panorama/pic-1@3x.png" alt="">-->
+                <img src="{{getPicture(panrama.longphoto)}}" alt="">
+              </div>
+              <div class="panorama-button">
+                VR全景
+                <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
+              </div>
+            </a>
           </div>
           <div class="overlay-panorama" *ngIf="subMenu.includes('Three')" (click)="queryCondition('')"></div>
         </div>

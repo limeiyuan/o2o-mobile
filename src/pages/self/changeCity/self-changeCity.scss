@@ -1,0 +1,95 @@
+$px: 16rem/750;
+page-self-changeCity {
+  position: relative;
+  ion-header {
+    .title {
+      position: relative;
+      .back {
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top: 30*$px;
+      }
+    }
+  }
+  ion-content{
+    .content-top{
+      padding: 20*$px;
+      .location-city-wrap{
+        border-bottom: 1px solid rgb(244,244,244);
+        p{
+          font-size: 26*$px;
+          color: rgb(141,141,141);
+          margin-bottom: 25*$px;
+        }
+        .location-city{
+          font-size: 30*$px;
+          color: rgb(51,51,51);
+          width: 152*$px;
+          height: 75*$px;
+          border-radius: 4*$px;
+          background-color: #fff;
+          line-height: 75*$px;
+          text-align: center;
+          margin-bottom: 30*$px;
+        }
+      }
+      .hot-city-wrap{
+        padding-top: 25*$px;
+        p{
+          font-size: 26*$px;
+          color: rgb(141,141,141);
+          margin-bottom: 25*$px;
+        }
+        .hot-city{
+          font-size: 30*$px;
+          color: rgb(51,51,51);
+          width: 152*$px;
+          height: 75*$px;
+          border-radius: 4*$px;
+          background-color: #fff;
+          line-height: 75*$px;
+          text-align: center;
+          margin-bottom: 30*$px;
+          margin-right: 20*$px;
+        }
+      }
+    }
+    .cityWrap{
+      font-size: 30*$px;
+      .letter{
+        color: rgb(0,0,0);
+        padding: 17*$px 0 17*$px 20*$px ;
+      }
+      ul{
+        background-color: #fff;
+        padding-left: 20*$px;
+        .itemCity{
+          font-size: 30*$px;
+          color: rgb(51,51,51);
+          height: 70*$px;
+          line-height: 70*$px;
+          border-bottom: 1px solid rgb(244,244,244);
+        }
+      }
+    }
+    .positionWrap{
+      .hotLetter{
+        margin-bottom: 15*$px;
+      }
+      position: fixed;
+      right: 0;
+      top: 98*$px;
+      width: 30*$px;
+      height: 100%;
+      background-color: #fff;
+      padding-top: 250*$px;
+      font-size: 24*$px;
+      color: rgb(53,171,254);
+      text-align: center;
+      margin-bottom: 5*$px;
+    }
+  }
+}
+

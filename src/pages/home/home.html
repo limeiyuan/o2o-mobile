@@ -68,7 +68,7 @@
     <div class="designWrapper">
       <div class="title clearfix">
         <h1 class="fl">人气设计师</h1>
-        <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
+        <p class="more fr" (click)="directToDesignerMore()">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
       <ion-slides class="slide-title designList" [slidesPerView]="pageNumber" [pager]="false" >
         <div *ngFor="let designer of designerList" (click)="openDetailsPage(designer.id)">
@@ -89,7 +89,7 @@
     <div class="decorationWrpper">
       <div class="title clearfix">
         <h1 class="fl">装修攻略</h1>
-        <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
+        <p class="more fr" (click)="directToArticleMore()">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
       <div class="decoration-item clearfix" *ngFor="let article of articleList" (click)="directToArticleDetail(article.id)" >
         <div class="img-wrap fl">

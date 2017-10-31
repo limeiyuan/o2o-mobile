@@ -2,7 +2,8 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {MyApp} from './app.component';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
 import '../assets/rem';
 import {StatusBar} from '@ionic-native/status-bar';
@@ -18,6 +19,7 @@ import {myNewsService} from "../providers/myNews-service-rest";
 import {myDesignService} from "../providers/myDesign-service-rest";
 import {favorService} from "../providers/favor-service-rest";
 import {settingService} from "../providers/setting-service-rest";
+import {CityService} from "../providers/city-service-rest";
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import {settingService} from "../providers/setting-service-rest";
     MyApp
   ],
   providers: [
+    Camera,
+    ImagePicker,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: ErrorHandler,  useClass: IonicErrorHandler},
     CaseService,
     DemoService,
     PicService,
@@ -45,8 +49,10 @@ import {settingService} from "../providers/setting-service-rest";
     myNewsService,
     myDesignService,
     favorService,
-    settingService
+    settingService,
+    CityService
   ]
 })
 export class AppModule {
+
 }

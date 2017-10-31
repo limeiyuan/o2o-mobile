@@ -69,6 +69,12 @@ export class HomePage extends BaseControllerClass {
   directToUnderlineEngineering(){
     this.appCtrl.getRootNav().push('UnderlineEngineeringPage');
   }
+  directToArticleMore(){
+    this.navCtrl.push('ArticleListPage');
+  }
+  directToDesignerMore(){
+    this.navCtrl.push('DesignerListPage');
+  }
 
 // 整合查询
   query() {
