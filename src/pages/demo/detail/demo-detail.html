@@ -1,18 +1,19 @@
-<ion-header>
+<ion-header class="bar-positive">
   <ion-navbar>
-    <ion-title>
-      案例详情
+    <ion-title *ngIf="items && items.length>0">
+      {{items[currentIndex]?.title}} - page {{currentPhotoIndex + 1}}/{{items[currentIndex]?.photoList.length}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-slides zoom="true">
-    <ion-slide *ngFor="let item of items">
+  <ion-slides zoom="true" (ionSlideReachEnd)="queryNext()" (ionSlideNextStart)="getNextItem()" (ionSlidePrevStart)="getPreItem()">
+    <ion-slide *ngFor="let photo of photos">
       <div class="swiper-zoom-container">
-        <img src="{{getPhoto(item.picture)}}">
+        <img src="{{getPhoto(photo.photo_path)}}">
       </div>
-      <ion-label>{{item.description}}</ion-label>
+      <ion-label>blabla</ion-label>
+      <ion-label>{{items[currentIndex]?.title}} - {{currentPhotoIndex + 1}}/{{items[currentIndex]?.photoList.length}}</ion-label>
     </ion-slide>
   </ion-slides>
 </ion-content>
