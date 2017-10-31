@@ -85,8 +85,6 @@
                 </div>
               </div>
             </div>
-            <!--遮罩-->
-            <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
             <!--加载更多-->
             <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
               <ion-infinite-scroll-content
@@ -94,6 +92,8 @@
                 loadingText="加载更多...">
               </ion-infinite-scroll-content>
             </ion-infinite-scroll>
+            <!--遮罩-->
+            <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
           </div>
         </ion-list>
       </ion-scroll>
@@ -191,6 +191,13 @@
           </div>
           <div class="overlay-panorama" *ngIf="subMenu.includes('Three')" (click)="queryCondition('')"></div>
         </div>
+        <!--加载更多-->
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
       </ion-scroll>
     </ion-slide>
   </ion-slides>

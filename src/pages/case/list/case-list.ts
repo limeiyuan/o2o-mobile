@@ -24,14 +24,11 @@ export class CaseListPage extends BaseControllerClass{
   styleList: Array<any>;
   typeList: Array<any>;
   fullScreenList = [];
-  halfpackList :Array<any>;
-  panramaList :Array<any>;
+  halfpackList = [];
+  panramaList = [];
   typename: string = 'inclusive';
   housetypeName: string = '户型';
   currentPageNo = 0;
-
-
-
 
   private selected_segment = 0;
   top_segment = 'top_0';
@@ -161,7 +158,7 @@ export class CaseListPage extends BaseControllerClass{
       .catch(error => console.log(error));
   }
 // 查询效果图
-  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename,callback = null) {
+  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, callback = null) {
     // this.housetypeName = tabname;
     this.pageNo++;
 
@@ -207,12 +204,35 @@ export class CaseListPage extends BaseControllerClass{
           }
         }else if(typename == 'halfpack'){
           this.halfpackList = this.halfpackList.concat(data.result);
+          if (callback) {
+            callback();
+          }
         }else if(typename == 'panrama'){
           this.panramaList = this.panramaList.concat(data.result);
+          if (callback) {
+            callback();
+          }
         }
         this.subMenu = '';
       })
       .catch(error => console.log(error));
+  }
+  //下拉刷新整个页面
+  doRefresh(refresh, $event: Event) {
+    debugger;
+    this.pageNo = 0;
+    this.fullScreenList = [];
+    this.query(function () {
+      refresh.complete();
+    });
+  }
+
+  //上拉加载更多
+  doInfinite(infiniteScroll, $event: Event) {
+    debugger;
+    this.query(undefined, undefined, undefined, undefined, undefined, function () {
+      infiniteScroll.complete();
+    })
   }
 
 
@@ -326,20 +346,4 @@ export class CaseListPage extends BaseControllerClass{
 //   }
 
 
-
-  //下拉刷新整个页面
-  doRefresh(refresh, $event: Event) {
-    this.pageNo = 0;
-    this.fullScreenList = [];
-    this.query(function () {
-      refresh.complete();
-    });
-  }
-
-  //上拉加载更多
-  doInfinite(infiniteScroll, $event: Event) {
-    this.query(function () {
-      infiniteScroll.complete();
-    })
-  }
 }
