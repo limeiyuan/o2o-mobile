@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, IonicPage, NavParams, Config} from 'ionic-angular';
+import {App, NavController, IonicPage, NavParams, Config} from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
@@ -76,7 +76,7 @@ export class CaseListPage extends BaseControllerClass{
   },
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public service: CaseService, public picService: PicService, public config: Config) {
+  constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public platform: Platform, public service: CaseService, public picService: PicService, public config: Config) {
     super(picService);
     this.query(-1);
 
@@ -217,6 +217,10 @@ export class CaseListPage extends BaseControllerClass{
       })
       .catch(error => console.log(error));
   }
+
+  derectToDetail(property: any) {
+    this.appCtrl.getRootNav().push('CaseDetailPage', property);
+  }
   //下拉刷新整个页面
   doRefresh(refresh, $event: Event) {
     debugger;
@@ -289,9 +293,9 @@ export class CaseListPage extends BaseControllerClass{
 
 // 瀑布流
   ionViewDidEnter() {
-    // setTimeout(()=>{
+    setTimeout(()=>{
       this.getNode();
-    // }, 3000)
+    }, 3000)
   }
   getNode() {
     let parentNode = document.getElementById("boxWrap");

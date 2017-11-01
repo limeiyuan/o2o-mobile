@@ -23,8 +23,8 @@
           <div class="tab-select">
             <div class="tab-list">
               <span (click)="queryCondition('houseTypeOne')">{{housetypeName}}</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeOne'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'houseTypeOne'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'houseTypeOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseTypeOne'">
                 <li class="fl" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.inclusive.type==-1}">不限</li>
                 <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.type}" *ngFor="let type of typeList; index as i" (click)="query(i, type.id)">{{type.name}}</li>
@@ -33,8 +33,8 @@
             </div>
             <div class="tab-list">
               <span (click)="queryCondition('styleOne')">风格</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'styleOne'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'styleOne'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'styleOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'styleOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='styleOne'">
                 <li class="fl" (click)="query(-1,undefined,0)" [ngClass]="{'active': activeObj.inclusive.style==-1}">不限</li>
                 <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.style}" *ngFor="let style of styleList; index as i" (click)="query(i, undefined, style.id)">{{style.name}}</li>
@@ -42,8 +42,8 @@
             </div>
             <div class="tab-list">
               <span (click)="queryCondition('areaOne')">面积</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'areaOne'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'areaOne'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'areaOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'areaOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='areaOne'">
                 <li class="fl"  (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.inclusive.area==-1}">不限</li>
                 <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.area}" *ngFor="let area of areaList; index as i" (click)="query(i, undefined,undefined, area.id)">{{area.name}}</li>
@@ -57,11 +57,11 @@
                 <ion-refresher-content></ion-refresher-content>
               </ion-refresher>
               <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList; index as i">
-                <div class="img-wrap">
+                <div class="img-wrap" (click)="derectToDetail(fullScreen)">
                   <img src="{{getPicture(fullScreen.longphoto)}}" alt="">
                 </div>
                 <div class="full-screen-intro">
-                  <div class="full-title">
+                  <div class="full-title" (click)="derectToDetail(fullScreen)">
                     <span>{{fullScreen.acreage}}</span>m²/{{fullScreen.style}}/{{fullScreen.type_case}}
                   </div>
                   <div class="full-move">
@@ -116,8 +116,8 @@
           <div class="tab-select">
             <div class="tab-list">
               <span (click)="queryCondition('houseTypeTwo')">户型</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseTypeTwo'">
                 <li class="fl active" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.halfpack.type==-1}">不限</li>
                 <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(i, type.id)" [ngClass]="{'active': i==activeObj.halfpack.type}">{{type.name}}</li>
@@ -125,8 +125,8 @@
             </div>
             <div class="tab-list">
               <span (click)="queryCondition('styleTwo')">风格</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'styleTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'styleTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'styleTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'styleTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='styleTwo'">
                 <li class="fl" (click)="query(-1,undefind, 0)" [ngClass]="{'active': activeObj.halfpack.style==-1}">不限</li>
                 <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(i, undefined, style.id)" [ngClass]="{'active': i==activeObj.halfpack.style}">{{style.name}}</li>
@@ -134,8 +134,8 @@
             </div>
             <div class="tab-list">
               <span (click)="queryCondition('areaTwo')">面积</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'areaTwo'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'areaTwo'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu !== 'areaTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+              <img class="select-dowm" *ngIf="subMenu === 'areaTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='areaTwo'">
                 <li class="fl" (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.halfpack.area==-1}">不限</li>
                 <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(i, undefined, undefined, area.id)" [ngClass]="{'active': i==activeObj.halfpack.area}">{{area.name}}</li>
@@ -144,10 +144,10 @@
           </div>
           <div id="containerImg" class="clearfix">
             <div id="boxWrap">
-              <div class="box" *ngFor="let halfpackImg of halfpackList">
+              <div class="box" *ngFor="let halfpack of halfpackList" (click)="derectToDetail(halfpack)">
                 <div class="box_img">
-                  <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
-                  <!--<img src="{{getPicture(halfpackImg.photo.path)}}" alt="">-->
+                  <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
+                  <img src="{{getPicture(halfpack?.photo?.path)}}" alt="">
                 </div>
               </div>
             </div>
@@ -156,7 +156,6 @@
             <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
             </ion-infinite-scroll-content>
           </ion-infinite-scroll>
-
           <div class="overlay-simple" *ngIf="subMenu.includes('Two')" (click)="queryCondition('')"></div>
         </ion-list>
       </ion-scroll>
@@ -167,8 +166,8 @@
         <div class="tab-select">
           <div class="tab-list">
             <span (click)="queryCondition('styleThree')">风格</span>
-            <img class="select-dowm" *ngIf="subMenu !== 'styleThree'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-            <img class="select-dowm" *ngIf="subMenu === 'styleThree'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu !== 'styleThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'styleThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='styleThree'">
               <li class="fl" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.panrama.style==-1}">不限</li>
               <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(i, style.id)" [ngClass]="{'active': i == activeObj.panrama.style}">{{style.name}}</li>
@@ -176,8 +175,8 @@
           </div>
           <div class="tab-list">
             <span (click)="queryCondition('areaThree')">面积</span>
-            <img class="select-dowm" *ngIf="subMenu !== 'areaThree'" src="../../assets/image/case/quanwu/icon-select@3x.png" alt="">
-            <img class="select-dowm" *ngIf="subMenu === 'areaThree'" src="../../assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu !== 'areaThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'areaThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='areaThree'">
               <li class="fl" (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.panrama.area==-1}">不限</li>
               <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(i, undefined, undefined, area.id)" [ngClass]="{'active': i == activeObj.panrama.area}">{{area.name}}</li>
@@ -188,12 +187,12 @@
           <div class="panorama-item" *ngFor="let panrama of panramaList">
             <a href="{{panrama.panorama}}">
               <div class="img-wrap">
-                <!--<img src="../../assets/image/case/panorama/pic-1@3x.png" alt="">-->
+                <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
                 <img src="{{getPicture(panrama.longphoto)}}" alt="">
               </div>
               <div class="panorama-button">
                 VR全景
-                <img src="../../assets/image/case/panorama/icon-action@3x.png" alt="">
+                <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
               </div>
             </a>
           </div>

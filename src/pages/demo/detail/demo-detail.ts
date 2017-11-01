@@ -63,7 +63,7 @@ export class DemoDetailPage extends BaseControllerClass {
       .then(resp => {
         this.items.push(resp.result);
         this.photos = this.photos.concat(resp.result.photoList);
-
+        console.log(resp);
         console.log(this.items);
         console.log(this.photos);
 

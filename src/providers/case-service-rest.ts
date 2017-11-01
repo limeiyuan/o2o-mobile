@@ -55,4 +55,16 @@ export class CaseService {
       .map(res => res.json())
       .toPromise();
   }
+  // 案例详情
+  queryDetail(id) {
+    return this.http.get(baseUrl + 'queryCaseDto.action',
+      {
+        params:
+          {
+            id: id
+          }
+      })
+      .map(res => res.json())
+      .toPromise();
+  }
 }

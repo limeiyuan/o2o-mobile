@@ -40,6 +40,9 @@ export class DesignerDetailPage extends BaseControllerClass{
   directToBaojia(id){
     this.navCtrl.push('BaojiaPage', { id: id });
   }
+  derectToDetail(property: any) {
+    this.navCtrl.push('CaseDetailPage', property);
+  }
   querydata(id){
     this.service.querydata(id)
       .then(data =>{
