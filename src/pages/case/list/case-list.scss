@@ -1,4 +1,7 @@
 $px: 16rem/750;
+.has-refresher > .scroll-content{
+  border-top: none;
+}
   page-case-list{
     fixed-content{
       padding-top: 20*$px;
@@ -145,6 +148,7 @@ $px: 16rem/750;
       position: fixed;
       z-index: 2;
       width: 100%;
+      left: 0;
       .tab-list{
         flex:1;
         -ms-flex:1;
@@ -208,10 +212,11 @@ $px: 16rem/750;
       }
       .full-screen-item{
         background-color: #fff;
-        width: 710*$px;
+        width: 705*$px;
         padding-bottom: 15*$px;
         margin-bottom: 30*$px;
-        box-shadow: 4*$px 3*$px 10*$px 4*$px rgba(0,167,255,.2);
+        box-shadow: 4*$px 3*$px 3*$px 3*$px rgba(0,167,255,.2);
+        border-radius: 10*$px;
         .img-wrap{
           width: 710*$px;
           height: 300*$px;

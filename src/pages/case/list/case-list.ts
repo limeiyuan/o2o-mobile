@@ -46,7 +46,7 @@ export class CaseListPage extends BaseControllerClass{
       style: undefined,
       area: undefined,
       pageNo: 0
-},
+    },
     halfpack: {
       type: undefined,
       style: undefined,
@@ -163,19 +163,19 @@ export class CaseListPage extends BaseControllerClass{
 // 查询效果图
   query(typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, callback = null) {
     // this.housetypeName = tabname;
-    this.pageNo++;
+    // this.pageNo++;
     // 当前点击
     let target;
     if (typeId!==undefined) {
-      target = 'type'
+      target = 'type';
       this.activeObj[this.typename][target] = typeId;
     }
     if (styleId!==undefined) {
-      target = 'style'
+      target = 'style';
       this.activeObj[this.typename][target] = styleId;
     }
     if (areaId!==undefined) {
-      target = 'area'
+      target = 'area';
       this.activeObj[this.typename][target] = areaId;
     }
     if (styleId === undefined) {
@@ -200,41 +200,30 @@ export class CaseListPage extends BaseControllerClass{
       this.areaId = areaId;
     }
     console.log(this.activeObj[this.typename]);
-    this.typename = 'inclusive';
-    var params = this.activeObj[this.typename];
-    this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'inclusive')
+    // this.typename = 'inclusive';
+    let params = this.activeObj[this.typename];
+    this.service.query(params.pageNo, undefined, params.style, params.type, params.area, typename)
       .then(data => {
         console.log(data);
-        this.fullScreenList = this.fullScreenList.concat(data.result);
-        if (callback) {
-          callback();
+        if(typename == 'inclusive'){
+          this.fullScreenList = this.fullScreenList.concat(data.result);
+          if (callback) {
+            callback();
+          }
+        }else if(typename == 'halfpack'){
+          this.halfpackList = this.halfpackList.concat(data.result);
+          if (callback) {
+            callback();
+          }
+        }else if(typename == 'panrama'){
+          this.panramaList = this.panramaList.concat(data.result);
+          if (callback) {
+            callback();
+          }
         }
         this.subMenu = '';
       })
       .catch(error => console.log(error));
-
-    // this.service.query(this.pageNo, undefined, styleId, typeId, areaId, typename)
-    //   .then(data => {
-    //     console.log(data);
-    //     if(typename == 'inclusive'){
-    //       this.fullScreenList = this.fullScreenList.concat(data.result);
-    //       if (callback) {
-    //         callback();
-    //       }
-    //     }else if(typename == 'halfpack'){
-    //       this.halfpackList = this.halfpackList.concat(data.result);
-    //       if (callback) {
-    //         callback();
-    //       }
-    //     }else if(typename == 'panrama'){
-    //       this.panramaList = this.panramaList.concat(data.result);
-    //       if (callback) {
-    //         callback();
-    //       }
-    //     }
-    //     this.subMenu = '';
-    //   })
-    //   .catch(error => console.log(error));
   }
 
 
@@ -253,8 +242,10 @@ export class CaseListPage extends BaseControllerClass{
   //上拉加载更多
   doInfinite(infiniteScroll, $event: Event) {
     // debugger;
+    let params = this.activeObj[this.typename];
     this.query(undefined, undefined, undefined, undefined, function () {
-      console.log(1)
+      console.log(1);
+      params.pageNo++;
       infiniteScroll.complete();
     })
   }
@@ -276,11 +267,6 @@ export class CaseListPage extends BaseControllerClass{
     this.slider.slideTo(index, 500);
   }
 
-  // select_segment(index)
-  // {
-  //   this.selected_segment = index;
-  //   console.log("this.selected_segment: " + this.selected_segment);
-  // }
 
   onSlideChanged($event)
   {
@@ -292,8 +278,9 @@ export class CaseListPage extends BaseControllerClass{
       var params = this.activeObj[this.typename];
       this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'panrama')
         .then(data => {
+          debugger;
           console.log(data);
-          this.fullScreenList = this.fullScreenList.concat(data.result);
+          this.panramaList = this.panramaList.concat(data.result);
             // if (callback) {
             //   callback();
             // }
@@ -323,7 +310,7 @@ export class CaseListPage extends BaseControllerClass{
       this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'inclusive')
         .then(data => {
           console.log(data);
-          this.halfpackList = this.halfpackList.concat(data.result);
+          this.fullScreenList = this.fullScreenList.concat(data.result);
           // if (callback) {
           //   callback();
           // }
