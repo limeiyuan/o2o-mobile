@@ -97,18 +97,19 @@
                   loadingText="加载更多...">
                 </ion-infinite-scroll-content>
               </ion-infinite-scroll>
+
+              <!--遮罩-->
+              <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
+              <div class="fullScreenNone" style="display: none">
+                <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
+                <p class="text">
+                  暂时没有找到符合的图片哦~
+                </p>
+                <p class="text">
+                  看看其他的吧
+                </p>
+              </div>
             </ion-content>
-            <!--遮罩-->
-            <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
-          <div class="fullScreenNone" style="display: none">
-            <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
-            <p class="text">
-              暂时没有找到符合的图片哦~
-            </p>
-            <p class="text">
-              看看其他的吧
-            </p>
-          </div>
         <!--</div>-->
       </div>
         <!--</ion-list>-->
@@ -124,8 +125,8 @@
               <img class="select-dowm" *ngIf="subMenu !== 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseTypeTwo'">
-                <li class="fl active" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.halfpack.type==-1}">不限</li>
-                <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(i, type.id)"
+                <li class="fl active" (click)="query(0)" [ngClass]="{'active': activeObj.halfpack.type==undefined}">不限</li>
+                <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(type.id)"
                     [ngClass]="{'active': i==activeObj.halfpack.type}">{{type.name}}</li>
               </ul>
             </div>
@@ -134,8 +135,8 @@
               <img class="select-dowm" *ngIf="subMenu !== 'styleTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'styleTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='styleTwo'">
-                <li class="fl" (click)="query(-1,undefind, 0)" [ngClass]="{'active': activeObj.halfpack.style==-1}">不限</li>
-                <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(i, undefined, style.id)" [ngClass]="{'active': i==activeObj.halfpack.style}">{{style.name}}</li>
+                <li class="fl" (click)="query(undefind, 0)" [ngClass]="{'active': activeObj.halfpack.style==undefined}">不限</li>
+                <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(undefined, style.id)" [ngClass]="{'active': style.id==activeObj.halfpack.style}">{{style.name}}</li>
               </ul>
             </div>
             <div class="tab-list">
@@ -143,40 +144,48 @@
               <img class="select-dowm" *ngIf="subMenu !== 'areaTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
               <img class="select-dowm" *ngIf="subMenu === 'areaTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='areaTwo'">
-                <li class="fl" (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.halfpack.area==-1}">不限</li>
-                <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(i, undefined, undefined, area.id)" [ngClass]="{'active': i==activeObj.halfpack.area}">{{area.name}}</li>
+                <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.halfpack.area==undefined}">不限</li>
+                <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(undefined, undefined, area.id)" [ngClass]="{'active': area.id==activeObj.halfpack.area}">{{area.name}}</li>
               </ul>
             </div>
           </div>
-          <div id="containerImg" class="clearfix">
-            <div id="boxWrap">
-              <div class="box" *ngFor="let halfpack of halfpackList" (click)="derectToDetail(halfpack)">
-                <div class="box_img">
-                  <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
-                  <img src="{{getPicture(halfpack?.photo?.path)}}" alt="">
+          <ion-content>
+            <!--下拉刷新-->
+            <ion-refresher (ionRefresh)="doRefresh($event)">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <div id="containerImg" class="clearfix">
+              <div id="boxWrap">
+                <div class="box" *ngFor="let halfpack of halfpackList" (click)="derectToDetail(halfpack)">
+                  <div class="box_img">
+                    <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
+                    <!--<img src="{{getPicture(halfpack?.photo?.path)}}" alt="">-->
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-            <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
-            </ion-infinite-scroll-content>
-          </ion-infinite-scroll>
-          <div class="overlay-simple" *ngIf="subMenu.includes('Two')" (click)="queryCondition('')"></div>
+            <!--加载更多-->
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+            <div class="overlay-simple" *ngIf="subMenu.includes('Two')" (click)="queryCondition('')"></div>
+          </ion-content>
         </ion-list>
       </ion-scroll>
     </ion-slide>
     <!--VR全景-->
     <ion-slide class="slideThree">
-      <ion-scroll scrollY="true" class="fixed-content">
+      <!--<ion-scroll scrollY="true" class="fixed-content">-->
+      <div class="fixed-content">
         <div class="tab-select">
           <div class="tab-list">
             <span (click)="queryCondition('styleThree')">风格</span>
             <img class="select-dowm" *ngIf="subMenu !== 'styleThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'styleThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='styleThree'">
-              <li class="fl" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.panrama.style==-1}">不限</li>
-              <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(i, style.id)" [ngClass]="{'active': i == activeObj.panrama.style}">{{style.name}}</li>
+              <li class="fl" (click)="query(0)" [ngClass]="{'active': activeObj.panrama.style==undefined}">不限</li>
+              <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(style.id)" [ngClass]="{'active': style.id == activeObj.panrama.style}">{{style.name}}</li>
             </ul>
           </div>
           <div class="tab-list">
@@ -184,34 +193,41 @@
             <img class="select-dowm" *ngIf="subMenu !== 'areaThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'areaThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='areaThree'">
-              <li class="fl" (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.panrama.area==-1}">不限</li>
-              <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(i, undefined, undefined, area.id)" [ngClass]="{'active': i == activeObj.panrama.area}">{{area.name}}</li>
+              <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.panrama.area==undefined}">不限</li>
+              <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(undefined, undefined, area.id)" [ngClass]="{'active': area.id == activeObj.panrama.area}">{{area.name}}</li>
             </ul>
           </div>
         </div>
-        <div class="panorama-wrap">
-          <div class="panorama-item" *ngFor="let panrama of panramaList">
-            <a href="{{panrama.panorama}}">
-              <div class="img-wrap">
-                <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
-                <img src="{{getPicture(panrama.longphoto)}}" alt="">
-              </div>
-              <div class="panorama-button">
-                VR全景
-                <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
-              </div>
-            </a>
-          </div>
-          <div class="overlay-panorama" *ngIf="subMenu.includes('Three')" (click)="queryCondition('')"></div>
-        </div>
-        <!--加载更多-->
-        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-          <ion-infinite-scroll-content
-            loadingSpinner="bubbles"
-            loadingText="加载更多...">
-          </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
-      </ion-scroll>
+        <!--<div class="panorama-wrap">-->
+          <ion-content class="panorama-wrap">
+            <!--下拉刷新-->
+            <ion-refresher (ionRefresh)="doRefresh($event)">
+              <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
+            <div class="panorama-item" *ngFor="let panrama of panramaList">
+              <a href="{{panrama.panorama}}">
+                <div class="img-wrap">
+                  <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
+                  <img src="{{getPicture(panrama.longphoto)}}" alt="">
+                </div>
+                <div class="panorama-button">
+                  VR全景
+                  <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
+                </div>
+              </a>
+            </div>
+            <div class="overlay-panorama" *ngIf="subMenu.includes('Three')" (click)="queryCondition('')"></div>
+            <!--</div>-->
+            <!--加载更多-->
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+              <ion-infinite-scroll-content
+                loadingSpinner="bubbles"
+                loadingText="加载更多...">
+              </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          </ion-content>
+      </div>
+      <!--</ion-scroll>-->
     </ion-slide>
   </ion-slides>
 </ion-content>
