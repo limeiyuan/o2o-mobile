@@ -5,6 +5,7 @@ import { Slides } from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
 import {BaseControllerClass} from "../../../providers/base-controller";
 import {PicService} from "../../../providers/pic-service-rest";
+import {noUndefined} from "@angular/compiler/src/util";
 
 
 
@@ -19,7 +20,6 @@ import {PicService} from "../../../providers/pic-service-rest";
 export class CaseListPage extends BaseControllerClass{
 
   @ViewChild('mySlider') slider: Slides;
-  pageNo = 0;
   areaList: Array<any>;
   styleList: Array<any>;
   typeList: Array<any>;
@@ -29,7 +29,7 @@ export class CaseListPage extends BaseControllerClass{
   typename: string = 'inclusive';
   housetypeName: string = '户型';
   currentPageNo = 0;
-
+  pageNo = 0;
   private selected_segment = 0;
   top_segment = 'top_0';
   segment = 'sites';
@@ -42,19 +42,22 @@ export class CaseListPage extends BaseControllerClass{
   activeIndex:number;
   activeObj:Object = {
     inclusive: {
-      type: -1,
-      style: -1,
-      area: -1
-    },
+      type: undefined,
+      style: undefined,
+      area: undefined,
+      pageNo: 0
+},
     halfpack: {
-      type: -1,
-      style: -1,
-      area: -1
+      type: undefined,
+      style: undefined,
+      area: undefined,
+      pageNo: 0
     },
     panrama: {
-      type: -1,
-      style: -1,
-      area: -1
+      type: undefined,
+      style: undefined,
+      area: undefined,
+      pageNo: 0
     }
   };
 
@@ -78,7 +81,7 @@ export class CaseListPage extends BaseControllerClass{
 
   constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public platform: Platform, public service: CaseService, public picService: PicService, public config: Config) {
     super(picService);
-    this.query(-1);
+    this.query();
 
     this.rootNavCtrl = navParams.get('rootNavCtrl');
     this.platform = platform;
@@ -158,21 +161,23 @@ export class CaseListPage extends BaseControllerClass{
       .catch(error => console.log(error));
   }
 // 查询效果图
-  query(index,  typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, callback = null) {
+  query(typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, callback = null) {
     // this.housetypeName = tabname;
     this.pageNo++;
-
+    // 当前点击
     let target;
     if (typeId!==undefined) {
       target = 'type'
+      this.activeObj[this.typename][target] = typeId;
     }
     if (styleId!==undefined) {
       target = 'style'
+      this.activeObj[this.typename][target] = styleId;
     }
     if (areaId!==undefined) {
       target = 'area'
+      this.activeObj[this.typename][target] = areaId;
     }
-    this.activeObj[this.typename][target] = index;
     if (styleId === undefined) {
       styleId = this.styleId;
     } else if(styleId == 0){
@@ -194,47 +199,62 @@ export class CaseListPage extends BaseControllerClass{
     } else {
       this.areaId = areaId;
     }
-    this.service.query(this.pageNo, undefined, styleId, typeId, areaId, typename)
+    console.log(this.activeObj[this.typename]);
+    this.typename = 'inclusive';
+    var params = this.activeObj[this.typename];
+    this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'inclusive')
       .then(data => {
         console.log(data);
-        if(typename == 'inclusive'){
-          this.fullScreenList = this.fullScreenList.concat(data.result);
-          if (callback) {
-            callback();
-          }
-        }else if(typename == 'halfpack'){
-          this.halfpackList = this.halfpackList.concat(data.result);
-          if (callback) {
-            callback();
-          }
-        }else if(typename == 'panrama'){
-          this.panramaList = this.panramaList.concat(data.result);
-          if (callback) {
-            callback();
-          }
+        this.fullScreenList = this.fullScreenList.concat(data.result);
+        if (callback) {
+          callback();
         }
         this.subMenu = '';
       })
       .catch(error => console.log(error));
+
+    // this.service.query(this.pageNo, undefined, styleId, typeId, areaId, typename)
+    //   .then(data => {
+    //     console.log(data);
+    //     if(typename == 'inclusive'){
+    //       this.fullScreenList = this.fullScreenList.concat(data.result);
+    //       if (callback) {
+    //         callback();
+    //       }
+    //     }else if(typename == 'halfpack'){
+    //       this.halfpackList = this.halfpackList.concat(data.result);
+    //       if (callback) {
+    //         callback();
+    //       }
+    //     }else if(typename == 'panrama'){
+    //       this.panramaList = this.panramaList.concat(data.result);
+    //       if (callback) {
+    //         callback();
+    //       }
+    //     }
+    //     this.subMenu = '';
+    //   })
+    //   .catch(error => console.log(error));
   }
+
 
   derectToDetail(property: any) {
     this.appCtrl.getRootNav().push('CaseDetailPage', property);
   }
   //下拉刷新整个页面
   doRefresh(refresh, $event: Event) {
-    debugger;
-    this.pageNo = 0;
+    this.activeObj[this.typename].pageNo = 0;
     this.fullScreenList = [];
-    this.query(function () {
+    this.query(undefined, undefined, undefined, undefined, function () {
       refresh.complete();
     });
   }
 
   //上拉加载更多
   doInfinite(infiniteScroll, $event: Event) {
-    debugger;
-    this.query(undefined, undefined, undefined, undefined, undefined, function () {
+    // debugger;
+    this.query(undefined, undefined, undefined, undefined, function () {
+      console.log(1)
       infiniteScroll.complete();
     })
   }
@@ -256,11 +276,11 @@ export class CaseListPage extends BaseControllerClass{
     this.slider.slideTo(index, 500);
   }
 
-  select_segment(index)
-  {
-    this.selected_segment = index;
-    console.log("this.selected_segment: " + this.selected_segment);
-  }
+  // select_segment(index)
+  // {
+  //   this.selected_segment = index;
+  //   console.log("this.selected_segment: " + this.selected_segment);
+  // }
 
   onSlideChanged($event)
   {
@@ -269,17 +289,47 @@ export class CaseListPage extends BaseControllerClass{
     if (currentIndex === 2){
       this.top_segment = 'top_2';
       this.typename = 'panrama';
-      this.query(0);
+      var params = this.activeObj[this.typename];
+      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'panrama')
+        .then(data => {
+          console.log(data);
+          this.fullScreenList = this.fullScreenList.concat(data.result);
+            // if (callback) {
+            //   callback();
+            // }
+          this.subMenu = '';
+        })
+        .catch(error => console.log(error));
     }
     if (currentIndex === 1){
       this.top_segment = 'top_1';
       this.typename = 'halfpack';
-      this.query(0);
+      var params = this.activeObj[this.typename];
+      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'halfpack')
+        .then(data => {
+          console.log(data);
+          this.halfpackList = this.halfpackList.concat(data.result);
+          // if (callback) {
+          //   callback();
+          // }
+          this.subMenu = '';
+        })
+        .catch(error => console.log(error));
     }
     if (currentIndex === 0){
       this.top_segment = 'top_0';
       this.typename = 'inclusive';
-      this.query(0);
+      var params = this.activeObj[this.typename];
+      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'inclusive')
+        .then(data => {
+          console.log(data);
+          this.halfpackList = this.halfpackList.concat(data.result);
+          // if (callback) {
+          //   callback();
+          // }
+          this.subMenu = '';
+        })
+        .catch(error => console.log(error));
     }
   }
 

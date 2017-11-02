@@ -18,40 +18,44 @@
   <ion-slides (pan)="panEvent($event)"
     #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <ion-slide>
-      <ion-scroll scrollY="true" class="fixed-content">
-        <ion-list *ngIf="selected_segment===0">
-          <div class="tab-select">
-            <div class="tab-list">
-              <span (click)="queryCondition('houseTypeOne')">{{housetypeName}}</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'houseTypeOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'houseTypeOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenu" *ngIf="subMenu==='houseTypeOne'">
-                <li class="fl" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.inclusive.type==-1}">不限</li>
-                <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.type}" *ngFor="let type of typeList; index as i" (click)="query(i, type.id)">{{type.name}}</li>
-                <!--undefined, undefined, undefined, type.name-->
-              </ul>
-            </div>
-            <div class="tab-list">
-              <span (click)="queryCondition('styleOne')">风格</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'styleOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'styleOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenu" *ngIf="subMenu==='styleOne'">
-                <li class="fl" (click)="query(-1,undefined,0)" [ngClass]="{'active': activeObj.inclusive.style==-1}">不限</li>
-                <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.style}" *ngFor="let style of styleList; index as i" (click)="query(i, undefined, style.id)">{{style.name}}</li>
-              </ul>
-            </div>
-            <div class="tab-list">
-              <span (click)="queryCondition('areaOne')">面积</span>
-              <img class="select-dowm" *ngIf="subMenu !== 'areaOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
-              <img class="select-dowm" *ngIf="subMenu === 'areaOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
-              <ul class="submenu" *ngIf="subMenu==='areaOne'">
-                <li class="fl"  (click)="query(-1, undefined, undefined, 0)" [ngClass]="{'active': activeObj.inclusive.area==-1}">不限</li>
-                <li class="fl" [ngClass]="{'active': i==activeObj.inclusive.area}" *ngFor="let area of areaList; index as i" (click)="query(i, undefined,undefined, area.id)">{{area.name}}</li>
-              </ul>
-            </div>
+      <!--<ion-scroll scrollY="true" class="fixed-content">-->
+        <!--<ion-list *ngIf="selected_segment===0">-->
+      <div class="fixed-content fixed-content-full">
+        <div class="tab-select">
+          <div class="tab-list">
+            <span (click)="queryCondition('houseTypeOne')">{{housetypeName}}</span>
+            <img class="select-dowm" *ngIf="subMenu !== 'houseTypeOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'houseTypeOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenu==='houseTypeOne'">
+              <li class="fl" (click)="query(0)" [ngClass]="{'active': activeObj.inclusive.type=== undefined}">不限</li>
+              <li class="fl" [ngClass]="{'active': type.id==activeObj.inclusive.type}" *ngFor="let type of typeList; index as i"
+                  (click)="query(type.id)">{{type.name}}</li>
+              <!--undefined, undefined, undefined, type.name-->
+            </ul>
           </div>
-          <div class="full-screen-wrap">
-            <div class="fullScreenHave" >
+          <div class="tab-list">
+            <span (click)="queryCondition('styleOne')">风格</span>
+            <img class="select-dowm" *ngIf="subMenu !== 'styleOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'styleOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenu==='styleOne'">
+              <li class="fl" (click)="query(undefined,0)" [ngClass]="{'active': activeObj.inclusive.style==undefined}">不限</li>
+              <li class="fl" [ngClass]="{'active': style.id==activeObj.inclusive.style}" *ngFor="let style of styleList; index as i"
+                  (click)="query(undefined, style.id)">{{style.name}}</li>
+            </ul>
+          </div>
+          <div class="tab-list">
+            <span (click)="queryCondition('areaOne')">面积</span>
+            <img class="select-dowm" *ngIf="subMenu !== 'areaOne'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
+            <img class="select-dowm" *ngIf="subMenu === 'areaOne'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
+            <ul class="submenu" *ngIf="subMenu==='areaOne'">
+              <li class="fl"  (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.inclusive.area==undefined}">不限</li>
+              <li class="fl" [ngClass]="{'active': area.id==activeObj.inclusive.area}" *ngFor="let area of areaList; index as i"
+                  (click)="query(undefined,undefined, area.id)">{{area.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <!--<div class="full-screen-wrap">-->
+            <ion-content class="full-screen-wrap">
               <!--下拉刷新-->
               <ion-refresher (ionRefresh)="doRefresh($event)">
                 <ion-refresher-content></ion-refresher-content>
@@ -93,21 +97,22 @@
                   loadingText="加载更多...">
                 </ion-infinite-scroll-content>
               </ion-infinite-scroll>
-              <!--遮罩-->
-              <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
-            </div>
-            <div class="fullScreenNone" style="display: none">
-              <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
-              <p class="text">
-                暂时没有找到符合的图片哦~
-              </p>
-              <p class="text">
-                看看其他的吧
-              </p>
-            </div>
+            </ion-content>
+            <!--遮罩-->
+            <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
+          <div class="fullScreenNone" style="display: none">
+            <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
+            <p class="text">
+              暂时没有找到符合的图片哦~
+            </p>
+            <p class="text">
+              看看其他的吧
+            </p>
           </div>
-        </ion-list>
-      </ion-scroll>
+        <!--</div>-->
+      </div>
+        <!--</ion-list>-->
+      <!--</ion-scroll>-->
     </ion-slide>
     <!--单图-->
     <ion-slide class="slideTwo">
@@ -120,7 +125,8 @@
               <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
               <ul class="submenu" *ngIf="subMenu==='houseTypeTwo'">
                 <li class="fl active" (click)="query(-1, 0)" [ngClass]="{'active': activeObj.halfpack.type==-1}">不限</li>
-                <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(i, type.id)" [ngClass]="{'active': i==activeObj.halfpack.type}">{{type.name}}</li>
+                <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(i, type.id)"
+                    [ngClass]="{'active': i==activeObj.halfpack.type}">{{type.name}}</li>
               </ul>
             </div>
             <div class="tab-list">
