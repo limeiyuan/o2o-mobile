@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { accountService } from "../../providers/account-service-rest";
 
@@ -22,9 +22,8 @@ export class AccountPage {
   register: {username: string, password: string, code: string} = {username: '', password: '', code:''};
   public tips = '获取验证码';
   public disabled = false;
-  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
+  constructor(public appCtrl: App, public modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }

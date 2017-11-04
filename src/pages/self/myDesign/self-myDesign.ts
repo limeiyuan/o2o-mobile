@@ -13,6 +13,7 @@ import {BaseControllerClass} from "../../../providers/base-controller";
 export class SelfMyDesignPage extends BaseControllerClass{
   pageNo : Number = 1;
   myDesignList : Array<any>;
+  showMode : string;
   constructor(public navCtrl: NavController, public service: myDesignService,  public picService: PicService, public config: Config) {
     super(picService);
     this.queryDesign();
@@ -32,6 +33,11 @@ export class SelfMyDesignPage extends BaseControllerClass{
       .then(data => {
         console.log(data);
         this.myDesignList = data.result;
+        if(this.myDesignList.length == 0){
+          this.showMode = 'noneDesign';
+        }else{
+          this.showMode = 'haveDesign';
+        }
       })
       .catch(error => console.log(error));
   }

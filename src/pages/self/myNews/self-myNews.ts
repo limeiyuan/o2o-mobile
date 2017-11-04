@@ -13,7 +13,7 @@ export class SelfMyNewsPage {
   viewMode: string = "systemMessage";
   myNewsList: Array<any>;
   item:string;
-
+  showMode:string;
   constructor(public navCtrl: NavController, public service: myNewsService) {
     this.queryNews();
   }
@@ -26,6 +26,11 @@ export class SelfMyNewsPage {
       .then(data => {
         console.log(data);
         this.myNewsList = data.result;
+        if(this.myNewsList.length == 0){
+          this.showMode = 'noneMessage';
+        }else{
+          this.showMode = 'haveMessage';
+        }
       })
       .catch(error => console.log(error));
   }

@@ -21,7 +21,7 @@
     <!--系统消息-->
     <div class="systemMessage-wrap" *ngIf="viewMode==='systemMessage'">
       <!--有消息-->
-      <div class="systemMessage-have" >
+      <div class="systemMessage-have" *ngIf="showMode==='haveMessage'" id="haveMessage">
         <ion-list>
           <!--class="systemMessage-item setting-item"-->
           <ion-item-sliding  class="systemMessage-item setting-item" *ngFor="let myNews of myNewsList">
@@ -41,7 +41,7 @@
         </ion-list>
       </div>
       <!--无消息-->
-      <div class="systemMessage-none">
+      <div class="systemMessage-none" *ngIf="showMode==='noneMessage'" id="noneMessage">
         <img src="assets/image/selfNews/none-messenger@3x.png" alt="">
         <p class="text">暂无消息</p>
       </div>

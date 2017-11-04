@@ -12,8 +12,8 @@
       <div class="designer-item" *ngFor="let designer of designerList">
         <div class="designer-top clearfix">
           <div class="desiger-left fl">
-            <img src="../../assets/image/designer/design-1@3x.png" (click)="openDetailsPage(designer.id)" alt="">
-            <!--<img src="{{getPicture(designer.photo.path)}}" (click)="openDetailsPage(designer.id)" alt="">-->
+            <!--<img src="../../assets/image/designer/design-1@3x.png" (click)="openDetailsPage(designer.id)" alt="">-->
+            <img src="{{getPicture(designer?.photo?.path)}}" (click)="openDetailsPage(designer.id)" alt="">
           </div>
           <div class="designer-middle fl">
             <h1>{{designer.nickname}}</h1>
@@ -39,8 +39,8 @@
         </div>
         <div class="designer-bottom clearfix">
           <div class="img-wrap fl" *ngFor="let caseDto of designer.caseDtos">
-              <img src="../../assets/image/designer/pic-1@3x.png" alt="">
-            <!--<img src="{{getPicture(caseDto.photo.path)}}" alt="">-->
+              <!--<img src="../../assets/image/designer/pic-1@3x.png" alt="">-->
+            <img src="{{getPicture(caseDto?.photo?.path)}}" alt="">
           </div>
         </div>
       </div>

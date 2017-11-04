@@ -54,8 +54,9 @@
             </ul>
           </div>
         </div>
-        <!--<div class="full-screen-wrap">-->
-            <ion-content class="full-screen-wrap">
+        <div class="full-screen-wrap">
+            <!--<ion-content class="full-screen-have" *ngIf="showMode==='haveFullScreen'" id="haveFullScreen">-->
+            <ion-content class="full-screen-have">
               <!--下拉刷新-->
               <ion-refresher (ionRefresh)="doRefresh($event)">
                 <ion-refresher-content></ion-refresher-content>
@@ -97,20 +98,19 @@
                   loadingText="加载更多...">
                 </ion-infinite-scroll-content>
               </ion-infinite-scroll>
-
               <!--遮罩-->
               <div class="overlay-full" *ngIf="subMenu.includes('One')" (click)="queryCondition('')"></div>
-              <div class="fullScreenNone" style="display: none">
-                <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
-                <p class="text">
-                  暂时没有找到符合的图片哦~
-                </p>
-                <p class="text">
-                  看看其他的吧
-                </p>
-              </div>
             </ion-content>
-        <!--</div>-->
+            <div class="fullScreenNone" *ngIf="showMode==='noneFullScreen'" id="noneFullScreen">
+              <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
+              <p class="text">
+                暂时没有找到符合的图片哦~
+              </p>
+              <p class="text">
+                看看其他的吧
+              </p>
+            </div>
+        </div>
       </div>
         <!--</ion-list>-->
       <!--</ion-scroll>-->
@@ -177,7 +177,7 @@
     <!--VR全景-->
     <ion-slide class="slideThree">
       <!--<ion-scroll scrollY="true" class="fixed-content">-->
-      <div class="fixed-content">
+      <div class="fixed-content" style="height: 100%">
         <div class="tab-select">
           <div class="tab-list">
             <span (click)="queryCondition('styleThree')">风格</span>
@@ -198,8 +198,8 @@
             </ul>
           </div>
         </div>
-        <!--<div class="panorama-wrap">-->
-          <ion-content class="panorama-wrap">
+        <div class="panorama-wrap" style="height: 100%">
+          <ion-content>
             <!--下拉刷新-->
             <ion-refresher (ionRefresh)="doRefresh($event)">
               <ion-refresher-content></ion-refresher-content>
@@ -226,35 +226,11 @@
               </ion-infinite-scroll-content>
             </ion-infinite-scroll>
           </ion-content>
+        </div>
       </div>
       <!--</ion-scroll>-->
     </ion-slide>
   </ion-slides>
 </ion-content>
 
-<!--<ion-content class="property-list">-->
-  <!--&lt;!&ndash;下拉刷新&ndash;&gt;-->
-  <!--<ion-refresher (ionRefresh)="doRefresh($event)">-->
-    <!--<ion-refresher-content></ion-refresher-content>-->
-  <!--</ion-refresher>-->
 
-  <!--<ion-list>-->
-
-    <!--<ion-item-sliding *ngFor="let property of properties">-->
-      <!--<button ion-item (click)="openPropertyDetail(property)">-->
-        <!--<ion-thumbnail item-left>-->
-          <!--<img src="{{property.photoPath}}"/>-->
-        <!--</ion-thumbnail>-->
-        <!--<h2>{{property.title}}</h2>-->
-        <!--<p>{{property.id}}</p>-->
-      <!--</button>-->
-      <!--<ion-item-options>-->
-        <!--<button danger (click)="deleteItem(property)">Delete</button>-->
-      <!--</ion-item-options>-->
-    <!--</ion-item-sliding>-->
-
-  <!--</ion-list>-->
-
-  <!--<div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>-->
-
-<!--</ion-content>-->

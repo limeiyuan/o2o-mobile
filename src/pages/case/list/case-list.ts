@@ -40,6 +40,7 @@ export class CaseListPage extends BaseControllerClass{
   styleId:number = undefined;
   areaId:number = undefined;
   activeIndex:number;
+  showMode:string;
   activeObj:Object = {
     inclusive: {
       type: undefined,
@@ -210,6 +211,13 @@ export class CaseListPage extends BaseControllerClass{
           if (callback) {
             callback();
           }
+          // if(this.fullScreenList.length == 0){
+          //   debugger;
+          //   this.showMode = 'noneFullScreen';
+          // }else{
+          //   debugger;
+          //   this.showMode = 'haveFullScreen';
+          // }
         }else if(typename == 'halfpack'){
           this.halfpackList = this.halfpackList.concat(data.result);
           if (callback) {
@@ -235,6 +243,7 @@ export class CaseListPage extends BaseControllerClass{
     this.activeObj[this.typename].pageNo = 0;
     this.fullScreenList = [];
     this.query(undefined, undefined, undefined, undefined, function () {
+      debugger;
       refresh.complete();
     });
   }
@@ -278,7 +287,7 @@ export class CaseListPage extends BaseControllerClass{
       var params = this.activeObj[this.typename];
       this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'panrama')
         .then(data => {
-          debugger;
+          // debugger;
           console.log(data);
           this.panramaList = this.panramaList.concat(data.result);
             // if (callback) {

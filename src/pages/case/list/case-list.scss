@@ -1,6 +1,7 @@
 $px: 16rem/750;
 .has-refresher > .scroll-content{
   border-top: none;
+  margin-bottom: 0;
 }
   page-case-list{
     fixed-content{
@@ -186,8 +187,11 @@ $px: 16rem/750;
       }
     }
     .full-screen-wrap{
-      padding: 20*$px;
-      padding-top: 90*$px;
+      //padding: 20*$px;
+      height: 100%;
+      .full-screen-have{
+        padding-top: 90*$px;
+      }
       .fullScreenNone{
         padding-top: 298*$px;
         text-align: center;
