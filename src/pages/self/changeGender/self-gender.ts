@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import {NavController, IonicPage, NavParams} from 'ionic-angular';
 import {FormGroup, FormControl} from '@angular/forms';
 import {settingService} from "../../../providers/setting-service-rest";
 
@@ -13,17 +13,16 @@ import {settingService} from "../../../providers/setting-service-rest";
 export class SelfGenderPage {
   langs;
   langForm;
-  constructor(public navCtrl: NavController, public service: settingService) {
+  transmitGenderValue : string;
+  constructor(public navCtrl: NavController, public service: settingService, public NavParams: NavParams) {
     this.langForm = new FormGroup({
       "langs": new FormControl({value: 'rust', disabled: false})
     });
+    this.transmitGenderValue= NavParams.get('value');
   }
   doSubmit(event) {
     console.log('Submitting form', this.langForm.value);
     event.preventDefault();
-  }
-  directToEditData(){
-    this.navCtrl.push('SelfEditDataPage');
   }
   backListPage(){
     this.navCtrl.pop();
@@ -34,7 +33,8 @@ export class SelfGenderPage {
       .then(data => {
         console.log(data);
         if(data.success == true){
-          this.navCtrl.push('SelfEditDataPage');
+          // this.navCtrl.push('SelfEditDataPage');
+          console.log(this.transmitGenderValue);
         }
       })
       .catch(error => console.log(error));

@@ -9,13 +9,13 @@
     <ion-list radio-group formControlName="langs">
       <ion-item >
         <ion-label>保密</ion-label>
-        <ion-radio checked="true" value="OTHER" (click)="save('OTHER')"></ion-radio>
+        <ion-radio  value="OTHER" (click)="save('OTHER')"></ion-radio>
       </ion-item >
-      <ion-item>
+      <ion-item [ng-class]="{'item-radio-checked':transmitGenderValue == 'MALE'}">
         <ion-label>男</ion-label>
         <ion-radio  value="MALE" (click)="save('MALE')"></ion-radio>
       </ion-item>
-      <ion-item>
+      <ion-item >
         <ion-label>女</ion-label>
         <ion-radio  value="FEMALE" (click)="save('FEMALE')"></ion-radio>
       </ion-item>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { accountService } from "../../providers/account-service-rest";
 
 /**
  * Generated class for the LookpasswordPage page.
@@ -14,6 +15,9 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 @Component({
   selector: 'page-lookpassword',
   templateUrl: 'lookpassword.html',
+  providers: [
+    accountService
+  ]
 })
 export class LookpasswordPage {
   phone: string = '';
@@ -22,7 +26,7 @@ export class LookpasswordPage {
   surePassword: string = '';
   public tips = '获取验证码';
   public disabled = false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
   }
 
   ionViewDidLoad() {
@@ -38,16 +42,21 @@ export class LookpasswordPage {
     const that = this;
     that.tips = number + 's';
 
-    const timer = setInterval(function () {
-      number --;
-      if (number === 0) {
-        that.disabled = false;
-        that.tips = '获取验证码';
-        clearInterval(timer);
-      } else {
-        that.tips = number + 's';
-      }
-    }, 1000);
+    this.service.sendCode(this.phone)
+      .then(data => {
+        console.log(data);
+        const timer = setInterval(function () {
+          number --;
+          if (number === 0) {
+            that.disabled = false;
+            that.tips = '获取验证码';
+            clearInterval(timer);
+          } else {
+            that.tips = number + 's';
+          }
+        }, 1000);
+      })
+      .catch(error => alert(JSON.stringify(error)));
   }
   finish(){
     let phoneReg = /^(13|14|15|17|18)[0-9]{9}$/;
@@ -65,19 +74,40 @@ export class LookpasswordPage {
       return false;
     }
     if(this.newPassword == ''){
-      this.presentToast('请输入密码');
-      return false;
-    }else if(!passwordReg.test(this.newPassword)){
-      this.presentToast("密码为6-12位字母数字结合");
+      this.presentToast('请输入新密码');
       return false;
     }
+    // else if(!passwordReg.test(this.newPassword)){
+    //   this.presentToast("密码为6-12位字母数字结合");
+    //   return false;
+    // }
     if(this.surePassword == ''){
-      this.presentToast('请确认密码');
+      this.presentToast('请确认确认密码');
       return false;
-    }else if(!passwordReg.test(this.surePassword)){
+    } else if(!passwordReg.test(this.surePassword)){
       this.presentToast("密码为6-12位字母数字结合");
       return false;
     }
+    if(this.newPassword != this.surePassword){
+      this.presentToast('两次输入密码不一致');
+      return false;
+    }
+    this.service.forgetPassword(this.phone, this.newPassword, this.code)
+      .then(data => {
+        console.log(data);
+        if(data.message == "该电话号码没有进行过注册"){
+          this.presentToast("该电话号码未注册");
+          return false;
+        };
+        if(data.message == "验证码已失效"){
+          this.presentToast("验证码已失效");
+          return false;
+        };
+        if(data.success == true){
+          this.appCtrl.getRootNav().push('AccountPage');
+        }
+      })
+      .catch(error => alert(JSON.stringify(error)));
   }
   presentToast(msg) {
     let toast = this.toastCtrl.create({

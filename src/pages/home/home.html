@@ -46,10 +46,10 @@
         <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
       <div class="caseWrapper">
-        <div class="case-item" *ngFor="let case of caseList">
+        <div class="case-item" *ngFor="let case of caseList" (click)="derectToDetail(case)">
           <div class="img-wrap">
             <!--<img src="../../assets/image/home/pic-1@3x.png" alt="">-->
-            <!--<img src="{{getPhoto(case.photo.path)}}" alt="">-->
+            <img src="{{getPhoto(case?.photo?.path)}}" alt="">
           </div>
           <div class="text-wrap clearfix">
             <div class="caseTitle fl">{{case.title}}</div>

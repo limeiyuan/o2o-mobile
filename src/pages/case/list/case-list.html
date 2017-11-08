@@ -158,8 +158,8 @@
               <div id="boxWrap">
                 <div class="box" *ngFor="let halfpack of halfpackList" (click)="derectToDetail(halfpack)">
                   <div class="box_img">
-                    <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
-                    <!--<img src="{{getPicture(halfpack?.photo?.path)}}" alt="">-->
+                    <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
+                    <img src="{{getPicture(halfpack?.longphoto)}}" alt="">
                   </div>
                 </div>
               </div>

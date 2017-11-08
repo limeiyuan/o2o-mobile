@@ -13,9 +13,9 @@ export class SelfChangeNicknamePage {
   editData : object;
   transmitNickname : string = '';
   queryNickname : string = '';
-  nickname : string = this.queryNickname;
   constructor(public navCtrl: NavController, public NavParams: NavParams, public service: settingService) {
     this.transmitNickname = NavParams.get('nickname');
+    this.queryNickname = this.transmitNickname;
   }
   directToSetting(){
     this.navCtrl.push('SelfSettingPage');
@@ -23,17 +23,10 @@ export class SelfChangeNicknamePage {
   backListPage(){
     this.navCtrl.pop();
   }
-  queryData() {
-    this.service.queryData()
-      .then(data => {
-        console.log(data);
-        this.queryNickname = data.result.nickname;
-      })
-      .catch(error => console.log(error));
-  }
+
   // 设置昵称
   save() {
-    this.service.settingData(this.nickname, undefined, undefined, undefined)
+    this.service.settingData(this.queryNickname, undefined, undefined, undefined)
       .then(data => {
         console.log(data);
         if(data.success == true){

@@ -24,14 +24,14 @@ export class SelfEditDataPage {
   constructor(public navCtrl: NavController, public platform: Platform,public actionsheetCtrl: ActionSheetController, public service: settingService,) {
    this.queryData();
   }
-  directToChangeEmail(){
-    this.navCtrl.push('SelfChangeEmailPage');
+  directToChangeEmail(email){
+    this.navCtrl.push('SelfChangeEmailPage',{email: email});
   }
   directToChangeNickname(nickname){
     this.navCtrl.push('SelfChangeNicknamePage',{nickname: nickname});
   }
-  directToChangeGender(){
-    this.navCtrl.push('SelfGenderPage');
+  directToChangeGender(value){
+    this.navCtrl.push('SelfGenderPage',{value:value});
   }
   directToChangePassword(){
     this.navCtrl.push('SelfChangePasswordPage');

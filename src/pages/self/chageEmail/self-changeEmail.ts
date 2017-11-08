@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, IonicPage} from 'ionic-angular';
+import {NavController, IonicPage, NavParams} from 'ionic-angular';
 import {settingService} from "../../../providers/setting-service-rest";
 import { ToastController } from 'ionic-angular';
 
@@ -13,8 +13,10 @@ import { ToastController } from 'ionic-angular';
 })
 export class SelfChangeEmailPage {
   email : string ='';
-  constructor(public navCtrl: NavController,  public service: settingService, public toastCtrl: ToastController) {
-
+  transmitEmail : string ='';
+  constructor(public navCtrl: NavController,  public service: settingService, public NavParams: NavParams, public toastCtrl: ToastController) {
+    this.transmitEmail= NavParams.get('email');
+    this.email = this.transmitEmail;
   }
   directToSetting(){
     this.navCtrl.push('SelfSettingPage');

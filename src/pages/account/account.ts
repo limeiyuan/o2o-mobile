@@ -114,8 +114,6 @@ export class AccountPage {
       })
       .catch(error => alert(JSON.stringify(error)));
   }
-
-
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,

@@ -20,7 +20,7 @@
       <img src="assets/image/home/icon-more@3x.png" class="more" alt="">
     </div>
   </div>
-  <div class="changeGender-item setting-item" (click)="directToChangeGender()">
+  <div class="changeGender-item setting-item" (click)="directToChangeGender(editData?.gender?.value)">
     <span class="fl">性别</span>
     <div class="img-wrap fr">
       <span class="gender">{{editData?.gender?.chineseName}}</span>
@@ -33,7 +33,7 @@
       {{editData?.tel}}
     </div>
   </div>
-  <div class="email-item setting-item" (click)="directToChangeEmail()">
+  <div class="email-item setting-item" (click)="directToChangeEmail(editData?.email)">
     <span class="fl">邮箱</span>
     <div class="img-wrap fr">
       <span class="email">{{editData?.email}}</span>

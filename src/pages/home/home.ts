@@ -96,4 +96,8 @@ export class HomePage extends BaseControllerClass {
   openDetailsPage(id) {
     this.appCtrl.getRootNav().push('DesignerDetailPage',{ id: id });
   }
+  // 案例详情
+  derectToDetail(property: any) {
+    this.appCtrl.getRootNav().push('CaseDetailPage', property);
+  }
 }

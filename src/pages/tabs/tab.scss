@@ -55,15 +55,23 @@ $tabImageName: 'tab1' 'tab2' 'tab3' 'tab4' 'tab5';
 .tabs-ios .tabbar{
   background-color: #fff;
   border-top: 1px solid rgb(244,244,244);
-  padding-top: 10*$px;
+  //padding-top: 10*$px;
   //position: relative;
 }
 .tabWrapper{
   //position: relative;
 }
+.tabs-ios .ion-ios-tab-tab3-outline{
+  position: absolute;
+  top: 0px;
+}
 .tabs-ios .ion-ios-tab-tab3{
   width: 100*$px;
   height: 100*$px;
   position: absolute;
-  top:-64*$px;
+  top:-54*$px;
+}
+#tab-t0-2 .tab-button-text{
+  position: absolute;
+  bottom: 3*$px;
 }

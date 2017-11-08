@@ -15,7 +15,14 @@ $px: 16rem/750;
   font-size: 28*$px;
   color: rgb(102,102,102);
 }
+#tab-t0-2{
+  overflow: visible;
+}
 page-designer-list{
+  #tab-t0-2 .tab-button-text{
+    position: absolute;
+    bottom: 10*$px;
+  }
   .title{
     position: relative;
     .newsIcon{

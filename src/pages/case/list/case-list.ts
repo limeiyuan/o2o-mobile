@@ -347,7 +347,8 @@ export class CaseListPage extends BaseControllerClass{
     let parentNode = document.getElementById("boxWrap");
     let childNodeArray: any = parentNode.getElementsByClassName("box");
     let screenWidth = document.documentElement.clientWidth;
-    let childWidth = childNodeArray[0].offsetWidth;
+    // let childWidth = childNodeArray[0].offsetWidth;
+    let childWidth = 172.5;
     let num = Math.floor(screenWidth / childWidth); //获得一排摆的个数 用Math.floor()转换为整数
     // parentNode.style.cssText = "width:" + (childWidth * num + 2) + "px;"; //固定container的宽并设置居中
     this.setImagePosition(num, childNodeArray);
@@ -356,12 +357,12 @@ export class CaseListPage extends BaseControllerClass{
     var imgHeightArray = [];//定义数组用于存放所有图片的高度
     for (var i = 0; i < childArray.length; i++) { //遍历所有图片
       if (i < num) {
-        console.log(i, childArray[i].offsetHeight)
+        console.log(i, childArray[i].offsetHeight);
         imgHeightArray[i] = childArray[i].offsetHeight; //取得第一排图片的高度
       } else {
         var minHeight = Math.min.apply(null, imgHeightArray); //获取第一排图片中高度最小的图片
         var minIndex = this.getMinHeight(imgHeightArray, minHeight); //函数获得高度最小的图片的位置
-        console.log('minIndex', minIndex)
+        console.log('minIndex', minIndex);
         childArray[i].style.position = "absolute"; //绝对定位图片
         childArray[i].style.top = minHeight + "px"; //图片距顶部像素
         childArray[i].style.left = childArray[minIndex].offsetLeft + "px"; //图片距左的像素
@@ -394,6 +395,4 @@ export class CaseListPage extends BaseControllerClass{
 //     this.getNode();
 //     setTimeout(() => { infiniteScroll.complete() }, 1000);
 //   }
-
-
 }

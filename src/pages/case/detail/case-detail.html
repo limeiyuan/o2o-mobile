@@ -1,37 +1,40 @@
 
-
+<ion-header>
+  <div class="title">
+    <span class="back">
+      <img src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    </span>
+    <span>
+      <img class="collect" *ngIf="items[currentIndex]?.caseDto?.favor == '10A'"
+           src="assets/image/case/quanwu/icon-collect1@3x.png" alt=""
+           (click)="favor(currentIndex, items[currentIndex]?.caseDto?.id)">
+      <img class="collect" *ngIf="items[currentIndex]?.caseDto?.favor == '10B'"
+           src="assets/image/designer/detail/icon-collect@3x.png" alt=""
+           (click)="favor(currentIndex, items[currentIndex]?.caseDto?.id)">
+      <img class="share" src="assets/image/designer/detail/icon-share@3x.png" alt="" (click)="isShow = !isShow">
+    </span>
+  </div>
+</ion-header>
 <ion-content>
-  <ion-slides class="slideItem" zoom="true" (ionSlideReachEnd)="queryNext()" (ionSlideNextStart)="getNextItem()" (ionSlidePrevStart)="getPreItem()">
+  <ion-slides class="slideItem" zoom="true" (ionSlideReachEnd)="queryNext()" (ionSlideNextStart)="getNextItem()"
+              (ionSlidePrevStart)="getPreItem()">
     <ion-slide *ngFor="let photo of photos">
-      <ion-header>
-        <div class="title">
-          <span class="back">
-            <img src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
-          </span>
-          <span>
-            <img class="collect" *ngIf="items[currentIndex]?.caseDto?.favor == '10A'"  src="assets/image/case/quanwu/icon-collect1@3x.png" alt="" (click)="favor(currentIndex, items[currentIndex]?.caseDto?.id)">
-            <img class="collect" *ngIf="items[currentIndex]?.caseDto?.favor == '10B'" src="assets/image/designer/detail/icon-collect@3x.png" alt="" (click)="favor(currentIndex, items[currentIndex]?.caseDto?.id)">
-            <img class="share" src="assets/image/designer/detail/icon-share@3x.png" alt="" (click)="isShow = !isShow">
-          </span>
-        </div>
-      </ion-header>
-
       <div class="swiper-zoom-container">
         <img src="{{getPhoto(photo)}}">
         <!--<img src="assets/image/case/quanwu/pic-1@3x.png" alt="">-->
       </div>
-      <div class="detail-aside">
-        <div class="titleBar clearfix" *ngIf="items[currentIndex]?.caseDto?.type_case == '全包'">
-          <ion-label class="fl title">{{items[currentIndex]?.caseDto?.title}}</ion-label>
-          <ion-label class="fr">{{currentPhotoIndex + 1}}/{{items[currentIndex]?.listPathMobile?.length}}</ion-label>
-        </div>
-        <div class="fixedBotton" (click)="directToBaojia()">
-          我也想要这样装
-        </div>
-      </div>
     </ion-slide>
   </ion-slides>
 </ion-content>
+<div class="detail-aside">
+  <div class="titleBar clearfix" *ngIf="items[currentIndex]?.caseDto?.type_case == '全包'">
+    <ion-label class="fl title">{{items[currentIndex]?.caseDto?.title}}</ion-label>
+    <ion-label class="fr">{{currentPhotoIndex + 1}}/{{items[currentIndex]?.listPathMobile?.length}}</ion-label>
+  </div>
+</div>
+<div class="fixedBotton" (click)="directToBaojia()">
+  我也想要这样装
+</div>
 <div id="overlay" *ngIf="isShow" (click)="isShow=!isShow">
   <div class="share-wrap">
     <p class="title">

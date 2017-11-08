@@ -9,22 +9,22 @@
   <div class="content-top">
     <div class="location-city-wrap">
       <p>定位城市</p>
-      <div class="location-city">
+      <div class="location-city" (click)="save('110000')">
         北京
       </div>
     </div>
     <div class="hot-city-wrap" id="cityHot">
       <p>热门城市</p>
       <div class="hot-city-container clearfix">
-        <div class="hot-city fl">北京</div>
-        <div class="hot-city fl">天津</div>
-        <div class="hot-city fl">上海</div>
-        <div class="hot-city fl">广州</div>
-        <div class="hot-city fl">深圳</div>
-        <div class="hot-city fl">南京</div>
-        <div class="hot-city fl">河北</div>
-        <div class="hot-city fl">武汉</div>
-        <div class="hot-city fl">重庆</div>
+        <div class="hot-city fl" (click)="save('110000')">北京</div>
+        <div class="hot-city fl" (click)="save('120000')">天津</div>
+        <div class="hot-city fl" (click)="save('310000')">上海</div>
+        <div class="hot-city fl" (click)="save('440100')">广州</div>
+        <div class="hot-city fl" (click)="save('440300')">深圳</div>
+        <div class="hot-city fl" (click)="save('320100')">南京</div>
+        <div class="hot-city fl" (click)="save('320500')">苏州</div>
+        <div class="hot-city fl" (click)="save('420100')">武汉</div>
+        <div class="hot-city fl" (click)="save('500000')">重庆</div>
       </div>
     </div>
   </div>
