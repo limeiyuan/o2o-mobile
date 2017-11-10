@@ -114,6 +114,7 @@ ion-header{
           height: 300*$px;
           img{
             height: 300*$px;
+            width: 100%;
           }
         }
         .text-wrap{
@@ -187,6 +188,8 @@ ion-header{
           img{
             width: 140*$px;
             height: 140*$px;
+            border-radius: 50%;
+            margin-left: 50*$px;
           }
         }
         h1{

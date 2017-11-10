@@ -26,7 +26,7 @@ export class CaseListPage extends BaseControllerClass{
   fullScreenList = [];
   halfpackList = [];
   panramaList = [];
-  typename: string = 'inclusive';
+  typename: string = 'MULTIIMAGE';
   housetypeName: string = '户型';
   currentPageNo = 0;
   pageNo = 0;
@@ -42,13 +42,13 @@ export class CaseListPage extends BaseControllerClass{
   activeIndex:number;
   showMode:string;
   activeObj:Object = {
-    inclusive: {
+    MULTIIMAGE: {
       type: undefined,
       style: undefined,
       area: undefined,
       pageNo: 0
     },
-    halfpack: {
+    SINGLEIMAGE: {
       type: undefined,
       style: undefined,
       area: undefined,
@@ -206,7 +206,7 @@ export class CaseListPage extends BaseControllerClass{
     this.service.query(params.pageNo, undefined, params.style, params.type, params.area, typename)
       .then(data => {
         console.log(data);
-        if(typename == 'inclusive'){
+        if(typename == 'MULTIIMAGE'){
           this.fullScreenList = this.fullScreenList.concat(data.result);
           if (callback) {
             callback();
@@ -218,7 +218,7 @@ export class CaseListPage extends BaseControllerClass{
           //   debugger;
           //   this.showMode = 'haveFullScreen';
           // }
-        }else if(typename == 'halfpack'){
+        }else if(typename == 'SINGLEIMAGE'){
           this.halfpackList = this.halfpackList.concat(data.result);
           if (callback) {
             callback();
@@ -242,8 +242,9 @@ export class CaseListPage extends BaseControllerClass{
   doRefresh(refresh, $event: Event) {
     this.activeObj[this.typename].pageNo = 0;
     this.fullScreenList = [];
+    this.halfpackList = [];
+    this.panramaList = [];
     this.query(undefined, undefined, undefined, undefined, function () {
-      debugger;
       refresh.complete();
     });
   }
@@ -299,9 +300,9 @@ export class CaseListPage extends BaseControllerClass{
     }
     if (currentIndex === 1){
       this.top_segment = 'top_1';
-      this.typename = 'halfpack';
+      this.typename = 'SINGLEIMAGE';
       var params = this.activeObj[this.typename];
-      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'halfpack')
+      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'SINGLEIMAGE')
         .then(data => {
           console.log(data);
           this.halfpackList = this.halfpackList.concat(data.result);
@@ -314,9 +315,9 @@ export class CaseListPage extends BaseControllerClass{
     }
     if (currentIndex === 0){
       this.top_segment = 'top_0';
-      this.typename = 'inclusive';
+      this.typename = 'MULTIIMAGE';
       var params = this.activeObj[this.typename];
-      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'inclusive')
+      this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'MULTIIMAGE')
         .then(data => {
           console.log(data);
           this.fullScreenList = this.fullScreenList.concat(data.result);

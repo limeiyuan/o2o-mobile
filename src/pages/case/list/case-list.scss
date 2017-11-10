@@ -3,9 +3,22 @@ $px: 16rem/750;
   border-top: none;
   margin-bottom: 0;
 }
+ion-list{
+  height: 100%;
+}
+.scroll-content{
+  margin-bottom: 0;
+}
+.fixed-content{
+  margin-bottom: 0;
+}
+.scroll-zoom-wrapper{
+  height: 100%;
+}
+
   page-case-list{
-    fixed-content{
-      padding-top: 20*$px;
+    .fixed-content{
+      //padding-top: 20*$px;
     }
     .content-ios{
       background-color: #f5f5f5;
@@ -16,20 +29,30 @@ $px: 16rem/750;
       right: 20*$px;
       bottom: -110*$px;
     }
+    .fixed-content-half{
+      top: 90*$px;
+    }
     ion-content{
       padding-left:20*$px;
       .slideTwo{
         transform: translate(0,0);
-        #containerImg{
-          padding-top: 90*$px;
+        .half-pack-wrap{
           padding-left: 20*$px;
+        }
+        .half-pack-have{
+          padding-top: 90*$px;
+        }
+        #containerImg{
+          width: 750*$px;
+          //padding-top: 90*$px;
+          //padding-left: 20*$px;
           #boxWrap{
             position: relative;
           }
           .box {
             width: 345*$px!important;
             float: left;
-            margin-right: 15*$px;
+            margin-right: 18*$px;
             //padding: 10*$px;
             //width: 345*$px!important;
             .box_img {

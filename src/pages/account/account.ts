@@ -73,7 +73,7 @@ export class AccountPage {
           return false;
         };
         if(data.success == true){
-          this.appCtrl.getRootNav().push('TabsPage');
+          this.navCtrl.push('TabsPage');
         }
       })
       .catch(error => alert(JSON.stringify(error)));

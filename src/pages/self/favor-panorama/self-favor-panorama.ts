@@ -13,7 +13,9 @@ import {PicService} from "../../../providers/pic-service-rest";
 })
 export class SelfFavorPanoramaPage extends BaseControllerClass{
   pageNo : Number = 0;
-  panramaList : Array<any>;
+  panramaList = [];
+  currentPageNo = 0;
+
 
   constructor(public navCtrl: NavController, public service: favorService, public picService: PicService, public config: Config) {
     super(picService);
@@ -22,12 +24,29 @@ export class SelfFavorPanoramaPage extends BaseControllerClass{
   backListPage(){
     this.navCtrl.pop();
   }
-  queryCase(){
+  queryCase(callback = null){
     this.service.queryCase(this.pageNo,undefined, 'panorama')
       .then(data =>{
         console.log(data);
-        this.panramaList = data.result;
+        this.panramaList = this.panramaList.concat(data.result);
+        if (callback) {
+          callback();
+        }
       })
       .catch(error => console.log(error));
+  }
+  // 下拉刷新
+  doRefresh(refresh, $event: Event) {
+    this.currentPageNo = 0;
+    this.panramaList = [];
+    this.queryCase(function () {
+      refresh.complete();
+    });
+  }
+  // 上拉加载
+  doInfinite(infiniteScroll, $event: Event) {
+    this.queryCase(function () {
+      infiniteScroll.complete();
+    })
   }
 }
