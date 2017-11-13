@@ -35,10 +35,11 @@ export class SelfChangePasswordPage {
     if(this.newPassword == ''){
       this.presentToast('请输入新密码');
       return false;
-    }else if(!passwordReg.test(this.newPassword)){
-      this.presentToast("新密码为6-12位字母数字结合");
-      return false;
     }
+    // else if(!passwordReg.test(this.newPassword)){
+    //   this.presentToast("新密码为6-12位字母数字结合");
+    //   return false;
+    // }
     if(this.surePassword == ''){
       this.presentToast('请输入确认密码');
       return false;
@@ -58,6 +59,7 @@ export class SelfChangePasswordPage {
           return false;
         }
         if(data.success == true){
+          this.presentToast("密码修改成功");
           this.navCtrl.pop();
         }
       })

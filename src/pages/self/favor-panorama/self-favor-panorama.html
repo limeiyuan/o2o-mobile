@@ -12,7 +12,7 @@
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
       <div class="panorama-item" *ngFor="let panrama of panramaList">
-        <iframe src="{{panrama.panorama}}">
+        <!--<iframe src="{{panrama.panorama}}">-->
           <div class="img-wrap">
             <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
             <img src="{{getPicture(panrama.longphoto)}}" alt="">
@@ -21,7 +21,7 @@
             VR全景
             <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
           </div>
-        </iframe>
+        <!--</iframe>-->
       </div>
       <!--加载更多-->
       <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
@@ -34,3 +34,27 @@
   </div>
 </ion-content>
 
+<!--<ion-header no-shadow>-->
+  <!--<ion-navbar class="page-navbar">-->
+    <!--<ion-title>{{browser.title}}</ion-title>-->
+
+    <!--<ion-buttons end>-->
+      <!--<button ion-button icon-only (click)="presentPopover($event)">-->
+        <!--<ion-icon name="more"></ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content class="content"> &lt;!&ndash;scroll="true" overflow-scroll="true"&ndash;&gt;-->
+  <!--<div class="progress" [hidden]="browser.isLoaded">-->
+    <!--<div class="progress-inner" id="progress"></div>-->
+  <!--</div>-->
+
+  <!--<iframe id="iframe" class="iframe"-->
+          <!--sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"-->
+          <!--[src]="browser.secUrl"-->
+          <!--(load)="loaded()">-->
+  <!--</iframe>-->
+<!--</ion-content>-->
+<!--<panel-share [(isShow)]="shareConfig.isShow" [share]="browser.share"></panel-share>-->

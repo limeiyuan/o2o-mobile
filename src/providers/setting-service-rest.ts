@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {SERVER_URL} from "./config";
 import "rxjs/add/operator/toPromise";
+import Qs from 'qs'
 
 
 let baseUrl = SERVER_URL;
@@ -30,14 +31,12 @@ export class settingService {
       .map(res => res.json())
       .toPromise();
   }
-  // 修改密码
+  // 忘记密码
   changePassword(password:string,newPassword:string) {
-    return this.http.get(baseUrl + 'user/changePassword.htm',{
-      params: {
-        password:password,
-        newPassword:newPassword,
-      }
-    })
+    let body = Qs.stringify({ password:password, newPassword: newPassword}),
+      headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}),
+      options = new RequestOptions({headers: headers});
+    return this.http.post(baseUrl + 'user/changePassword.htm', body, options)
       .map(res => res.json())
       .toPromise();
   }

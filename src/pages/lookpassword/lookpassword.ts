@@ -104,6 +104,7 @@ export class LookpasswordPage {
           return false;
         };
         if(data.success == true){
+          this.presentToast("密码设置成功");
           this.appCtrl.getRootNav().push('AccountPage');
         }
       })
