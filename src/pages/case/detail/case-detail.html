@@ -27,7 +27,8 @@
   </ion-slides>
 </ion-content>
 <div class="detail-aside">
-  <div class="titleBar clearfix" *ngIf="items[currentIndex]?.caseDto?.type_case == '全包'">
+  <div class="titleBar clearfix" *ngIf="items[currentIndex]?.listPathMobile?.length >1 ">
+  <!--<div class="titleBar clearfix" *ngIf="items[currentIndex]?.caseDto?.type_case == '全包'">-->
     <ion-label class="fl title">{{items[currentIndex]?.caseDto?.title}}</ion-label>
     <ion-label class="fr">{{currentPhotoIndex + 1}}/{{items[currentIndex]?.listPathMobile?.length}}</ion-label>
   </div>

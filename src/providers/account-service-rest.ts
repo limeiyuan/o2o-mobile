@@ -13,14 +13,14 @@ export class accountService {
   constructor(public http: Http) {
   }
   sendCode(tel:string) {
-    return this.http.get(baseUrl + 'base/validateCode.htm', {
-      params: {
-        tel:tel,
-      }
-    })
+    let body = Qs.stringify({ tel:tel}),
+      headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}),
+      options = new RequestOptions({headers: headers});
+    return this.http.post(baseUrl + 'base/validateCode.htm', body, options)
       .map(res => res.json())
       .toPromise();
   }
+  // 注册
   doRegister(username:string,password:string,type:string,signature:string) {
     let body = Qs.stringify({ username: username, password: password,type: type, signature: signature}),
       headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}),
@@ -47,4 +47,11 @@ export class accountService {
       .map(res => res.json())
       .toPromise();
   }
+  // 服务条款
+  query() {
+    return this.http.get(baseUrl + 'homepage/queryRegulations.action')
+      .map(res => res.json())
+      .toPromise();
+  }
+
 }

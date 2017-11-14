@@ -5,16 +5,56 @@
   </div>
 </ion-header>
 <ion-content>
-  <div class="panorama-wrap">
-    <div class="panorama-item" *ngFor="let panrama of panramaList">
-      <div class="img-wrap">
-        <img src="assets/image/case/panorama/pic-1@3x.png" alt="">
-        <!--<img src="{{getPicture(panrama.photoPath)}}" alt="">-->
+  <div class="panorama-wrap" style="height: 100%">
+    <ion-content class="full-screen-have">
+      <!--下拉刷新-->
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="panorama-item" *ngFor="let panrama of panramaList">
+        <!--<iframe src="{{panrama.panorama}}">-->
+          <div class="img-wrap">
+            <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
+            <img src="{{getPicture(panrama.longphoto)}}" alt="">
+          </div>
+          <div class="panorama-button">
+            VR全景
+            <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
+          </div>
+        <!--</iframe>-->
       </div>
-      <div class="panorama-button">
-        VR全景
-        <img src="assets/image/case/panorama/icon-action@3x.png" alt="">
-      </div>
-    </div>
+      <!--加载更多-->
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-content>
   </div>
 </ion-content>
+
+<!--<ion-header no-shadow>-->
+  <!--<ion-navbar class="page-navbar">-->
+    <!--<ion-title>{{browser.title}}</ion-title>-->
+
+    <!--<ion-buttons end>-->
+      <!--<button ion-button icon-only (click)="presentPopover($event)">-->
+        <!--<ion-icon name="more"></ion-icon>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content class="content"> &lt;!&ndash;scroll="true" overflow-scroll="true"&ndash;&gt;-->
+  <!--<div class="progress" [hidden]="browser.isLoaded">-->
+    <!--<div class="progress-inner" id="progress"></div>-->
+  <!--</div>-->
+
+  <!--<iframe id="iframe" class="iframe"-->
+          <!--sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"-->
+          <!--[src]="browser.secUrl"-->
+          <!--(load)="loaded()">-->
+  <!--</iframe>-->
+<!--</ion-content>-->
+<!--<panel-share [(isShow)]="shareConfig.isShow" [share]="browser.share"></panel-share>-->

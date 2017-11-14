@@ -1,14 +1,15 @@
 
 <ion-content >
   <div class="banner">
+    <img (click)="backListPage()" class="cloth" src="assets/image/account/icon-login-cloce@3x.png" alt="">
     <div class="bottom clearfix">
       <div class="login fl bottom-item" (click)="directTo('login')">
         登录
-        <img *ngIf="viewMode==='login'" src="../../assets/image/login/sanjiao.png" alt="">
+        <img *ngIf="viewMode==='login'" src="assets/image/login/sanjiao.png" alt="">
       </div>
       <div class="register fl bottom-item" (click)="directTo('register')">
         注册
-        <img *ngIf="viewMode==='register'" src="../../assets/image/login/sanjiao.png" alt="">
+        <img *ngIf="viewMode==='register'" src="assets/image/login/sanjiao.png" alt="">
       </div>
     </div>
   </div>
@@ -18,7 +19,7 @@
         <input class="phone" type="text" placeholder="手机号" maxlength="11" [(ngModel)]="login.username">
       </div>
       <div class="password-wrap">
-        <input class="password" type="password" placeholder="密码" [(ngModel)]="login.password">
+        <input class="password" type="password" placeholder="密码" [(ngModel)]="login.password" maxlength="12">
       </div>
     </div>
     <p class="forget fr" (click)="directToLookpassword()">忘记密码</p>
@@ -39,13 +40,13 @@
         <button class="getCode" [disabled]="disabled" (click)="getCode($event)">{{tips}}</button>
       </div>
       <div class="password-wrap">
-        <input class="password" type="text" placeholder="密码" [(ngModel)]="register.password">
+        <input class="password" type="password" placeholder="密码" [(ngModel)]="register.password" maxlength="12">
       </div>
 
       <div class="select-wrap" (click)="isShow=!isShow">
         <div class="select" type="text">{{role}}</div>
-        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
-        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
+        <img src="assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
+        <img src="assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
         <ul class="option-wrap" *ngIf="isShow">
           <div style="width: 100%" (click)="changeRole('FRDESIGNER','自由设计师')">
             <li class="free">自由设计师</li>
@@ -65,7 +66,7 @@
     </div>
     <div class="agree-wrap">
       <input type="radio" checked>
-      <span>我已阅读并接受 <span class="clause">《装修常见问题条款》</span></span>
+      <span>我已阅读并接受 <span class="clause" (click)="directToClause()">《装修常见问题条款》</span></span>
     </div>
     <div class="submit-wrap">
       <button class="submit" (click)="directToRegister()">完成</button>

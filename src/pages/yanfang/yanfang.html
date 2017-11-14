@@ -10,7 +10,7 @@
   </div>
   <div class="form">
     <div class="name-wrap">
-      <input class="name" type="text" name="name" placeholder="您的姓名" [(ngModel)]="username">
+      <input class="name" type="text" name="name" placeholder="您的姓名" [(ngModel)]="username" maxlength="20">
       <div class="form-choose" (click)="isShow=!isShow">
         <span>{{gender}}</span>
         <img src="../../assets/image/yanfang/icon-select@3x.png" alt="">

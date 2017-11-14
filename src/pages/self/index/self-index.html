@@ -4,8 +4,10 @@
     <img class="setting topImg" src="../../../assets/image/selfIndex/icon-1@3x.png" alt="" (click)="directToSetting()">
     <img class="news topImg" src="../../../assets/image/selfIndex/icon-2@3x.png" alt="">
     <div class="portrait-wrap">
-      <img src="../../../assets/image/selfIndex/icon-head@3x.png" alt="">
-      <p class="title">{{username}}</p>
+      <div (click)="directToLogin()">
+        <img src="../../../assets/image/selfIndex/icon-head@3x.png" alt="" >
+      </div>
+      <p class="title" (click)="directToLogin()">{{username}}</p>
     </div>
     <div class="functio-device">
       <div class="functio-device-item fl" (click)="directToFavor()">

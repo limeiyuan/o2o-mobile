@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, IonicPage, NavParams} from 'ionic-angular';
+import {NavController, IonicPage, NavParams, ModalController} from 'ionic-angular';
 import {settingService} from "../../../providers/setting-service-rest";
 import { ToastController } from 'ionic-angular';
 
@@ -14,7 +14,7 @@ import { ToastController } from 'ionic-angular';
 export class SelfChangeEmailPage {
   email : string ='';
   transmitEmail : string ='';
-  constructor(public navCtrl: NavController,  public service: settingService, public NavParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController,  public modalCtrl: ModalController,  public service: settingService, public NavParams: NavParams, public toastCtrl: ToastController) {
     this.transmitEmail= NavParams.get('email');
     this.email = this.transmitEmail;
   }
@@ -38,6 +38,7 @@ export class SelfChangeEmailPage {
       .then(data => {
         console.log(data);
         if(data.success == true){
+          this.presentToast("邮箱修改成功");
           this.navCtrl.push('SelfEditDataPage');
         }
       })
@@ -46,9 +47,12 @@ export class SelfChangeEmailPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();
+  }
+  clearText(){
+    this.email = '';
   }
 }

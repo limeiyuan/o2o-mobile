@@ -1,44 +1,52 @@
 <ion-header>
   <div class="title">
-    <img class="back" src="../../assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
+    <img class="back" src="assets/image/designer/detail/icon-banck@3x.png" alt="" (click)="backListPage()">
     我的收藏-全屋
   </div>
 </ion-header>
 <ion-content>
-  <div class="full-screen-wrap">
-    <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList">
-      <div class="img-wrap">
-        <!--<img src="{{getPicture(fullScreen?.photoPath)}}" alt="">-->
-        <img src="assets/image/case/quanwu/pic-1@3x.png" alt="">
-      </div>
-      <div class="full-screen-intro">
-        <div class="full-title fl">
-          <span>{{fullScreen?.acreage}}</span>m²/{{fullScreen?.roomType}}/{{fullScreen?.caseType}}
+  <div class="full-screen-wrap" style="height: 100%">
+    <!--<ion-content class="full-screen-have"  *ngIf="showMode==='haveFullScreen'" id="haveFullScreen">-->
+    <ion-content class="full-screen-have">
+      <!--下拉刷新-->
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList" (click)="derectToDetail(fullScreen)">
+        <div class="img-wrap">
+          <img src="{{getPicture(fullScreen?.photoPath)}}" alt="">
+          <!--<img src="assets/image/case/quanwu/pic-1@3x.png" alt="">-->
         </div>
-        <div class="full-move-right fr">
-          <span>{{fullScreen?.nickname}}</span>
-        </div>
-        <div class="portrait">
-          <img src="assets/image/case/quanwu/design@3x.png" alt="">
-          <!--<img src="{{getPicture(fullScreen?.designerCoverPath)}}" alt="">-->
+        <div class="full-screen-intro">
+          <div class="full-title fl">
+            <span>{{fullScreen?.acreage}}</span>m²/{{fullScreen?.roomType}}/{{fullScreen?.caseType}}
+          </div>
+          <div class="full-move-right fr">
+            <span>{{fullScreen?.nickname}}</span>
+          </div>
+          <div class="portrait">
+            <!--<img src="assets/image/case/quanwu/design@3x.png" alt="">-->
+            <img src="{{getPicture(fullScreen?.designerCoverPath)}}" alt="">
+          </div>
         </div>
       </div>
-        <!--<div class="full-move">-->
-          <!--<div class="full-move-left fl">-->
-            <!--&lt;!&ndash;<a href="javascript:;" class="follow-wrap">&ndash;&gt;-->
-              <!--&lt;!&ndash;<img src="../../assets/image/case/quanwu/icon-2@3x.png" alt="">&ndash;&gt;-->
-              <!--&lt;!&ndash;<span>{{fullScreen?.goodsCount}}</span>&ndash;&gt;-->
-            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-            <!--&lt;!&ndash;<a href="javascript:;">&ndash;&gt;-->
-              <!--&lt;!&ndash;<img src="../../assets/image/case/quanwu/icon-3@3x.png" alt="">&ndash;&gt;-->
-              <!--&lt;!&ndash;<span>{{fullScreen?.favorCount}}</span>&ndash;&gt;-->
-            <!--&lt;!&ndash;</a>&ndash;&gt;-->
-          <!--</div>-->
-          <!--<div class="full-move-right fr">-->
-            <!--<span>{{fullScreen?.designer?.nickname}}</span>-->
-          <!--</div>-->
-        <!--</div>-->
-
-      </div>
+      <!--加载更多-->
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="加载更多...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-content>
+    <!--无收藏-->
+    <div class="fullScreenNone" *ngIf="showMode==='noneFullScreen'" id="noneFullScreen">
+      <img src="assets/image/case/quanwu/none-pic@3x.png" alt="">
+      <p class="text">
+        暂时没有收藏图片哦~
+      </p>
+      <p class="text">
+        看看其他的吧
+      </p>
     </div>
+  </div>
 </ion-content>

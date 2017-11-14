@@ -13,12 +13,13 @@ export class SelfDesignEditPage {
   mydesignId:string='';
   detailId:string='';
   transmitContent:string='';
-  designContent:string = this.transmitContent;
+  designContent:string;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams, public service: myDesignService,) {
     this.mydesignId = NavParams.get('id');
     this.detailId = NavParams.get('detailId');
     this.transmitContent = NavParams.get('content');
+    this.designContent = this.transmitContent;
     console.log(this.mydesignId);
     console.log(this.detailId);
     console.log(this.transmitContent);

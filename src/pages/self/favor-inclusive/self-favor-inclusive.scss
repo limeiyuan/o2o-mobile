@@ -16,6 +16,19 @@ page-self-favor-inclusive {
     .full-screen-wrap{
       padding: 20*$px;
       //padding-top: 20*$px;
+      .fullScreenNone{
+        padding-top: 298*$px;
+        text-align: center;
+        img{
+          width: 348*$px;
+          height: 166*$px;
+          margin-bottom: 74*$px;
+        }
+        .text{
+          font-size: 30*$px;
+          color: rgb(102,102,102);
+        }
+      }
       .overlay-full{
         background-color: rgba(0,0,0,.5);
         position: fixed;
@@ -63,6 +76,12 @@ page-self-favor-inclusive {
             height: 70*$px;
             right: 20*$px;
             top: -60*$px;
+            border-radius: 50%;
+            img{
+              width: 70*$px;
+              height: 70*$px;
+              border-radius: 50%;
+            }
           }
         }
       }

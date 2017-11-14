@@ -28,7 +28,6 @@ export class LookpasswordPage {
   public disabled = false;
   constructor(public appCtrl: App, public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public service: accountService) {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad LookpasswordPage');
   }
@@ -104,7 +103,8 @@ export class LookpasswordPage {
           return false;
         };
         if(data.success == true){
-          this.appCtrl.getRootNav().push('AccountPage');
+          this.presentToast("密码设置成功");
+          this.navCtrl.push('AccountPage');
         }
       })
       .catch(error => alert(JSON.stringify(error)));
@@ -112,7 +112,7 @@ export class LookpasswordPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();
