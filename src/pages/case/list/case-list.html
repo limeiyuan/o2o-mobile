@@ -63,7 +63,7 @@
               </ion-refresher>
               <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList; index as i">
                 <div class="img-wrap" (click)="derectToDetail(fullScreen)">
-                  <img src="{{getPicture(fullScreen.longphoto)}}" alt="">
+                  <img src="{{getPhoto(fullScreen?.longphoto)}}" alt="">
                 </div>
                 <div class="full-screen-intro">
                   <div class="full-title" (click)="derectToDetail(fullScreen)">
@@ -72,12 +72,12 @@
                   <div class="full-move">
                     <div class="full-move-left fl">
                       <a href="javascript:;" class="follow-wrap"  [ngClass]="{'hasFollow': fullScreen.goods == '10A'}">
-                        <img *ngIf="fullScreen.goods == '10B'" src="assets/image/case/quanwu/icon-2@3x.png" alt="" (click)="good(i, fullScreen.id)">
+                        <img *ngIf="fullScreen.goods != '10A'" src="assets/image/case/quanwu/icon-2@3x.png" alt="" (click)="good(i, fullScreen.id)">
                         <img *ngIf="fullScreen.goods == '10A'" src="assets/image/case/quanwu/icon-2-blue@3x.png" alt="" (click)="good(i, fullScreen.id)">
                         <span>{{fullScreen.goodsCount}}</span>
                       </a>
                       <a href="javascript:;"  [ngClass]="{'hasFavor': fullScreen.favor == '10A'}">
-                        <img *ngIf="fullScreen.favor == '10B'" src="assets/image/case/quanwu/icon-3@3x.png" alt="" (click)="favor(i, fullScreen.id)">
+                        <img *ngIf="fullScreen.favor != '10A'||null" src="assets/image/case/quanwu/icon-3@3x.png" alt="" (click)="favor(i, fullScreen.id)">
                         <img *ngIf="fullScreen.favor == '10A'" src="assets/image/case/quanwu/icon-3-blue@3x.png" alt="" (click)="favor(i, fullScreen.id)">
                         <span>{{fullScreen?.favorCount}}</span>
                       </a>
@@ -87,7 +87,7 @@
                     </div>
                   </div>
                   <div class="portrait">
-                    <img src="{{getPicture(fullScreen.photoPath)}}" alt="">
+                    <img src="{{getPhoto(fullScreen?.photoPath)}}" alt="">
                   </div>
                 </div>
               </div>
@@ -160,8 +160,8 @@
               <div id="boxWrap">
                 <div class="box" *ngFor="let SINGLEIMAGE of SINGLEIMAGEList" (click)="derectToDetail(SINGLEIMAGE)">
                   <div class="box_img">
-                    <img src="assets/image/case/dantu/pic-2@3x.png" alt="">
-                    <!--<img src="{{getPicture(SINGLEIMAGE?.longphoto)}}" alt="">-->
+                    <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
+                    <img src="{{getPhoto(SINGLEIMAGE?.longphoto)}}" alt="">
                   </div>
                 </div>
               </div>
@@ -181,7 +181,7 @@
     <!--VR全景-->
     <ion-slide class="slideThree">
       <!--<ion-scroll scrollY="true" class="fixed-content">-->
-      <div class="fixed-content" style="height: 100%">
+      <div class="fixed-content fixed-content-panrama" style="height: 100%">
         <div class="tab-select">
           <div class="tab-list">
             <span (click)="queryCondition('styleThree')">风格</span>
@@ -212,7 +212,7 @@
               <a href="{{panrama.panorama}}">
                 <div class="img-wrap">
                   <!--<img src="assets/image/case/panorama/pic-1@3x.png" alt="">-->
-                  <img src="{{getPicture(panrama.longphoto)}}" alt="">
+                  <img src="{{getPhoto(panrama.longphoto)}}" alt="">
                 </div>
                 <div class="panorama-button">
                   VR全景

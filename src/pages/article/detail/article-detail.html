@@ -24,7 +24,7 @@
     <div class="knowledge-item clearfix" (click)="directToArticleDetail(article.id)" *ngFor="let article of articleList">
       <div class="img-wrap fl">
         <!--<img src="assets/image/article/pic-1@3x.png" alt="">-->
-        <img src="{{getPicture(article.photo.path)}}" alt="">
+        <img src="{{getPhoto(article.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
         <div class="headline">{{article.title}}</div>

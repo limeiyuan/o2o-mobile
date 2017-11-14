@@ -30,7 +30,7 @@
     <div class="knowledge-item select-material-item clearfix" (click)="directToArticleDetail(knowledge.id)" *ngFor="let knowledge of knowledgeList">
       <div class="img-wrap fl">
         <!--<img src="../../assets/image/article/pic-1@3x.png" alt="">-->
-        <img src="{{getPicture(knowledge.photo.path)}}" alt="">
+        <img src="{{getPhoto(knowledge.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
         <div class="headline">{{knowledge.title}}</div>
@@ -54,7 +54,7 @@
     <div class="select-material-item clearfix" (click)="directToArticleDetail(selectMaterial.id)"  *ngFor="let selectMaterial of selectMaterialList">
       <div class="img-wrap fl">
         <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
-        <img src="{{getPicture(selectMaterial.photo.path)}}" alt="">
+        <img src="{{getPhoto(selectMaterial.photo.path)}}" alt="">
       </div>
       <div class="text-right fl">
         <div class="headline">{{selectMaterial.title}}</div>
@@ -78,7 +78,7 @@
       <div class="select-material-item clearfix" (click)="directToArticleDetail(geomancy.id)" *ngFor="let geomancy of geomancyList">
         <div class="img-wrap fl">
           <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
-          <img src="{{getPicture(geomancy.photo.path)}}" alt="">
+          <img src="{{getPhoto(geomancy.photo.path)}}" alt="">
         </div>
         <div class="text-right fl">
           <div class="headline">{{geomancy.title}}</div>
@@ -102,7 +102,7 @@
         <div class="select-material-item clearfix" (click)="directToArticleDetail(style.id)" *ngFor="let style of styleList">
           <div class="img-wrap fl">
             <!--<img src="../../assets/image/article/pic-3@3x.png" alt="">-->
-            <img src="{{getPicture(style.photo.path)}}" alt="">
+            <img src="{{getPhoto(style.photo.path)}}" alt="">
           </div>
           <div class="text-right fl">
             <div class="headline">{{style.title}}</div>

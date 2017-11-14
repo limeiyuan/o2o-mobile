@@ -9,7 +9,7 @@
     <div class="designer-intro">
       <div class="img-wrap">
         <!--<img src="../../assets/image/designer/design-1@3x.png" alt="">-->
-        <img src="{{designerData?.photo?.path}}" alt="">
+        <img src="{{getPhoto(designerData?.photo?.path)}}" alt="">
       </div>
       <h1>{{nickname}}</h1>
       <h3 class="sec">
@@ -39,7 +39,7 @@
           <div class="panorama-item" *ngFor="let panorama of panoramaList">
             <div class="img-wrap">
               <!--<img src="../../assets/image/designer/detail/pic-1@3x.png" alt="">-->
-              <img src="{{getPicture(panorama?.photo?.path)}}" alt="">
+              <img src="{{getPhoto(panorama?.photo?.path)}}" alt="">
               <img class="panorama-vr" src="../../assets/image/designer/detail/icon-720@3x.png" alt="">
             </div>
             <p class="text">{{panorama.title}}</p>
@@ -50,12 +50,12 @@
           <div class="case-list" *ngFor="let case of caseList">
             <div class="case-top clearfix">
               <div class="caseImg-left fl" (click)="derectToDetail(case)">
-                <img src="{{getPicture(case?.photo?.path)}}" alt="">
+                <img src="{{getPhoto(case?.photo?.path)}}" alt="">
                 <!--<img src="../../assets/image/designer/detail/pic-3@3x.png" alt="">-->
               </div>
               <div class="caseImg-right fl">
                 <div class="img-wrap" *ngFor="let caseItem of case?.photos?.cover" (click)="derectToDetail(case)">
-                  <img src="{{getPicture(caseItem.photo_path)}}" alt="">
+                  <img src="{{getPhoto(caseItem.photo_path)}}" alt="">
                   <!--<img src="../../assets/image/designer/detail/pic-4@3x.png" alt="">-->
                 </div>
               </div>

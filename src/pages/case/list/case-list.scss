@@ -29,6 +29,12 @@ ion-list{
       right: 20*$px;
       bottom: -110*$px;
     }
+    .fixed-content-panrama{
+      top: 90*$px;
+      left: 20*$px;
+      right: 20*$px;
+      bottom: -110*$px;
+    }
     .fixed-content-half{
       top: 90*$px;
     }
@@ -299,21 +305,26 @@ ion-list{
             height: 70*$px;
             right: 20*$px;
             top: -60*$px;
+            img{
+              border-radius: 50%;
+            }
           }
         }
       }
     }
     .panorama-wrap{
-      padding: 20*$px;
-      padding-top: 90*$px;
       .panorama-item{
         position: relative;
+        margin-bottom: 20*$px;
+        border-radius: 5*$px;
         .img-wrap{
           width: 710*$px;
           height:350*$px;
+          border-radius: 5*$px;
           img{
             width: 710*$px;
             height:350*$px;
+            border-radius: 5*$px;
           }
         }
         .panorama-button{

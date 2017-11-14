@@ -13,7 +13,7 @@
         <div class="designer-top clearfix">
           <div class="desiger-left fl" (click)="openDetailsPage(designer.id)">
             <!--<img src="../../assets/image/designer/design-1@3x.png" (click)="openDetailsPage(designer.id)" alt="">-->
-            <img src="{{getPicture(designer?.photo?.path)}}"  alt="">
+            <img src="{{getPhoto(designer?.photo?.path)}}"  alt="">
           </div>
           <div class="designer-middle fl">
             <h1>{{designer.nickname}}</h1>
@@ -40,7 +40,7 @@
         <div class="designer-bottom clearfix">
           <div class="img-wrap fl" *ngFor="let caseDto of designer.caseDtos" (click)="derectToDetail(caseDto)">
               <!--<img src="../../assets/image/designer/pic-1@3x.png" alt="">-->
-            <img src="{{getPicture(caseDto?.photo?.path)}}" alt="">
+            <img src="{{getPhoto(caseDto?.photo?.path)}}" alt="">
           </div>
         </div>
       </div>

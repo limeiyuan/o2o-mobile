@@ -27,10 +27,12 @@ page-designer-detail{
     .img-wrap{
       width: 160*$px;
       height: 160*$px;
-      margin-bottom: 28*$px;
+      margin: 0 auto 28*$px;
+      border-radius: 50%;
       img{
         width: 160*$px;
         height: 160*$px;
+        border-radius: 50%;
       }
     }
     h1{
