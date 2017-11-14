@@ -27,6 +27,13 @@ page-account{
     height: 40.8%;
     background: url(../../assets/image/login/beijing.png) no-repeat center center;
     background-size: 100% 100%;
+    .cloth{
+      width: 30*$px;
+      height: 30*$px;
+      position: absolute;
+      top:40*$px;
+      left: 40*$px;
+    }
     .bottom{
       position: absolute;
       width: 100%;

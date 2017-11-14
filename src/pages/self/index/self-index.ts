@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {App, IonicPage, NavController} from 'ionic-angular';
+import {App, IonicPage, NavController, ModalController} from 'ionic-angular';
 import {settingService} from "../../../providers/setting-service-rest";
 
 @IonicPage({
@@ -10,31 +10,9 @@ import {settingService} from "../../../providers/setting-service-rest";
   templateUrl: './self-index.html'
 })
 export class SelfIndexPage {
-  username : string = '艺美家美';
-  constructor(public appCtrl: App, public navCtrl: NavController,  public service: settingService) {
+  username : string = '点击登录';
+  constructor(public appCtrl: App, public navCtrl: NavController,  public service: settingService, public modalCtrl: ModalController) {
     this.queryData();
-  }
-
-  directToSetting() {
-    this.appCtrl.getRootNav().push('SelfSettingPage');
-  }
-
-  directToFavor() {
-    this.appCtrl.getRootNav().push('SelfFavorPage');
-  }
-
-  directToMyNews() {
-    this.appCtrl.getRootNav().push('SelfMyNewsPage');
-  }
-
-  directToMyDesign() {
-    this.appCtrl.getRootNav().push('SelfMyDesignPage');
-  }
-  directToMyApply(){
-    this.appCtrl.getRootNav().push('SelfMyApplyPage');
-  }
-  directToAbout(){
-    this.appCtrl.getRootNav().push('SelfAboutPage');
   }
   queryData() {
     this.service.queryData()
@@ -44,4 +22,63 @@ export class SelfIndexPage {
       })
       .catch(error => console.log(error));
   }
+  directToLogin() {
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+    }
+  }
+  directToSetting() {
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfSettingPage');
+    }
+  }
+
+  directToFavor() {
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfFavorPage');
+    }
+  }
+
+  directToMyNews() {
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfMyNewsPage');
+    }
+  }
+
+  directToMyDesign() {
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfMyDesignPage');
+    }
+  }
+  directToMyApply(){
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfMyApplyPage');
+    }
+  }
+  directToAbout(){
+    if(this.username == '点击登录'){
+      let modal = this.modalCtrl.create('AccountPage');
+      modal.present();
+    }else{
+      this.appCtrl.getRootNav().push('SelfAboutPage');
+    }
+  }
+
 }

@@ -34,9 +34,13 @@ export class BaojiaPage {
   }
 
   directToSubmit(){
+    var nameReg = /^([a-z\u4E00-\u9FA5])*$/i;
     let phoneReg = /^(13|14|15|17|18)[0-9]{9}$/;
     if(this.username == ''){
       this.doAlert('请输入姓名');
+      return false;
+    }else if(!nameReg.test(this.username)){
+      this.doAlert('称呼需由大小写字母或汉字组成');
       return false;
     }
     if(this.phone == ''){

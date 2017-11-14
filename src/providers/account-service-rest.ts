@@ -13,11 +13,10 @@ export class accountService {
   constructor(public http: Http) {
   }
   sendCode(tel:string) {
-    return this.http.get(baseUrl + 'base/validateCode.htm', {
-      params: {
-        tel:tel,
-      }
-    })
+    let body = Qs.stringify({ tel:tel}),
+      headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'}),
+      options = new RequestOptions({headers: headers});
+    return this.http.post(baseUrl + 'base/validateCode.htm', body, options)
       .map(res => res.json())
       .toPromise();
   }

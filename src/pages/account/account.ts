@@ -27,6 +27,9 @@ export class AccountPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  backListPage(){
+    this.navCtrl.pop();
+  }
   directTo (target) {
     this.viewMode = target
   }
@@ -109,7 +112,8 @@ export class AccountPage {
          return false;
        };
        if(data.success == true){
-         this.appCtrl.getRootNav().push('TabsPage');
+         this.presentToast("注册成功");
+         this.navCtrl.push('AccountPage');
        }
       })
       .catch(error => alert(JSON.stringify(error)));
@@ -117,7 +121,7 @@ export class AccountPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();

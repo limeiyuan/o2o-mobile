@@ -25,10 +25,12 @@ page-designer-detail{
     background-color: #fff;
     padding-bottom: 20*$px;
     .img-wrap{
+      width: 160*$px;
+      height: 160*$px;
+      margin-bottom: 28*$px;
       img{
         width: 160*$px;
         height: 160*$px;
-        margin-bottom: 28*$px;
       }
     }
     h1{

@@ -1,14 +1,15 @@
 
 <ion-content >
   <div class="banner">
+    <img (click)="backListPage()" class="cloth" src="assets/image/account/icon-login-cloce@3x.png" alt="">
     <div class="bottom clearfix">
       <div class="login fl bottom-item" (click)="directTo('login')">
         登录
-        <img *ngIf="viewMode==='login'" src="../../assets/image/login/sanjiao.png" alt="">
+        <img *ngIf="viewMode==='login'" src="assets/image/login/sanjiao.png" alt="">
       </div>
       <div class="register fl bottom-item" (click)="directTo('register')">
         注册
-        <img *ngIf="viewMode==='register'" src="../../assets/image/login/sanjiao.png" alt="">
+        <img *ngIf="viewMode==='register'" src="assets/image/login/sanjiao.png" alt="">
       </div>
     </div>
   </div>
@@ -44,8 +45,8 @@
 
       <div class="select-wrap" (click)="isShow=!isShow">
         <div class="select" type="text">{{role}}</div>
-        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
-        <img src="../../assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
+        <img src="assets/image/register/xiala.png" alt="" *ngIf="isShow" (click)="isShow=!isShow">
+        <img src="assets/image/register/xiala.png" alt="" *ngIf="!isShow" (click)="isShow=!isShow">
         <ul class="option-wrap" *ngIf="isShow">
           <div style="width: 100%" (click)="changeRole('FRDESIGNER','自由设计师')">
             <li class="free">自由设计师</li>
