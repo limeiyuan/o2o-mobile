@@ -24,7 +24,7 @@ export class SelfChangePasswordPage {
     this.navCtrl.pop();
   }
   save(){
-    let passwordReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/ig;
+    let passwordReg = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,10}$/ig;
     if(this.oldPassword == ''){
       this.presentToast('请输入旧密码');
       return false;
@@ -44,10 +44,10 @@ export class SelfChangePasswordPage {
       this.presentToast('请输入确认密码');
       return false;
     }
-    // else if(!passwordReg.test(this.surePassword)){
-    //   this.presentToast("密码为6-12位字母数字结合");
-    //   return false;
-    // }
+    if(this.surePassword !== this.newPassword){
+      this.presentToast("两次密码输入不一致");
+      return false;
+    }
     this.service.changePassword(this.oldPassword, this.newPassword)
       .then(data => {
         console.log(data);
@@ -56,6 +56,9 @@ export class SelfChangePasswordPage {
             return false;
         }else if(data.message == "旧密码不正确"){
           this.presentToast("旧密码不正确");
+          return false;
+        }else if(data.message == '当前没有用户登录'){
+          this.presentToast("当前用户未登录");
           return false;
         }
         if(data.success == true){
@@ -68,7 +71,7 @@ export class SelfChangePasswordPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();

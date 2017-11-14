@@ -47,4 +47,11 @@ export class accountService {
       .map(res => res.json())
       .toPromise();
   }
+  // 服务条款
+  query() {
+    return this.http.get(baseUrl + 'homepage/queryRegulations.action')
+      .map(res => res.json())
+      .toPromise();
+  }
+
 }

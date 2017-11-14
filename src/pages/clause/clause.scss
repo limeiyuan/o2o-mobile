@@ -1,0 +1,25 @@
+$px: 16rem/750;
+page-clause {
+  ion-header {
+    .title{
+      position: relative;
+      .back{
+        position: absolute;
+        width: 24*$px;
+        height: 42*$px;
+        left: 20*$px;
+        top:30*$px;
+      }
+    }
+  }
+  ion-content{
+    .content{
+      font-size: 30*$px;
+      text-indent: 2em;
+      padding: 20*$px;
+      line-height: 55*$px;
+    }
+
+  }
+}
+

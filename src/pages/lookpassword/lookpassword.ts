@@ -112,7 +112,7 @@ export class LookpasswordPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'middle'
     });
     toast.present();

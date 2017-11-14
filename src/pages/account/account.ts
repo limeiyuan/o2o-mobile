@@ -36,6 +36,9 @@ export class AccountPage {
   directToLookpassword(){
     this.navCtrl.push('LookpasswordPage');
   }
+  directToClause(){
+    this.navCtrl.push('ClausePage');
+  }
   // 获取验证码
   getCode(event: any) {
     let number = 60;
