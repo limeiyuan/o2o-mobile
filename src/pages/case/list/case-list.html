@@ -125,9 +125,9 @@
             <img class="select-dowm" *ngIf="subMenu !== 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'houseTypeTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='houseTypeTwo'">
-              <li class="fl active" (click)="query(0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.type==undefined}">不限</li>
+              <li class="fl active" (click)="query(0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.type==undefined || activeObj.SINGLEIMAGE.type==0}">不限</li>
               <li class="fl" *ngFor="let type of typeList, index as i" (click)="query(type.id)"
-                  [ngClass]="{'active': i==activeObj.SINGLEIMAGE.type}">{{type.name}}</li>
+                  [ngClass]="{'active': type.id==activeObj.SINGLEIMAGE.type}">{{type.name}}</li>
             </ul>
           </div>
           <div class="tab-list">
@@ -135,7 +135,7 @@
             <img class="select-dowm" *ngIf="subMenu !== 'styleTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'styleTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='styleTwo'">
-              <li class="fl" (click)="query(undefind, 0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.style==undefined}">不限</li>
+              <li class="fl" (click)="query(undefind, 0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.style==undefined || activeObj.SINGLEIMAGE.style==0}">不限</li>
               <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(undefined, style.id)" [ngClass]="{'active': style.id==activeObj.SINGLEIMAGE.style}">{{style.name}}</li>
             </ul>
           </div>
@@ -144,7 +144,7 @@
             <img class="select-dowm" *ngIf="subMenu !== 'areaTwo'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'areaTwo'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='areaTwo'">
-              <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.area==undefined}">不限</li>
+              <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.SINGLEIMAGE.area==undefined || activeObj.SINGLEIMAGE.area==0}">不限</li>
               <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(undefined, undefined, area.id)" [ngClass]="{'active': area.id==activeObj.SINGLEIMAGE.area}">{{area.name}}</li>
             </ul>
           </div>
@@ -187,8 +187,8 @@
             <img class="select-dowm" *ngIf="subMenu !== 'styleThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'styleThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='styleThree'">
-              <li class="fl" (click)="query(0)" [ngClass]="{'active': activeObj.panrama.style==undefined}">不限</li>
-              <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(style.id)" [ngClass]="{'active': style.id == activeObj.panrama.style}">{{style.name}}</li>
+              <li class="fl" (click)="query(undefined, 0)" [ngClass]="{'active': activeObj.panrama.style==undefined || activeObj.panrama.style==0}">不限</li>
+              <li class="fl" *ngFor="let style of styleList, index as i" (click)="query(undefined, style.id)" [ngClass]="{'active': style.id == activeObj.panrama.style}">{{style.name}}</li>
             </ul>
           </div>
           <div class="tab-list">
@@ -196,7 +196,7 @@
             <img class="select-dowm" *ngIf="subMenu !== 'areaThree'" src="assets/image/case/quanwu/icon-select@3x.png" alt="">
             <img class="select-dowm" *ngIf="subMenu === 'areaThree'" src="assets/image/case/quanwu/icon-select-default@3x.png" alt="">
             <ul class="submenu" *ngIf="subMenu==='areaThree'">
-              <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.panrama.area==undefined}">不限</li>
+              <li class="fl" (click)="query(undefined, undefined, 0)" [ngClass]="{'active': activeObj.panrama.area==undefined || activeObj.panrama.area==0}">不限</li>
               <li class="fl" *ngFor="let area of areaList, index as i" (click)="query(undefined, undefined, area.id)" [ngClass]="{'active': area.id == activeObj.panrama.area}">{{area.name}}</li>
             </ul>
           </div>

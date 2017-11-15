@@ -20,6 +20,8 @@ export class DesignerDetailPage extends BaseControllerClass{
   provinceName : string = '北京市';
   workingTime : string = '';
   photoPath : string = '';
+  panoramaLength : string = '';
+  caseLength : string = '';
   panorama : object;
   pageNo : Number = 1;
   panoramaList : Array<any>;
@@ -51,7 +53,7 @@ export class DesignerDetailPage extends BaseControllerClass{
         this.nickname = data.result.nickname;
         this.provinceName = data.result.userExtend.location.provinceName;
         this.workingTime = data.result.userExtend.workingTime;
-        this.goodStyles = data.result.userExtend.goodsStyles
+        this.goodStyles = data.result.userExtend.goodsStyles;
       })
       .catch(error => console.log(error));
   }
@@ -60,6 +62,7 @@ export class DesignerDetailPage extends BaseControllerClass{
       .then(data =>{
         console.log(data);
         this.panoramaList = data.result;
+        this.panoramaLength = data.result.length;
       })
       .catch(error => console.log(error));
   }
@@ -68,6 +71,7 @@ export class DesignerDetailPage extends BaseControllerClass{
       .then(data =>{
         console.log(data);
         this.caseList = data.result;
+        this.caseLength = data.result.length;
       })
       .catch(error => console.log(error));
   }

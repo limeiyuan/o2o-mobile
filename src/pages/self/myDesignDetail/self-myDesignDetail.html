@@ -19,7 +19,7 @@
   <div class="intro">
     <div class="img-wrap">
       <!--<img src="assets/image/selefDetail/pic-1@3x.png" alt="">-->
-      <img src="{{getPicture(designDetailData?.photo?.path)}}" alt="">
+      <img src="{{getPhoto(designDetailData?.photo?.path)}}" alt="">
     </div>
     <p class="intro-text">{{designDetailData?.content}}</p>
     <p class="edit" (click)="directToEdit(designDetailData.id, undefined, designDetailData?.content)">编辑</p>
@@ -32,7 +32,7 @@
       </div>
       <div class="edit" (click)="directToEdit(designDetailData.id, expand.id, expand?.content )">编辑</div>
       <div class="img-wrap" *ngFor="let expand of expand?.photos">
-        <img src="{{getPicture(expand?.photo?.path)}}" alt="">
+        <img src="{{getPhoto(expand?.photo?.path)}}" alt="">
         <!--<img src="assets/image/selefDetail/pic-2@3x.png" alt="">-->
       </div>
       <p class="num-text">共{{expand?.photos.length}}张</p>

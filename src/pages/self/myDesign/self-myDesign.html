@@ -9,7 +9,7 @@
     <div class="myDesign-item clearfix" (click)="directToDesignDetail(myDesign.id)" *ngFor="let myDesign of myDesignList">
       <div class="img-wrap fl">
         <!--<img src="assets/image/selfDesign/pic-1@3x.png" alt="">-->
-        <img src="{{getPicture(myDesign.photo.path)}}" alt="">
+        <img src="{{getPhoto(myDesign.photo.path)}}" alt="">
       </div>
       <div class="design-right fl">
         <p class="title">
