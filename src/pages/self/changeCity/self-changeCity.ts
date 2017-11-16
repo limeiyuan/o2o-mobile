@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import {NavController,Content, IonicPage} from 'ionic-angular';
+import {NavController, Content, IonicPage, NavParams} from 'ionic-angular';
 import {CityService} from "../../../providers/city-service-rest";
 import {settingService} from "../../../providers/setting-service-rest";
 
@@ -19,9 +19,10 @@ export class SelfChangeCityPage {
   indexs= [];
   cityName = '';
   cityDatas = [];
-  constructor(public navCtrl: NavController, public service: CityService, public service1: settingService) {
+  callback;
+  constructor(public navCtrl: NavController, public service: CityService, public NavParams: NavParams, public service1: settingService) {
     this.loadData();
-
+    this.callback= NavParams.get('callback');
   }
   scrollToHot() {
     let element = document.getElementById(`cityHot`);
@@ -52,7 +53,11 @@ export class SelfChangeCityPage {
       .then(data => {
         console.log(data);
         if(data.success == true){
-          this.navCtrl.push('SelfEditDataPage');
+          this.navCtrl.pop();
+          // this.callback().then(() =>{
+          //
+          // });
+          // this.navCtrl.push('SelfEditDataPage');
         }
       })
       .catch(error => console.log(error));

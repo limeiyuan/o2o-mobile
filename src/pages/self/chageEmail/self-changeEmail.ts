@@ -14,8 +14,10 @@ import { ToastController } from 'ionic-angular';
 export class SelfChangeEmailPage {
   email : string ='';
   transmitEmail : string ='';
+  callback;
   constructor(public navCtrl: NavController,  public modalCtrl: ModalController,  public service: settingService, public NavParams: NavParams, public toastCtrl: ToastController) {
     this.transmitEmail= NavParams.get('email');
+    this.callback= NavParams.get('callback');
     this.email = this.transmitEmail;
   }
   directToSetting(){
@@ -39,7 +41,9 @@ export class SelfChangeEmailPage {
         console.log(data);
         if(data.success == true){
           this.presentToast("邮箱修改成功");
-          this.navCtrl.push('SelfEditDataPage');
+          this.callback(this.email).then(()=>{
+            this.navCtrl.pop();
+          });
         }
       })
       .catch(error => console.log(error));

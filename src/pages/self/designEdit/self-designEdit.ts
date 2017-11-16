@@ -14,11 +14,13 @@ export class SelfDesignEditPage {
   detailId:string='';
   transmitContent:string='';
   designContent:string;
+  callback;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams, public service: myDesignService,) {
     this.mydesignId = NavParams.get('id');
     this.detailId = NavParams.get('detailId');
     this.transmitContent = NavParams.get('content');
+    this.callback = NavParams.get('callback');
     this.designContent = this.transmitContent;
     console.log(this.mydesignId);
     console.log(this.detailId);
@@ -33,7 +35,10 @@ export class SelfDesignEditPage {
       .then(data => {
         console.log(data);
         if(data.success == true){
-          this.navCtrl.push('SelfMyDesignDetailPage',{id: this.mydesignId});
+          this.callback(this.designContent).then(()=>{
+            this.navCtrl.pop();
+          });
+          // this.navCtrl.push('SelfMyDesignDetailPage',{id: this.mydesignId});
         }
       })
       .catch(error => console.log(error));

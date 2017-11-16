@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {App, NavController, IonicPage, NavParams, Config} from 'ionic-angular';
+import {App, NavController, IonicPage, NavParams} from 'ionic-angular';
 import { accountService } from "../../providers/account-service-rest";
 
 

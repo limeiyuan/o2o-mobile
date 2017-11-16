@@ -22,7 +22,14 @@ export class SelfMyDesignDetailPage extends BaseControllerClass{
   }
   // 编辑理念
   directToEdit(id, detailId, content){
-    this.navCtrl.push('SelfDesignEditPage',{id:id, detailId:detailId, content:content});
+    let _self = this;
+    let demo = function (content) {
+      return new Promise((resolve)=>{
+        resolve();
+        _self.designDetailData['content'] = content;
+      })
+    };
+    this.navCtrl.push('SelfDesignEditPage',{id:id, detailId:detailId, content:content, callback:demo});
   }
   backListPage(){
     this.navCtrl.pop();

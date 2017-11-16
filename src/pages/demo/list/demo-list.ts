@@ -42,15 +42,22 @@ export class DemoListPage extends BaseControllerClass {
   doRefresh(refresh, $event: Event) {
     this.currentPageNo = 0;
     this.properties = [];
-    this.query(function () {
-      refresh.complete();
-    });
+    // this.query(function () {
+    //   refresh.complete();
+    // });
+    setTimeout(function(){
+        refresh.complete();
+    },1000);
   }
 
   //上拉加载更多
   doInfinite(infiniteScroll, $event: Event) {
-    this.query(function () {
-      infiniteScroll.complete();
-    })
+    // this.query(function () {
+    //   infiniteScroll.complete();
+    // })
+
+    setTimeout(function(){
+        infiniteScroll.complete();
+    },1000);
   }
 }

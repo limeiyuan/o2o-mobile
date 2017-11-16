@@ -10,12 +10,15 @@ import { ToastController } from 'ionic-angular';
   selector: 'page-self-changeNickname',
   templateUrl: './self-changeNickname.html'
 })
+
 export class SelfChangeNicknamePage {
+  callback;
   editData : object;
   transmitNickname : string = '';
   queryNickname : string = '';
   constructor(public navCtrl: NavController, public NavParams: NavParams, public toastCtrl: ToastController, public service: settingService) {
     this.transmitNickname = NavParams.get('nickname');
+    this.callback = NavParams.get('callback');
     this.queryNickname = this.transmitNickname;
   }
   directToSetting(){
@@ -32,7 +35,9 @@ export class SelfChangeNicknamePage {
         console.log(data);
         if(data.success == true){
           this.presentToast("昵称修改成功");
-          this.navCtrl.push('SelfEditDataPage');
+          this.callback(this.queryNickname).then(()=>{
+            this.navCtrl.pop();
+          })
         }
       })
       .catch(error => console.log(error));

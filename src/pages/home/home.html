@@ -43,7 +43,7 @@
     <div class="userCase">
       <div class="title clearfix">
         <h1 class="fl">用户案例</h1>
-        <p class="more fr">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
+        <p class="more fr" (click)="directToCaseMore()">更多 <img src="../../assets/image/home/icon-more@3x.png" alt=""></p>
       </div>
       <div class="caseWrapper">
         <div class="case-item" *ngFor="let case of caseList" (click)="derectToDetail(case)">
