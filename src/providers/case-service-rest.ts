@@ -9,7 +9,7 @@ let baseUrl = SERVER_URL + 'case/';
 @Injectable()
 export class CaseService {
 
-  pageSize = 10;
+  pageSize = 4;
 
   constructor(public http: Http) {
   }

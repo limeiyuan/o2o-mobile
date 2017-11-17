@@ -75,6 +75,9 @@ export class HomePage extends BaseControllerClass {
   directToDesignerMore(){
     this.navCtrl.push('DesignerListPage');
   }
+  directToCaseMore(){
+    this.navCtrl.push('CaseListPage');
+  }
 
 // 整合查询
   query() {

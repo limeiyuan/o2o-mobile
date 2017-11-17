@@ -58,7 +58,7 @@
             <ion-content class="full-screen-have">
               <!--下拉刷新-->
               <ion-refresher (ionRefresh)="doRefresh($event)">
-                <ion-refresher-content></ion-refresher-content>
+                <ion-refresher-content refreshingText="刷新中..."></ion-refresher-content>
               </ion-refresher>
               <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList; index as i">
                 <div class="img-wrap" (click)="derectToDetail(fullScreen)">
@@ -94,7 +94,7 @@
               <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
                 <ion-infinite-scroll-content
                   loadingSpinner="bubbles"
-                  loadingText="加载更多...">
+                  loadingText="{{loadingText}}">
                 </ion-infinite-scroll-content>
               </ion-infinite-scroll>
               <!--遮罩-->
@@ -155,12 +155,12 @@
             <ion-refresher (ionRefresh)="doRefresh($event)">
               <ion-refresher-content></ion-refresher-content>
             </ion-refresher>
-            <div id="containerImg" class="clearfix">
-              <div id="boxWrap">
-                <div class="box" *ngFor="let SINGLEIMAGE of SINGLEIMAGEList" (click)="derectToDetail(SINGLEIMAGE)">
+            <div id="containerImg" class="clearfix" style="height: 100%">
+              <div id="boxWrap" style="height: 100%">
+                <div class="box" *ngFor="let halfpack of halfpackList" (click)="derectToDetail(halfpack)">
                   <div class="box_img">
                     <!--<img src="assets/image/case/dantu/pic-2@3x.png" alt="">-->
-                    <img src="{{getPhoto(SINGLEIMAGE?.longphoto)}}" alt="">
+                    <img src="{{getPhoto(halfpack?.photoPath)}}" alt="">
                   </div>
                 </div>
               </div>

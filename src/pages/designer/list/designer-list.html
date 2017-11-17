@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+     <ion-infinite-scroll (ionInfinite)="doInfinite($event)" on-infinite="appendBike()" distance="1%" immediate-check="false">
         <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="加载更多...">

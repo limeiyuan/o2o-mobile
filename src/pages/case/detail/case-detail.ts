@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, Config, NavParams, Slides} from 'ionic-angular';
+import {NavController, IonicPage, Config, NavParams,} from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
 import {BaseControllerClass} from "../../../providers/base-controller";
 import {PicService} from "../../../providers/pic-service-rest";

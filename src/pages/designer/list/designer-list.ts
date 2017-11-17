@@ -13,13 +13,16 @@ import {BaseControllerClass} from "../../../providers/base-controller";
   templateUrl: './designer-list.html'
 })
 export class DesignerListPage extends BaseControllerClass{
-  currentPageNo = 0;
+  currentPageNo = 1;
   designerList = [];
+  scrollAble ;
+  loadingText ;
 
 
   constructor(public appCtrl: App, public navCtrl: NavController,  public cd: ChangeDetectorRef, public picService: PicService, public service: DesignerService, public config: Config) {
     super(picService);
     this.query();
+    this.scrollAble = true;
     // this.cd.detectChanges();
   }
   openDetailsPage(id) {
@@ -33,11 +36,11 @@ export class DesignerListPage extends BaseControllerClass{
   }
 // 设计师列表查询
   query(callback = null) {
-    this.currentPageNo++;
     this.service.query(this.currentPageNo)
       .then(data => {
         console.log(data);
-        this.designerList = this.designerList.concat(data.result);
+        // this.designerList = this.designerList.concat(data.result);
+        this.designerList = data.result;
         if (callback) {
           callback();
         }
@@ -53,9 +56,23 @@ export class DesignerListPage extends BaseControllerClass{
     });
     }
   // 上拉加载
-   doInfinite(infiniteScroll, $event: Event) {
-     this.query(function () {
-       infiniteScroll.complete();
-     })
+ //   doInfinite(infiniteScroll, $event: Event) {
+ //     this.query(function () {
+ //       infiniteScroll.complete();
+ //     })
+ // }
+  doInfinite(infiniteScroll, $event: Event) {
+    this.currentPageNo++;
+    this.service.query(this.currentPageNo)
+      .then(data => {
+        console.log(data);
+        if(this.currentPageNo>data.pagination.pageCount){
+          this.scrollAble = false;
+          this.loadingText = '别滑了';
+          infiniteScroll.complete();
+        }
+        this.designerList = this.designerList.concat(data.result);
+      })
+      .catch(error => console.log(error));
  }
 }
