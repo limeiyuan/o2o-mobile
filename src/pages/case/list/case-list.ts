@@ -5,10 +5,6 @@ import { Slides } from 'ionic-angular';
 import {CaseService} from "../../../providers/case-service-rest";
 import {BaseControllerClass} from "../../../providers/base-controller";
 import {PicService} from "../../../providers/pic-service-rest";
-import {noUndefined} from "@angular/compiler/src/util";
-
-
-
 
 @IonicPage({
   segment: 'caseList'

@@ -1,12 +1,10 @@
-import { Component, Injectable, NgZone } from '@angular/core';
+import { Component} from '@angular/core';
 import {NavController, IonicPage,Platform, ActionSheetController} from 'ionic-angular';
 import {settingService} from "../../../providers/setting-service-rest";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 
 // import { Camera, ImagePicker, Transfer } from "@ionic-native/image-picker";
 import { Camera } from 'ionic-native';
-import { Transfer } from 'ionic-native';
-import { FileUploadOptions } from 'ionic-native';
 @IonicPage({
   segment:'selfEditData'
 })
