@@ -36,11 +36,18 @@ export class LookpasswordPage {
   }
   // 获取验证码
   getCode(event: any) {
+    let phoneReg = /^(13|14|15|17|18)[0-9]{9}$/;
+    if(this.phone == ''){
+      this.presentToast('请输入手机号');
+      return false;
+    }else if(!phoneReg.test(this.phone)){
+      this.presentToast("请输入正确的手机号");
+      return false;
+    }
     let number = 60;
     this.disabled = true;
     const that = this;
     that.tips = number + 's';
-
     this.service.sendCode(this.phone)
       .then(data => {
         console.log(data);

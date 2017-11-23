@@ -34,7 +34,7 @@
             </p>
           </div>
           <div class="designer-right fl">
-            <button class="appoint" (click)="directToBaojia(designer.id)">预约Ta</button>
+            <button class="appoint" (click)="directToBaojia(designer.id, designer.requestCount)">预约Ta</button>
           </div>
         </div>
         <div class="designer-bottom clearfix">
@@ -45,10 +45,10 @@
         </div>
       </div>
     </div>
-     <ion-infinite-scroll (ionInfinite)="doInfinite($event)" on-infinite="appendBike()" distance="1%" immediate-check="false">
+     <ion-infinite-scroll enabled="{{enableInfinite}}" (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content
           loadingSpinner="bubbles"
-          loadingText="加载更多...">
+          loadingText="{{loadingText}}">
         </ion-infinite-scroll-content>
       </ion-infinite-scroll>
   </ion-content>

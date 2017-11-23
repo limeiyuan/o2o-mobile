@@ -32,8 +32,7 @@ export class CaseListPage extends BaseControllerClass {
   segment = 'sites';
   subMenu: string = '';
   rootNavCtrl: NavController;
-  loadingText = '加载中';
-
+  enableInfinite = true;
   typeId: number = undefined;
   styleId: number = undefined;
   areaId: number = undefined;
@@ -62,10 +61,23 @@ export class CaseListPage extends BaseControllerClass {
       pageCount: 1
     }
   };
-  scrollAble: {
+
+  scrollAble = {
     MULTIIMAGE: true,
     SINGLEIMAGE: true,
     panrama: true
+  };
+
+  loadingObj: Object = {
+    MULTIIMAGE: {
+      loadingText: '加载中'
+    },
+    SINGLEIMAGE: {
+      loadingText: '加载中'
+    },
+    panrama: {
+      loadingText: '加载中'
+    }
   };
   // 瀑布流
   img_data = [{
@@ -85,7 +97,15 @@ export class CaseListPage extends BaseControllerClass {
   },
   ];
 
-  constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public platform: Platform, public service: CaseService, public picService: PicService, public config: Config) {
+  constructor(
+    public navCtrl: NavController,
+    public appCtrl: App,
+    public navParams: NavParams,
+    public platform: Platform,
+    public service: CaseService,
+    public picService: PicService,
+    public config: Config
+  ) {
     super(picService);
 
     this.rootNavCtrl = navParams.get('rootNavCtrl');
@@ -102,7 +122,8 @@ export class CaseListPage extends BaseControllerClass {
     }
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
+    console.log('pageNo1');
     this.query();
   }
 
@@ -172,7 +193,6 @@ export class CaseListPage extends BaseControllerClass {
       })
       .catch(error => console.log(error));
   }
-
 // 查询效果图
   query(typeId = undefined, styleId = undefined, areaId = undefined, typename = this.typename, callback = null) {
     // 当前点击
@@ -201,35 +221,49 @@ export class CaseListPage extends BaseControllerClass {
 
     let params = this.activeObj[this.typename];
     params.pageNo = 1;
+    this.subMenu = '';
     this.service.query(params.pageNo, undefined, params.style, params.type, params.area, this.typename)
       .then(data => {
         console.log(data);
-        this.activeObj[this.typename].pageCount = data.pagination.pageCount;
         if (this.typename == 'MULTIIMAGE') {
+          // debugger;
           this.fullScreenList = data.result;
+          console.log(data.result);
           // this.fullScreenList = this.fullScreenList.concat(data.result);
           if (callback) {
             callback();
           }
-          // if(this.fullScreenList.length == 0){
-          //   debugger;
-          //   this.showMode = 'noneFullScreen';
-          // }else{
-          //   debugger;
-          //   this.showMode = 'haveFullScreen';
-          // }
+          if(this.fullScreenList.length == 0){
+            debugger;
+            this.showMode = 'noneFullScreen';
+          }else{
+            debugger;
+            this.showMode = 'haveFullScreen';
+          }
         } else if (this.typename == 'SINGLEIMAGE') {
           this.halfpackList = this.halfpackList.concat(data.result);
           if (callback) {
             callback();
           }
         } else if (this.typename == 'panrama') {
-          this.panramaList = this.panramaList.concat(data.result);
+          this.panramaList = data.result;
+          console.log(data.result);
           if (callback) {
             callback();
           }
         }
-        this.subMenu = '';
+        this.activeObj[this.typename].pageCount = data.pagination.pageCount;
+        if (params.pageNo >= params.pageCount) {
+          console.log('end');
+          this.loadingObj[this.typename].loadingText = '别滑了，没有了';
+          setTimeout(() => {
+            this.scrollAble[this.typename] = false;
+          },1000);
+          return;
+        } else {
+          this.scrollAble[this.typename] = true;
+          this.loadingObj[this.typename].loadingText = '加载中';
+        }
       })
       .catch(error => console.log(error));
   }
@@ -241,9 +275,6 @@ export class CaseListPage extends BaseControllerClass {
   //下拉刷新整个页面
   doRefresh(refresh, $event: Event) {
     this.activeObj[this.typename].pageNo = 1;
-    this.fullScreenList = [];
-    this.halfpackList = [];
-    this.panramaList = [];
     this.query(undefined, undefined, undefined, undefined, function () {
       refresh.complete();
     });
@@ -255,20 +286,12 @@ export class CaseListPage extends BaseControllerClass {
     // return
     // }
     let params = this.activeObj[this.typename];
-    if (params.pageNo >= params.pageCount) {
-      console.log('end');
-      this.loadingText = '别滑了，没有了';
-      setTimeout(function(){
-        infiniteScroll.complete();
-      },1000);
-      return;
-    }
     params.pageNo++;
     this.service.query(params.pageNo, undefined, params.style, params.type, params.area, this.typename)
       .then(data => {
         console.log(data);
-
         if (this.typename == 'MULTIIMAGE') {
+          console.log(data.result);
           this.fullScreenList = this.fullScreenList.concat(data.result);
           infiniteScroll.complete();
           // if(this.fullScreenList.length == 0){
@@ -282,12 +305,25 @@ export class CaseListPage extends BaseControllerClass {
           this.halfpackList = this.halfpackList.concat(data.result);
           infiniteScroll.complete();
         } else if (this.typename == 'panrama') {
+          debugger;
+          console.log(data.result);
           this.panramaList = this.panramaList.concat(data.result);
           infiniteScroll.complete();
         }
         this.subMenu = '';
       })
       .catch(error => console.log(error));
+    if (params.pageNo >= params.pageCount) {
+      console.log('end');
+      this.loadingObj[this.typename].loadingText = '别滑了，没有了';
+      setTimeout(() => {
+        this.scrollAble[this.typename] = false;
+      },1000);
+      return;
+    } else {
+      this.scrollAble[this.typename] = true;
+      this.loadingObj[this.typename].loadingText = '加载中';
+    }
   }
 
 
@@ -318,7 +354,7 @@ export class CaseListPage extends BaseControllerClass {
         .then(data => {
           // debugger;
           console.log(data);
-          this.panramaList = this.panramaList.concat(data.result);
+          this.panramaList = data.result;
           this.subMenu = '';
         })
         .catch(error => console.log(error));
@@ -330,7 +366,7 @@ export class CaseListPage extends BaseControllerClass {
       this.service.query(params.pageNo, undefined, params.style, params.type, params.area, 'SINGLEIMAGE')
         .then(data => {
           console.log(data);
-          this.halfpackList = this.halfpackList.concat(data.result);
+          this.halfpackList = data.result;
           this.subMenu = '';
         })
         .catch(error => console.log(error));

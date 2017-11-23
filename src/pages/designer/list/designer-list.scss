@@ -18,6 +18,9 @@ $px: 16rem/750;
 #tab-t0-2{
   overflow: visible;
 }
+ion-content.has-refresher > .scroll-content{
+  background-color: #f5f5f5;
+}
 page-designer-list{
   #tab-t0-2 .tab-button-text{
     position: absolute;
