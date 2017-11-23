@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {MyApp} from './app.component';
 import { Camera } from '@ionic-native/camera';
-import { ImagePicker} from '@ionic-native/image-picker';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 import '../assets/rem';
 import {StatusBar} from '@ionic-native/status-bar';
