@@ -21,16 +21,18 @@ export class BaojiaPage {
   style: string = '';
   gender: string = '先生';
   designerId : Number;
+  requestCount : Number;
   stringGender : string = 'MALE';
+  callback;
 
   constructor(public navCtrl: NavController, public service: DesignerService, public navParams: NavParams, public alerCtrl: AlertController) {
     this.designerId = navParams.get('id');
+    this.requestCount = navParams.get('requestCount')+1;
+    this.callback = navParams.get('callback');
     console.log(this.designerId);
   }
   backListPage(){
     this.navCtrl.pop();
-  }
-  ionViewDidLoad() {
   }
 
   directToSubmit(){
@@ -66,7 +68,9 @@ export class BaojiaPage {
           console.log(data);
           if(data.success == true){
             this.doAlert("预约成功");
-            this.navCtrl.pop();
+            this.callback(this.requestCount).then(()=>{
+              this.navCtrl.pop();
+            })
           }
         })
         .catch(error => console.log(error));

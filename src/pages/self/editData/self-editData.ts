@@ -21,7 +21,6 @@ export class SelfEditDataPage {
   constructor(public navCtrl: NavController, public NavParams: NavParams, public platform: Platform, public actionsheetCtrl: ActionSheetController, public service: settingService,) {
     this.queryData();
   }
-
   directToChangeEmail() {
     let _self = this;
     let demo = function (email) {

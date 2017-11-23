@@ -16,6 +16,7 @@ ion-list{
   height: 100%;
 }
 
+
   page-case-list{
     .fixed-content{
       //padding-top: 20*$px;
@@ -39,7 +40,7 @@ ion-list{
       top: 90*$px;
     }
     ion-content{
-      padding-left:20*$px;
+      //padding-left:20*$px;
       .slideTwo{
         transform: translate(0,0);
         .half-pack-wrap{
@@ -219,7 +220,7 @@ ion-list{
       //padding: 20*$px;
       height: 100%;
       .full-screen-have{
-        padding-top: 90*$px;
+        //padding-top: 90*$px;
       }
       .fullScreenNone{
         padding-top: 298*$px;
@@ -254,8 +255,9 @@ ion-list{
           width: 710*$px;
           height: 300*$px;
           img{
-            width: 708*$px;
+            width: 704*$px;
             height: 300*$px;
+            margin-left: -1*$px;
           }
         }
         .full-screen-intro{

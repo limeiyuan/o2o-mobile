@@ -14,7 +14,7 @@
       </ion-refresher>
       <div class="full-screen-item" *ngFor="let fullScreen of fullScreenList" (click)="derectToDetail(fullScreen)">
         <div class="img-wrap">
-          <img src="{{getPicture(fullScreen?.photoPath)}}" alt="">
+          <img src="{{getPhoto(fullScreen?.photoPath)}}" alt="">
           <!--<img src="assets/image/case/quanwu/pic-1@3x.png" alt="">-->
         </div>
         <div class="full-screen-intro">
@@ -26,15 +26,15 @@
           </div>
           <div class="portrait">
             <!--<img src="assets/image/case/quanwu/design@3x.png" alt="">-->
-            <img src="{{getPicture(fullScreen?.designerCoverPath)}}" alt="">
+            <img src="{{getPhoto(fullScreen?.designerCoverPath)}}" alt="">
           </div>
         </div>
       </div>
       <!--加载更多-->
-      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll  enabled="{{enableInfinite}}" (ionInfinite)="doInfinite($event)">
         <ion-infinite-scroll-content
           loadingSpinner="bubbles"
-          loadingText="加载更多...">
+          loadingText="{{loadingText}}">
         </ion-infinite-scroll-content>
       </ion-infinite-scroll>
     </ion-content>
